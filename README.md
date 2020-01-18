@@ -1,5 +1,8 @@
 # CS467-400-Windows_Game_Hack  
-Windows Game Hack Capstone Project.  
+Project Title: Windows Game Hack Capstone Project. 
+ 
+Getting Started:  
+XXX XXX XXX.  
 
 Members:  
 Daniel Rivera  
@@ -22,4 +25,20 @@ cheats include:
 	3. weapon effect modification (damage, ammo, recoil, etc.)  
 	4. Modifications to player (speed, jump, mana, etc.  
 
+Installing:
+A step by step series of examples that tell you how to get a development env running.  
 
+Testing:  
+List testing info here. 
+
+Deployment:  
+List dev info here.  
+
+Contributing:
+Name - contribution  
+
+License:
+List license here.  
+
+Acknowledgments:  
+Place acknowledgments here.  
