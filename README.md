@@ -34,10 +34,10 @@ List testing info here.
 Deployment:  
 List dev info here.  
 
-Contributing:
+Contributing:  
 Name - contribution  
 
-License:
+License:  
 List license here.  
 
 Acknowledgments:  
