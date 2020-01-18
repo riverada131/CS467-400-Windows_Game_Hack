@@ -1,10 +1,10 @@
-# CS467-400-Windows_Game_Hack
-Windows Game Hack Capstone Project.
+# CS467-400-Windows_Game_Hack  
+Windows Game Hack Capstone Project.  
 
-Members: 
-Daniel Rivera
-Molly Johnson
-Gaetan Ingrassia
+Members:  
+Daniel Rivera  
+Molly Johnson  
+Gaetan Ingrassia  
 
 Directories:
 Game Hack Source Code - Folder for all source code files
