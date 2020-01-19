@@ -14,7 +14,7 @@
  * Description:
  ****************************************************************************/
 
-#include "___FILEBASENAME___.hpp"
+#include "library.hpp"
 #include <iostream>
 
 using std::cout;
@@ -29,12 +29,12 @@ int main()
     return 0;
 }
 
-___FILEBASENAME___::___FILEBASENAME___() //Constructor Template
+library::library() //Constructor Template
 {
     // Place code here
 }
 
-void ___FILEBASENAME___::Function_Name() //Function Template
+void library::Function_Name() //Function Template
 {
     // Place code here
 }

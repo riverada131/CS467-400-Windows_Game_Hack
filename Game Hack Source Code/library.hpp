@@ -14,12 +14,12 @@
  * Description:
  ****************************************************************************/
 
-#ifndef ___FILEBASENAMEASIDENTIFIER____hpp
-#define ___FILEBASENAMEASIDENTIFIER____hpp
+#ifndef LIBRARY_HPP
+#define LIBRARY_HPP
 
 #include <stdio.h>
 
-class ___FILEBASENAME___
+class library
 {
 private:
     //Declare private variables here
@@ -27,10 +27,10 @@ private:
 public:
     void Function_Name(); //Function Prototype
     
-    ___FILEBASENAME___(); // Constructor Prototype
+    library(); // Constructor Prototype
     
 };
 
 #endif 
 
-/* File Name Identifier: ___FILEBASENAMEASIDENTIFIER____hpp */
+/* File Name Identifier: library_hpp */
