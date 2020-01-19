@@ -1,13 +1,13 @@
 /*****************************************************************************
- * Name: ___FULLUSERNAME___
- * File Name:  ___FILENAME___
- * Organization: ___ORGANIZATIONNAME___
- * Project Name: ___PROJECTNAME___
- * Created On: ___DATE___
- * Class:
- * TA Name:
- * TA Email:
- * ___COPYRIGHT___
+ * Name: Daniel Rivera, Molly Johnson, Gaetan Ingrassia
+ * File Name:  library.cpp
+ * Organization: Oregon State University
+ * Project Name: Windows Game Hack
+ * Created On: 1/18/2019
+ * Class: CS467-400 Online Capstone Project
+ * TA Name:	Iman Aminzahed, Prachi Rahurkar
+ * Instructor Name: William Pfeil
+ * ___COPYRIGHT___ (c) 2020 All Rights Reserved
  *****************************************************************************/
 
 /****************************************************************************
