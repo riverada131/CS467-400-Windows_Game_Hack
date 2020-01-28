@@ -25,9 +25,7 @@ private:
     //Declare private variables here
     
 public:
-    void Function_Name(); //Function Prototype
-    
-    library(); // Constructor Prototype
+	void proxy2server(int port_number, int sock);
     
 };
 

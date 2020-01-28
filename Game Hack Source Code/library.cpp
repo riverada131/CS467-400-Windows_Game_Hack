@@ -16,26 +16,38 @@
 
 #include "library.hpp"
 #include <iostream>
+#include <sys/socket.h> 
+#include <arpa/inet.h> 
+#include <unistd.h> 
+#include <string.h> 
+#include <CkSocket.h>
 
 using std::cout;
 using std::cin;
 using std::endl;
 
-int main() 
+void library::proxy2server(int port_number)
 {
-    // insert code here...
-    std::cout << "Hello, World!\n";
-    
-    return 0;
+	CkSocket socket;
+	bool ssl = false;
+	int max_wait_time = 20000;
+	bool success socket.Connect("localhost", port_number, ssl, max_wait_time);
+	if (success != true) {
+		cout << socket.lastErrorText() << "\r\n";
+		return;
+	}
+
+	socket.put_MaxReadIdleMs(10000);
+	socket.put_MaxSendIdleMs(10000);
+
+	const char* recieved_message = socket.recieveString();
+	if (socket.get_LastMethodSuccess() != true) {
+		cout << socket.lastErrorText() << "\r\n";
+		return;
+	}
+
+	success = socket.Close(20000);
+	cout << recieved_message << "\r\n";
 }
 
-library::library() //Constructor Template
-{
-    // Place code here
-}
-
-void library::Function_Name() //Function Template
-{
-    // Place code here
-}
 

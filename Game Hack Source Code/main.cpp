@@ -20,19 +20,14 @@
 
 using std::cout;
 using std::cin;
-using std::endl;
-
-void Function_Name();
 
 int main()
 {
     // insert code here...
-    std::cout << "Hello, World!\n";
+    //std::cout << "Hello, World!\n";
+	proxy2server(5555);
     
     return 0;
 }
 
-void Function_Name()
-{
-    
-}
+
