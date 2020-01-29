@@ -1,5 +1,0 @@
-﻿  library.cpp
-  main.cpp
-C:\Users\danie\Documents\GitHub\CS467-400-Windows_Game_Hack\Game Hack Source Code\library.cpp(19,10): fatal error C1083: Cannot open include file: 'sys/socket.h': No such file or directory
-  Generating Code...
-C:\Users\danie\Documents\GitHub\CS467-400-Windows_Game_Hack\Game Hack Source Code\main.cpp(28,2): error C3861: 'proxy2server': identifier not found
