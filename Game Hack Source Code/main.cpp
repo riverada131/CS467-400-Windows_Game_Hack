@@ -16,7 +16,7 @@
 
 #include <stdio.h>
 #include <iostream>
-#include "library.hpp"
+#include "library.cpp"
 
 using std::cout;
 using std::cin;
