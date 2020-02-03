@@ -1,9 +1,0 @@
-﻿  dllmain.cpp
-  mem.cpp
-C:\Users\danie\source\repos\PWN3_Hack_CS467_400\dllmain.cpp(103,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
-  proc.cpp
-C:\Users\danie\source\repos\PWN3_Hack_CS467_400\mem.cpp(61,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
-  stdafx.cpp
-C:\Users\danie\source\repos\PWN3_Hack_CS467_400\proc.cpp(65,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
-  Generating Code...
-C:\Users\danie\source\repos\PWN3_Hack_CS467_400\stdafx.cpp(2,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
