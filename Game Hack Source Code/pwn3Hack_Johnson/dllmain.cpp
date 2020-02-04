@@ -77,6 +77,17 @@ void UnlimitedAmmo(uintptr_t moduleBase)
   * Description:
   *  
   ****************************************************************************/
+void InvincibleHealth(uintptr_t moduleBase)
+{
+    //make player invincible by preventing any damage to health by nopping out the player::Damage() function (except for the return)
+	mem::Nop((BYTE*)(moduleBase + 0x51150), 202);
+	mem::Nop((BYTE*)(moduleBase + 0x5121D), 3);
+}
+
+ /****************************************************************************
+  * Description:
+  *  
+  ****************************************************************************/
 DWORD WINAPI HackThread(HMODULE hModule)
 {
 	//Create Console
@@ -110,15 +121,21 @@ DWORD WINAPI HackThread(HMODULE hModule)
 		}
 
 		//increase spell damage (one shot one kill) if user hits numpad 2
-		if(GetAsyncKeyState(VK_NUMPAD2) & 1)
+		if (GetAsyncKeyState(VK_NUMPAD2) & 1)
 		{
 			IncreasedSpellDamage(moduleBase);
 		}
 
 		//give unlimited weapon ammo if user hits numpad 3
-		if(GetAsyncKeyState(VK_NUMPAD3) & 1)
+		if (GetAsyncKeyState(VK_NUMPAD3) & 1)
 		{
 			UnlimitedAmmo(moduleBase);
+		}
+
+		//give invincible health if user hits numpad 4
+		if (GetAsyncKeyState(VK_NUMPAD4) & 1)
+		{
+			InvincibleHealth(moduleBase);
 		}
 
 		Sleep(5);
