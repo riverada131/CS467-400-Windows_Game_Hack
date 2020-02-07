@@ -1,3 +1,21 @@
+/*****************************************************************************
+ * Name: Molly Johnson, Gaetan Ingrassia, Daniel Rivera
+ * File Name: dllmain.cpp
+ * Team: Team Runtime Terror
+ * Organization: Oregon State University
+ * Project Name: Windows Hack Game
+ * Created On: 2/4/2020
+ * Class: CS467-400 Online Capstone Design
+ * William Pfeil - Instructor
+ * Prachi Rahurkar - Teachers Assistant (T.A.)
+ * Iman Aminzahed - Teachers Assistant (T.A.)
+ *****************************************************************************/
+
+ /****************************************************************************
+  * Description:
+  *adapted from: https://guidedhacking.com/threads/how-to-hack-any-game-first-internal-hack-dll-tutorial.12142/
+  ****************************************************************************/
+
 // dllmain.cpp : Defines the entry point for the DLL application.
 #include "stdafx.h"
 #include <windows.h>
@@ -5,8 +23,9 @@
 #include <TlHelp32.h>
 #include "mem.h"
 #include "proc.h"
+#include "library.h"
 
-DWORD WINAPI HackThread(HMODULE hModule)
+DWORD WINAPI HackThread(HMODULE hModule) 
 {
 	//Create console
 	AllocConsole();
@@ -15,22 +34,26 @@ DWORD WINAPI HackThread(HMODULE hModule)
 
 	std::cout << "PwnAdventure3 internal cheat." << std::endl;;
 
-	//get module base
-	uintptr_t moduleBase = (uintptr_t)GetModuleHandle(L"GameLogic.dll");
-	std::cout << "Module Base Address = " << "0x" << std::hex << moduleBase << std::endl;
+	bool playerHealth = FALSE;
+	bool bKeepItems = FALSE;
+	bool bIncreasedGunDamage = FALSE;
+	bool bIncreasedSpellDamage = FALSE;
+	bool bUnlimitedAmmo = FALSE;
+	bool bInvincibleHealth = FALSE;
 
-	uintptr_t* localPlayerPtr = (uintptr_t*)(moduleBase + 0x97E1C);
-	std::cout << "Local player address = " << "0x" << std::hex << localPlayerPtr << std::endl;
+	intptr_t moduleBase = (intptr_t)GetModuleHandle(L"GameLogic.dll");
+	intptr_t localPlayerPtr = (intptr_t)(moduleBase + 0x97E1C);
 
-	uintptr_t manaPtr = mem::FindDMAAddy(moduleBase + 0x97E1C, {0x0, 0xC, 0xE0, 0x294, 0x234, 0x50C, 0xBC});
-	std::cout << "Mana pointer = " << "0x" << std::hex << manaPtr << std::endl;
-	*(int*)(manaPtr) = 600;
+	std::cout << "Module Base = " << std::hex << moduleBase << std::endl;
+	std::cout << "Local Player Pointer = " << std::hex << localPlayerPtr << std::endl;
 
-	uintptr_t healthPtr = mem::FindDMAAddy(moduleBase + 0x97E1C, { 0x0, 0xC, 0xE0, 0x294, 0x234, 0x50C, 0x40 });
-	std::cout << "Health pointer = " << "0x" << std::hex << healthPtr << std::endl;
-	*(int*)(healthPtr) = 600;
+	uintptr_t healthPtr = mem::FindDMAAddy(localPlayerPtr, { 0x0, 0x0C, 0xE0, 0x294, 0x234, 0x50C, 0xFFFFFFC0 });
+	std::cout << "Health Pointer = " << std::hex << healthPtr << std::endl;
+	*(int*)(healthPtr) = 1000;
 
-	bool playerHealth = false;
+	uintptr_t manaPtr = mem::FindDMAAddy(localPlayerPtr, { 0x0, 0x0C, 0xE0, 0x294, 0x234, 0x50C, 0xBC });
+	std::cout << "Mana Pointer = " << std::hex << manaPtr << std::endl;
+	*(int*)(manaPtr) = 1000;
 
 	//hack loop
 	while (true) {
@@ -39,17 +62,51 @@ DWORD WINAPI HackThread(HMODULE hModule)
 			break;
 		}
 
-		if (GetAsyncKeyState((VK_NUMPAD1) & 1)) {
+		if (GetAsyncKeyState((VK_NUMPAD0) & 1)) {
 			playerHealth = !playerHealth;
 		}
-		//cont write/freeze
-		uintptr_t* localPlayerPtr = (uintptr_t*)(moduleBase + 0x97E1C);
-		
-		if (localPlayerPtr) {
-			if (playerHealth) {
-				*(int*)(*localPlayerPtr + 0xf8) = 1337;
-			}
+
+		if (GetAsyncKeyState((VK_NUMPAD1) & 1)) {
+			bKeepItems = !bKeepItems;
+			cheat::KeepItems(moduleBase, bKeepItems);
 		}
+
+		if (GetAsyncKeyState((VK_NUMPAD2) & 1)) {
+			//toggle hack via bool
+			bIncreasedGunDamage = !bIncreasedGunDamage;
+			cheat::IncreasedGunDamage(moduleBase, bIncreasedGunDamage);
+		}
+
+		if (GetAsyncKeyState((VK_NUMPAD3) & 1)) {
+			bIncreasedSpellDamage = !bIncreasedSpellDamage;
+			cheat::IncreasedSpellDamage(moduleBase, bIncreasedSpellDamage);
+		}
+
+		if (GetAsyncKeyState((VK_NUMPAD4) & 1)) {
+			bUnlimitedAmmo = !bUnlimitedAmmo;
+			cheat::UnlimitedAmmo(moduleBase, bUnlimitedAmmo);
+		}
+
+		if (GetAsyncKeyState((VK_NUMPAD5) & 1)) {
+			bInvincibleHealth = !bInvincibleHealth;
+			cheat::InvincibleHealth(moduleBase, bInvincibleHealth);
+		}
+
+	//	if (GetAsyncKeyState((VK_NUMPAD6) & 1)) {
+
+	//	}
+
+	//	if (GetAsyncKeyState((VK_NUMPAD7) & 1)) {
+
+	//	}
+
+	//	if (GetAsyncKeyState((VK_NUMPAD8) & 1)) {
+
+	//	}
+
+	//	if (GetAsyncKeyState((VK_NUMPAD9) & 1)) {
+
+	//	}
 		Sleep(5);
 	}					  
 	

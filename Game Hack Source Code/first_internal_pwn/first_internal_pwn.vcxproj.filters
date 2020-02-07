@@ -22,6 +22,9 @@
     <Filter Include="proc">
       <UniqueIdentifier>{82ddfa2e-8fa7-40b6-96ca-67e5bb567924}</UniqueIdentifier>
     </Filter>
+    <Filter Include="library">
+      <UniqueIdentifier>{0a150677-f2a4-4d9b-88bd-3394bbc5e8c7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -39,6 +42,9 @@
     <ClInclude Include="targetver.h">
       <Filter>pch</Filter>
     </ClInclude>
+    <ClInclude Include="library.h">
+      <Filter>library</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="mem.cpp">
@@ -52,6 +58,9 @@
     </ClCompile>
     <ClCompile Include="dllmain.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="library.cpp">
+      <Filter>library</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

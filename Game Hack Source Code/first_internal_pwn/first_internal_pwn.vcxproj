@@ -155,6 +155,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="framework.h" />
+    <ClInclude Include="library.h" />
     <ClInclude Include="mem.h" />
     <ClInclude Include="proc.h" />
     <ClInclude Include="stdafx.h" />
@@ -162,6 +163,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="library.cpp" />
     <ClCompile Include="mem.cpp" />
     <ClCompile Include="proc.cpp" />
     <ClCompile Include="stdafx.cpp" />
