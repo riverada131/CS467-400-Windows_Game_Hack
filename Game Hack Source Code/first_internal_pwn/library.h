@@ -21,13 +21,29 @@
 #include "stdafx.h"
 #include <iostream>
 #include <windows.h>
+#include <ios>
 #include <vector>
+#include <limits>
+#include <thread>
 #include "mem.h"
+
+//DWORD jmpBackAddr;
+//int hookLen;
+//DWORD hookAddr;
 
 namespace cheat {
 	void KeepItems(uintptr_t moduleBase, bool bKeepItems);
 	void IncreasedGunDamage(uintptr_t moduleBase, bool bIncreasedGunDamage);
 	void IncreasedSpellDamage(uintptr_t moduleBase, bool bIncreasedSpellDamage);
 	void UnlimitedAmmo(uintptr_t moduleBase, bool bUnlimitedAmmo);
-	void InvincibleHealth(uintptr_t moduleBase, bool bInvincibleHealth);
+	void InvincibleHealth(uintptr_t moduleBase, bool bInvincibleHealth);	
 }
+
+//__declspec(naked) void getMana();
+//__declspec(naked) void resetMana();
+//__declspec(naked) void walkSpeedNormal();
+//__declspec(naked) void walkSpeed500();
+//__declspec(naked) void walkSpeed1000();
+//__declspec(naked) void walkSpeed10000();
+//__declspec(naked) void jumpSpeed999();
+//__declspec(naked) void jumpHoldTime999();

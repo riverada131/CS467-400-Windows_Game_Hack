@@ -1,6 +1,6 @@
 /*****************************************************************************
  * Name: Molly Johnson, Gaetan Ingrassia, Daniel Rivera
- * File Name: dllmain.cpp
+ * File Name: myform.cpp
  * Team: Team Runtime Terror
  * Organization: Oregon State University
  * Project Name: Windows Hack Game

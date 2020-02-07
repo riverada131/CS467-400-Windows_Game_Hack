@@ -1,7 +1,7 @@
 #pragma once
 /*****************************************************************************
  * Name: Molly Johnson, Gaetan Ingrassia, Daniel Rivera
- * File Name: library.h
+ * File Name: myform.h
  * Team: Team Runtime Terror
  * Organization: Oregon State University
  * Project Name: Windows Hack Game
