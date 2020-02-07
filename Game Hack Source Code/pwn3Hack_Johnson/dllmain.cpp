@@ -37,12 +37,14 @@ void KeepItems(uintptr_t moduleBase, bool bKeepItems)
 	    //keep pwncoins and ammo even when you spend pwncoins or sell ammo
 	    //by nopping out the code that subtracts from your current inventory item (ammo or pwncoins)
         mem::Nop((BYTE*)(moduleBase + 0x52215), 2);
+		cout << "[ 0 ] Keep Items hack turned ON" << endl;
 	}
 	//if hack is toggled off
 	else
 	{
 		//patch back in the original code that subtracts from your current inventory item (ammo or pwncoins)
 		mem::Patch((BYTE*)(moduleBase + 0x52215), (BYTE*)"\x2B\xCF", 2);
+		cout << "[ 0 ] Keep Items hack turned OFF" << endl;
 	}
 }
 
@@ -63,6 +65,7 @@ void IncreasedGunDamage(uintptr_t moduleBase, bool bIncreasedGunDamage)
 
         //set cowboy coder damage to 2000 via patch
         mem::Patch((BYTE*)(moduleBase + 0x13AA0), (BYTE*)"\xB8\xD0\x07\x00\x00", 5);
+		cout << "[ 1 ] Increased Gun Damage hack turned ON" << endl;
 	}
 	//if hack is toggled off
 	else
@@ -75,6 +78,7 @@ void IncreasedGunDamage(uintptr_t moduleBase, bool bIncreasedGunDamage)
 
 		//set cowboy coder damage back to default via patch of original code
         mem::Patch((BYTE*)(moduleBase + 0x13AA0), (BYTE*)"\xB8\x3C\x00\x00\x00", 5);
+		cout << "[ 1 ] Increased Gun Damage hack turned OFF" << endl;
 	}
 }
 
@@ -92,6 +96,7 @@ void IncreasedSpellDamage(uintptr_t moduleBase, bool bIncreasedSpellDamage)
 
         //set zero cool damage to 2000 via patch
         mem::Patch((BYTE*)(moduleBase + 0x136F0), (BYTE*)"\xB8\xD0\x07\x00\x00", 5);
+		cout << "[ 2 ] Increased Spell Damage hack turned ON" << endl;
 	}
 	//if hack is toggled off
 	else
@@ -101,6 +106,7 @@ void IncreasedSpellDamage(uintptr_t moduleBase, bool bIncreasedSpellDamage)
 
         //set zero cool damage back to default via patch of the original code
         mem::Patch((BYTE*)(moduleBase + 0x136F0), (BYTE*)"\xB8\x20\x00\x00\x00", 5);
+		cout << "[ 2 ] Increased Spell Damage hack turned OFF" << endl;
 	}
 }
 
@@ -115,12 +121,14 @@ void UnlimitedAmmo(uintptr_t moduleBase, bool bUnlimitedAmmo)
 	{
         //give unlimited ammo for all guns by by nopping out the code that subtracts from your current loaded ammo
         mem::Nop((BYTE*)(moduleBase + 0x52394), 2);
+		cout << "[ 3 ] Unlimited Ammo hack turned ON" << endl;
 	}
 	//if hack is toggled off
 	else
 	{
 	    //put back in the code that subtracts from your current loaded ammo via patch of the original code 
         mem::Patch((BYTE*)(moduleBase + 0x52394), (BYTE*)"\x2B\xCF", 2);
+		cout << "[ 3 ] Unlimited Ammo hack turned OFF" << endl;
 	}
 }
 
@@ -135,29 +143,14 @@ void InvincibleHealth(uintptr_t moduleBase, bool bInvincibleHealth)
 	{
         //make player invincible by preventing any damage to health by nopping out the player::Damage() function (except for the return)
         mem::Nop((BYTE*)(moduleBase + 0x51150), 202);
-        //mem::Nop((BYTE*)(moduleBase + 0x5121D), 3);
+		cout << "[ 4 ] Invincible Player Health hack turned ON" << endl;
 	}
 	//else if hack is toggled off
 	else
 	{
 	   //allow player to be damaged again by patching back in the player::Damage() function original code
-
-
-		/*
-        mem::Patch((BYTE*)(moduleBase + 0x51150), (BYTE*)"\x55\x8B\xEC\x57\x8B\x59\x8B\x0D\x7C\x7D\x6B\x7A\x85\xC9\x74\x0F\x8B\x01\x8B\x40\x0C\xFF\xD0\x84\xC0", 25);
-        mem::Patch((BYTE*)(moduleBase + 0x51169), (BYTE*)"\x0F\x84\xA9\x00\x00\x00\x80\xBF\xF0\x00\x00\x00\x00\x0F\x85\x9C\x00\x00\x00\x53\x8B\x5D\x08\x3B\xDF",25);
-        mem::Patch((BYTE*)(moduleBase + 0x51182), (BYTE*)"\x75\x16\x66\x0F\x6E\x45\x10\x0F\x5B\xC0\xF3\x0F\x59\x05\xF8\x8A\x69\x7A\xF3\x0F\x2C\xC0\xEB\x2A\x85\xDB",26);
-        mem::Patch((BYTE*)(moduleBase + 0x5119C), (BYTE*)"\x74\x23\x8B\x03\x8B\xCB\x8B\x40\x0C\xFF\xD0\x84\xC0\x74\x16\x80\xBF\xE5\x00\x00\x00\x00\x74\x63\x8B\x03",26);
-        mem::Patch((BYTE*)(moduleBase + 0x511B6), (BYTE*)"\x8B\xCB\x8B\x40\x58\xFF\xD0\x84\xC0\x75\x56\x8B\x45\x10\x56\xFF\x75\x14\x8B\x77\x30\x8B\xCF\x50",24);
-        mem::Patch((BYTE*)(moduleBase + 0x511CE), (BYTE*)"\xFF\x75\x0C\x89\x45\x10\x53\xE8\x06\x0E\xFB\xFF\x39\x77\x30\x5E\x7D\x0A",18);
-        mem::Patch((BYTE*)(moduleBase + 0x511E0), (BYTE*)"\xC7\x87\x34\x01\x00\x00\x00\x00\xA0\x41\x8B\x55\x0C\x85\xD2\x74\x26\x83\x7D\x10\x00\x7E\x20",23);
-        mem::Patch((BYTE*)(moduleBase + 0x511F7), (BYTE*)"\x8B\x0D\x7C\x7D\x6B\x7A\x89\x97\xD0\x01\x00\x00",12);
-        mem::Patch((BYTE*)(moduleBase + 0x51203), (BYTE*)"\xC7\x87\xD4\x01\x00\x00\x00\x00\xA0\x40\x52\x8B\x01\x57",14);
-        mem::Patch((BYTE*)(moduleBase + 0x51211), (BYTE*)"\xFF\x90\x04\x01\x00\x00\x5B\x5F\x5D",9);
-	    mem::Patch((BYTE*)(moduleBase + 0x5121D), (BYTE*)"\xCC\xCC\xCC", 3);
-        */
-
-        //mem::Patch((BYTE*)(moduleBase + 0x51150), (BYTE*)"\x55\x8B\xEC\x57\x8B\x59\x8B\x0D\x7C\x7D\x6B\x7A\x85\xC9\x74\x0F\x8B\x01\x8B\x40\x0C\xFF\xD0\x84\xC0\x0F\x84\xA9\x00\x00\x00\x80\xBF\xF0\x00\x00\x00\x00\x0F\x85\x9C\x00\x00\x00\x53\x8B\x5D\x08\x3B\xDF\x75\x16\x66\x0F\x6E\x45\x10\x0F\x5B\xC0\xF3\x0F\x59\x05\xF8\x8A\x69\x7A\xF3\x0F\x2C\xC0\xEB\x2A\x85\xDB\x74\x23\x8B\x03\x8B\xCB\x8B\x40\x0C\xFF\xD0\x84\xC0\x74\x16\x80\xBF\xE5\x00\x00\x00\x00\x74\x63\x8B\x03\x8B\xCB\x8B\x40\x58\xFF\xD0\x84\xC0\x75\x56\x8B\x45\x10\x56\xFF\x75\x14\x8B\x77\x30\x8B\xCF\x50\xFF\x75\x0C\x89\x45\x10\x53\xE8\x06\x0E\xFB\xFF\x39\x77\x30\x5E\x7D\x0A\xC7\x87\x34\x01\x00\x00\x00\x00\xA0\x41\x8B\x55\x0C\x85\xD2\x74\x26\x83\x7D\x10\x00\x7E\x20\x8B\x0D\x7C\x7D\x6B\x7A\x89\x97\xD0\x01\x00\x00\xC7\x87\xD4\x01\x00\x00\x00\x00\xA0\x40\x52\x8B\x01\x57\xFF\x90\x04\x01\x00\x00\x5B\x5F\x5D",202);
+		mem::Patch((BYTE*)(moduleBase + 0x51150), (BYTE*)"\x55\x8B\xEC\x57\x8B\xF9\x8B\x0D\x7C\x7D\xF4\x7B\x85\xC9\x74\x0F\x8B\x01\x8B\x40\x0C\xFF\xD0\x84\xC0\x0F\x84\xA9\x00\x00\x00\x80\xBF\xF0\x00\x00\x00\x00\x0F\x85\x9C\x00\x00\x00\x53\x8B\x5D\x08\x3B\xDF\x75\x16\x66\x0F\x6E\x45\x10\x0F\x5B\xC0\xF3\x0F\x59\x05\xF8\x8A\xF2\x7B\xF3\x0F\x2C\xC0\xEB\x2A\x85\xDB\x74\x23\x8B\x03\x8B\xCB\x8B\x40\x0C\xFF\xD0\x84\xC0\x74\x16\x80\xBF\xE5\x00\x00\x00\x00\x74\x63\x8B\x03\x8B\xCB\x8B\x40\x58\xFF\xD0\x84\xC0\x74\x56\x8B\x45\x10\x56\xFF\x75\x14\x8B\x77\x30\x8B\xCF\x50\xFF\x75\x0C\x89\x45\x10\x53\xE8\x06\x0E\xFB\xFF\x39\x77\x30\x5E\x7D\x0A\xC7\x87\x34\x01\x00\x00\x00\x00\xA0\x41\x8B\x55\x0C\x85\xD2\x74\x26\x83\x7D\x10\x00\x7E\x20\x8B\x0D\x7C\x7D\xF4\x7B\x89\x97\xD0\x01\x00\x00\xC7\x87\xD4\x01\x00\x00\x00\x00\xA0\x40\x52\x8B\x01\x57\xFF\x90\x04\x01\x00\x00\x5B\x5F\x5D", 202);
+		cout << "[ 4 ] Invincible Player Health hack turned OFF" << endl;
 	}
 }
 
@@ -179,7 +172,7 @@ DWORD WINAPI HackThread(HMODULE hModule)
 	cout << "[ 2 ] Increased Spell Damage (one shot one kill)" << endl;
 	cout << "[ 3 ] Unlimited Weapons Ammo" << endl;
 	cout << "[ 4 ] Invincible Player Health" << endl;
-	cout << "[ End ] Exit game trainer" << endl;
+	cout << "[ End ] Exit game trainer\n" << endl;
     
 	uintptr_t moduleBase = (uintptr_t)GetModuleHandle(L"GameLogic.dll");
 
