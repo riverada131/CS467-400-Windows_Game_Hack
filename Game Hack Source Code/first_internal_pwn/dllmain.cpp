@@ -13,7 +13,7 @@
 
  /****************************************************************************
   * Description:
-  *adapted from: https://guidedhacking.com/threads/how-to-hack-any-game-first-internal-hack-dll-tutorial.12142/
+  * Adapted from: https://guidedhacking.com/threads/how-to-hack-any-game-first-internal-hack-dll-tutorial.12142/
   ****************************************************************************/
 
 // dllmain.cpp : Defines the entry point for the DLL application.
@@ -24,6 +24,7 @@
 #include "mem.h"
 #include "proc.h"
 #include "library.h"
+#include "myform.h"
 
 DWORD WINAPI HackThread(HMODULE hModule) 
 {
@@ -41,8 +42,8 @@ DWORD WINAPI HackThread(HMODULE hModule)
 	bool bUnlimitedAmmo = FALSE;
 	bool bInvincibleHealth = FALSE;
 
-	intptr_t moduleBase = (intptr_t)GetModuleHandle(L"GameLogic.dll");
-	intptr_t localPlayerPtr = (intptr_t)(moduleBase + 0x97E1C);
+	uintptr_t moduleBase = (uintptr_t)GetModuleHandle(L"GameLogic.dll");
+	uintptr_t localPlayerPtr = (uintptr_t)(moduleBase + 0x97E1C);
 
 	std::cout << "Module Base = " << std::hex << moduleBase << std::endl;
 	std::cout << "Local Player Pointer = " << std::hex << localPlayerPtr << std::endl;
@@ -72,7 +73,6 @@ DWORD WINAPI HackThread(HMODULE hModule)
 		}
 
 		if (GetAsyncKeyState((VK_NUMPAD2) & 1)) {
-			//toggle hack via bool
 			bIncreasedGunDamage = !bIncreasedGunDamage;
 			cheat::IncreasedGunDamage(moduleBase, bIncreasedGunDamage);
 		}

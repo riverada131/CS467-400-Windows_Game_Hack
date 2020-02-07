@@ -157,6 +157,7 @@
     <ClInclude Include="framework.h" />
     <ClInclude Include="library.h" />
     <ClInclude Include="mem.h" />
+    <ClInclude Include="myform.h" />
     <ClInclude Include="proc.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
@@ -165,6 +166,7 @@
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="library.cpp" />
     <ClCompile Include="mem.cpp" />
+    <ClCompile Include="myform.cpp" />
     <ClCompile Include="proc.cpp" />
     <ClCompile Include="stdafx.cpp" />
   </ItemGroup>

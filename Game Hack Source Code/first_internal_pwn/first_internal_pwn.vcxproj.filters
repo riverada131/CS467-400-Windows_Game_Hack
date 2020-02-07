@@ -25,6 +25,9 @@
     <Filter Include="library">
       <UniqueIdentifier>{0a150677-f2a4-4d9b-88bd-3394bbc5e8c7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="myform">
+      <UniqueIdentifier>{2812d278-c1d5-4d53-ae3e-fb2762ba6e18}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -45,6 +48,9 @@
     <ClInclude Include="library.h">
       <Filter>library</Filter>
     </ClInclude>
+    <ClInclude Include="myform.h">
+      <Filter>myform</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="mem.cpp">
@@ -61,6 +67,9 @@
     </ClCompile>
     <ClCompile Include="library.cpp">
       <Filter>library</Filter>
+    </ClCompile>
+    <ClCompile Include="myform.cpp">
+      <Filter>myform</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
