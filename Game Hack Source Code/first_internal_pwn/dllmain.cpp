@@ -64,6 +64,7 @@ DWORD WINAPI HackThread(HMODULE hModule)
 	bool bwalkspeed = FALSE;
 	bool bJumpSpeed = FALSE;
 	bool bJumpHoldTime = FALSE;
+	bool bAddCoin = FALSE;
 
 	uintptr_t moduleBase = (uintptr_t)GetModuleHandle(L"GameLogic.dll");
 	uintptr_t localPlayerPtr = (uintptr_t)(moduleBase + 0x97E1C);
@@ -72,7 +73,7 @@ DWORD WINAPI HackThread(HMODULE hModule)
 	//hack loop
 	while (true) {
 		//Key input section
-
+		
 		if (GetAsyncKeyState(VK_END) & 1) {
 			break;
 			
@@ -182,8 +183,14 @@ DWORD WINAPI HackThread(HMODULE hModule)
 		}
 
 		if (GetAsyncKeyState(VK_NUMPAD9) & 1) {
-			//Unassigned
-			
+			//Add Coins
+			bAddCoin = !bAddCoin;
+			if (bAddCoin) {
+				cheat::AddCoins(localPlayerPtr1, 1);
+			}
+			else {
+				cheat::AddCoins(localPlayerPtr1, 0);
+			}
 		}
 		Sleep(5);
 	}					  

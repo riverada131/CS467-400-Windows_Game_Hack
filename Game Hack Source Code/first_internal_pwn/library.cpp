@@ -46,13 +46,30 @@ void cheat::modPlayerHealth(uintptr_t localPlayerPtr, int check_val) {
  *
  ****************************************************************************/
 
+void cheat::AddCoins(uintptr_t localPlayerPtr, int check_val) {
+	if (check_val == 1) {
+		std::cout << "Player coin amount changed to 999,999,999" << std::endl;
+		uintptr_t coinPtr = mem::FindDMAAddy(localPlayerPtr, { 0x4, 0x0, 0x10, 0x4C, 0x4, 0x0, 0x18 });
+		*(int*)(coinPtr) = 999999999;
+	}
+	else {
+		std::cout << "Player coin amount changed to 100" << std::endl;
+		uintptr_t coinPtr = mem::FindDMAAddy(localPlayerPtr, { 0x4, 0x0, 0x10, 0x4C, 0x4, 0x0, 0x18 });
+		*(int*)(coinPtr) = 100;
+	}
+}
+
+/****************************************************************************
+ * Description:
+ *
+ ****************************************************************************/
+
 void cheat::modPlayerMana(uintptr_t localPlayerPtr, uintptr_t moduleBase, int check_val) {
 	if (check_val == 1) {
 		std::cout << "Player mana cheat activated" << std::endl;
 		uintptr_t manaPtr = mem::FindDMAAddy(localPlayerPtr, { 0x0, 0x0C, 0xE0, 0x294, 0x234, 0x50C, 0xBC });
 		*(int*)(manaPtr) = 999999999;
 
-		// This removes code that checks mana and subtracts mana when a spell is used
 		DWORD nopAddr = moduleBase + 0x525C1;
 		mem::Nop((BYTE*)nopAddr, 6);
 

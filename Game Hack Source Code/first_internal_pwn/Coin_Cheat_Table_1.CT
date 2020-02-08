@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="29">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>1</ID>
+      <Description>"Coin_ptr_3"</Description>
+      <VariableType>4 Bytes</VariableType>
+      <Address>gamelogic.dll+97D7C</Address>
+      <Offsets>
+        <Offset>18</Offset>
+        <Offset>0</Offset>
+        <Offset>4</Offset>
+        <Offset>4C</Offset>
+        <Offset>10</Offset>
+        <Offset>0</Offset>
+        <Offset>4</Offset>
+      </Offsets>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>2</ID>
+      <Description>"coin_ptr_2"</Description>
+      <VariableType>4 Bytes</VariableType>
+      <Address>gamelogic.dll+97D7C</Address>
+      <Offsets>
+        <Offset>18</Offset>
+        <Offset>0</Offset>
+        <Offset>4</Offset>
+        <Offset>4C</Offset>
+        <Offset>3E0</Offset>
+        <Offset>4</Offset>
+        <Offset>1C</Offset>
+      </Offsets>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>3</ID>
+      <Description>"Coin_ptr_4"</Description>
+      <VariableType>4 Bytes</VariableType>
+      <Address>gamelogic.dll+097D7C</Address>
+      <Offsets>
+        <Offset>18</Offset>
+        <Offset>0</Offset>
+        <Offset>4</Offset>
+        <Offset>4C</Offset>
+        <Offset>10</Offset>
+        <Offset>4</Offset>
+        <Offset>4</Offset>
+      </Offsets>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>4</ID>
+      <Description>"Coin_ptr_5"</Description>
+      <VariableType>4 Bytes</VariableType>
+      <Address>gamelogic.dll+97D7C</Address>
+      <Offsets>
+        <Offset>18</Offset>
+        <Offset>0</Offset>
+        <Offset>4</Offset>
+        <Offset>4C</Offset>
+        <Offset>10</Offset>
+        <Offset>8</Offset>
+        <Offset>4</Offset>
+      </Offsets>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>5</ID>
+      <Description>"Coin_ptr_6"</Description>
+      <VariableType>4 Bytes</VariableType>
+      <Address>gamelogic.dll+97D7C</Address>
+      <Offsets>
+        <Offset>18</Offset>
+        <Offset>0</Offset>
+        <Offset>4</Offset>
+        <Offset>4C</Offset>
+        <Offset>6C</Offset>
+        <Offset>1C</Offset>
+      </Offsets>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>

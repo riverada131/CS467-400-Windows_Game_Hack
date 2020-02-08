@@ -29,6 +29,7 @@
 
 namespace cheat {
     void modPlayerHealth(uintptr_t localPlayerPtr, int check_val);
+    void AddCoins(uintptr_t localPlayerPtr, int check_val);
     void modPlayerMana(uintptr_t localPlayerPtr, uintptr_t moduleBase, int check_val);
 	void KeepItems(uintptr_t moduleBase, bool bKeepItems, int check_val);
 	void IncreasedGunDamage(uintptr_t moduleBase, bool bIncreasedGunDamage, int check_val);
