@@ -51,7 +51,7 @@ DWORD WINAPI HackThread(HMODULE hModule)
 	std::cout << "[ 6 ] Increase walk speed" << std::endl;
 	std::cout << "[ 7 ] Increase jump speed" << std::endl;
 	std::cout << "[ 8 ] Increase jump speed hold time" << std::endl;
-	std::cout << "[ 9 ] N/A - No cheat assigned" << std::endl;
+	std::cout << "[ 9 ] Add 999,999,999 coins" << std::endl;
 	std::cout << "[ End ] Exit game trainer\n" << std::endl;
 
 	bool playerHealth = FALSE;
@@ -72,6 +72,11 @@ DWORD WINAPI HackThread(HMODULE hModule)
 	//hack loop
 	while (true) {
 		//Key input section
+		
+
+		// NOP use mana cmp and sub
+		DWORD nopAddr = moduleBase + 0x525C1;
+		mem::Nop((BYTE*)nopAddr, 6);
 
 		if (GetAsyncKeyState(VK_END) & 1) {
 			break;
@@ -93,10 +98,10 @@ DWORD WINAPI HackThread(HMODULE hModule)
 			//Change mana to 999,999,999
 			playerMana = !playerMana;
 			if (playerMana) {
-				cheat::modPlayerMana(localPlayerPtr, 1);
+				cheat::modPlayerMana(localPlayerPtr, moduleBase, 1);
 			}
 			else {
-				cheat::modPlayerMana(localPlayerPtr, 0);
+				cheat::modPlayerMana(localPlayerPtr, moduleBase, 0);
 			}
 		}
 

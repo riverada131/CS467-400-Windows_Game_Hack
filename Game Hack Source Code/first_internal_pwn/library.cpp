@@ -46,21 +46,20 @@ void cheat::modPlayerHealth(uintptr_t localPlayerPtr, int check_val) {
  *
  ****************************************************************************/
 
-void cheat::modPlayerMana(uintptr_t localPlayerPtr, int check_val) {
+void cheat::modPlayerMana(uintptr_t localPlayerPtr, uintptr_t moduleBase, int check_val) {
 	if (check_val == 1) {
-		// NOP use mana cmp and sub
+		std::cout << "Player mana cheat activated" << std::endl;
+		/*uintptr_t manaPtr = mem::FindDMAAddy(localPlayerPtr, { 0x0, 0x0C, 0xE0, 0x294, 0x234, 0x50C, 0xBC });
+		*(int*)(manaPtr) = 999999999;*/
+
 		DWORD nopAddr = moduleBase + 0x525C1;
 		mem::Nop((BYTE*)nopAddr, 6);
-		
-		std::cout << "Player mana changed to 999,999,999" << std::endl;
-		uintptr_t manaPtr = mem::FindDMAAddy(localPlayerPtr, { 0x0, 0x0C, 0xE0, 0x294, 0x234, 0x50C, 0xBC });
-		*(int*)(manaPtr) = 999999999;
+
 	}
 	else {
-		std::cout << "Player mana changed to 100" << std::endl;
-		uintptr_t manaPtr = mem::FindDMAAddy(localPlayerPtr, { 0x0, 0x0C, 0xE0, 0x294, 0x234, 0x50C, 0xBC });
-		*(int*)(manaPtr) = 100;
-		
+		std::cout << "Player mana cheat deactivated" << std::endl;
+		/*uintptr_t manaPtr = mem::FindDMAAddy(localPlayerPtr, { 0x0, 0x0C, 0xE0, 0x294, 0x234, 0x50C, 0xBC });
+		*(int*)(manaPtr) = 100;*/
 		//reset getMana
 		DWORD getManaAddr = moduleBase + 0x4FF70;
 		memory::Patch((BYTE*)getManaAddr, (BYTE*)"\x8b\x81\xbc\x00\x00\x00", 6);
