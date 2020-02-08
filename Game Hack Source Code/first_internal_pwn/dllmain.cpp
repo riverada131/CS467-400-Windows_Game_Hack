@@ -95,7 +95,7 @@ DWORD WINAPI HackThread(HMODULE hModule)
 		}
 
 		if (GetAsyncKeyState(VK_NUMPAD1) & 1) {
-			//Change mana to 999,999,999
+			//Change mana to 999,999,999 or nop/patch the mana function
 			playerMana = !playerMana;
 			if (playerMana) {
 				cheat::modPlayerMana(localPlayerPtr, moduleBase, 1);
