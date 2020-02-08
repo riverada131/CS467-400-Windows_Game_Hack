@@ -72,11 +72,6 @@ DWORD WINAPI HackThread(HMODULE hModule)
 	//hack loop
 	while (true) {
 		//Key input section
-		
-
-		// NOP use mana cmp and sub
-		DWORD nopAddr = moduleBase + 0x525C1;
-		mem::Nop((BYTE*)nopAddr, 6);
 
 		if (GetAsyncKeyState(VK_END) & 1) {
 			break;
