@@ -1,4 +1,8 @@
 ﻿  dllmain.cpp
   library.cpp
+C:\Users\danie\Desktop\first_internal_pwn\library.cpp(65,16): error C2653: 'memory': is not a class or namespace name
+C:\Users\danie\Desktop\first_internal_pwn\library.cpp(65,11): error C3861: 'Patch': identifier not found
+C:\Users\danie\Desktop\first_internal_pwn\library.cpp(69,16): error C2653: 'memory': is not a class or namespace name
+C:\Users\danie\Desktop\first_internal_pwn\library.cpp(69,11): error C3861: 'Patch': identifier not found
+C:\Users\danie\Desktop\first_internal_pwn\library.cpp(260,24): warning C4305: '=': truncation from 'double' to 'float'
   Generating Code...
-  first_internal_pwn.vcxproj -> C:\Users\danie\Desktop\first_internal_pwn\Debug\first_internal_pwn.dll

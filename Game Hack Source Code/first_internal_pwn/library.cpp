@@ -62,11 +62,11 @@ void cheat::modPlayerMana(uintptr_t localPlayerPtr, uintptr_t moduleBase, int ch
 		*(int*)(manaPtr) = 100;*/
 		//reset getMana
 		DWORD getManaAddr = moduleBase + 0x4FF70;
-		memory::Patch((BYTE*)getManaAddr, (BYTE*)"\x8b\x81\xbc\x00\x00\x00", 6);
+		mem::Patch((BYTE*)getManaAddr, (BYTE*)"\x8b\x81\xbc\x00\x00\x00", 6);
 
 		// reset useMana
 		DWORD useManaAddr = moduleBase + 0x525C1;
-		memory::Patch((BYTE*)useManaAddr, (BYTE*)"\x3b\xc2\x7c\xe6\x2b\xc2", 6);
+		mem::Patch((BYTE*)useManaAddr, (BYTE*)"\x3b\xc2\x7c\xe6\x2b\xc2", 6);
 	}
 }
 
