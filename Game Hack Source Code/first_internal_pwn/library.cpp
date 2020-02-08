@@ -48,6 +48,10 @@ void cheat::modPlayerHealth(uintptr_t localPlayerPtr, int check_val) {
 
 void cheat::modPlayerMana(uintptr_t localPlayerPtr, int check_val) {
 	if (check_val == 1) {
+		// NOP use mana cmp and sub
+		DWORD nopAddr = moduleBase + 0x525C1;
+		mem::Nop((BYTE*)nopAddr, 6);
+		
 		std::cout << "Player mana changed to 999,999,999" << std::endl;
 		uintptr_t manaPtr = mem::FindDMAAddy(localPlayerPtr, { 0x0, 0x0C, 0xE0, 0x294, 0x234, 0x50C, 0xBC });
 		*(int*)(manaPtr) = 999999999;
@@ -56,6 +60,14 @@ void cheat::modPlayerMana(uintptr_t localPlayerPtr, int check_val) {
 		std::cout << "Player mana changed to 100" << std::endl;
 		uintptr_t manaPtr = mem::FindDMAAddy(localPlayerPtr, { 0x0, 0x0C, 0xE0, 0x294, 0x234, 0x50C, 0xBC });
 		*(int*)(manaPtr) = 100;
+		
+		//reset getMana
+		DWORD getManaAddr = moduleBase + 0x4FF70;
+		memory::Patch((BYTE*)getManaAddr, (BYTE*)"\x8b\x81\xbc\x00\x00\x00", 6);
+
+		// reset useMana
+		DWORD useManaAddr = moduleBase + 0x525C1;
+		memory::Patch((BYTE*)useManaAddr, (BYTE*)"\x3b\xc2\x7c\xe6\x2b\xc2", 6);
 	}
 }
 
@@ -225,7 +237,7 @@ void cheat::increaseJumpSpeed(uintptr_t localPlayerPtr1, int check_val) {
 		std::cout << "Player jump speed cheat deactivated" << std::endl;
 		uintptr_t jumpSpeed = mem::FindDMAAddy(localPlayerPtr1, { 0x4 , 0x8, 0x10, 0x124 }); //0x97E48
 		float* jsPtr = (float*)jumpSpeed;
-		*jsPtr = 200.0;
+		*jsPtr = 420.0;
 	}
 
 }
@@ -246,6 +258,6 @@ void cheat::increaseJumpHoldTime(uintptr_t localPlayerPtr1, int check_val) {
 		std::cout << "Player jump hold cheat deactivated" << std::endl;
 		uintptr_t jumpHoldTime = mem::FindDMAAddy(localPlayerPtr1, { 0x1C , 0x4, 0x224, 0x30, 0x18, 0x3E0, 0x128 }); //0x97E48
 		float* jhtPtr = (float*)jumpHoldTime;
-		*jhtPtr = 200.0;
+		*jhtPtr = 0.200000003;
 	}
 }
