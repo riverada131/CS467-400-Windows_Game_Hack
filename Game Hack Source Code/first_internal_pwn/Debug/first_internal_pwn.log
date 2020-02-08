@@ -1,3 +1,2 @@
-﻿  library.cpp
-C:\Users\danie\Desktop\first_internal_pwn\library.cpp(260,24): warning C4305: '=': truncation from 'double' to 'float'
+﻿  dllmain.cpp
   first_internal_pwn.vcxproj -> C:\Users\danie\Desktop\first_internal_pwn\Debug\first_internal_pwn.dll

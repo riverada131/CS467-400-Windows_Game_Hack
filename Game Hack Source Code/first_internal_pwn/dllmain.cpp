@@ -80,6 +80,7 @@ DWORD WINAPI HackThread(HMODULE hModule)
 
 		if (GetAsyncKeyState(VK_END) & 1) {
 			break;
+			
 		}
 
 		if (GetAsyncKeyState(VK_NUMPAD0) & 1) {
@@ -143,7 +144,7 @@ DWORD WINAPI HackThread(HMODULE hModule)
 		if (GetAsyncKeyState(VK_NUMPAD5) & 1) {
 			//Unlimited Weapons Ammo
 			bUnlimitedAmmo = !bUnlimitedAmmo;
-			if (bIncreasedSpellDamage) {
+			if (bUnlimitedAmmo) {
 				cheat::UnlimitedAmmo(moduleBase, bUnlimitedAmmo, 1);
 			}
 			else {

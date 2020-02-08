@@ -52,8 +52,8 @@ void cheat::modPlayerMana(uintptr_t localPlayerPtr, uintptr_t moduleBase, int ch
 		uintptr_t manaPtr = mem::FindDMAAddy(localPlayerPtr, { 0x0, 0x0C, 0xE0, 0x294, 0x234, 0x50C, 0xBC });
 		*(int*)(manaPtr) = 999999999;
 
-		DWORD nopAddr = moduleBase + 0x525C1;
-		mem::Nop((BYTE*)nopAddr, 6);
+		/*DWORD nopAddr = moduleBase + 0x525C1;
+		mem::Nop((BYTE*)nopAddr, 6);*/
 
 	}
 	else {
@@ -61,9 +61,9 @@ void cheat::modPlayerMana(uintptr_t localPlayerPtr, uintptr_t moduleBase, int ch
 		uintptr_t manaPtr = mem::FindDMAAddy(localPlayerPtr, { 0x0, 0x0C, 0xE0, 0x294, 0x234, 0x50C, 0xBC });
 		*(int*)(manaPtr) = 100;
 
-		// reset useMana
-		DWORD useManaAddr = moduleBase + 0x525C1;
-		mem::Patch((BYTE*)useManaAddr, (BYTE*)"\x3b\xc2\x7c\xe6\x2b\xc2", 6);
+		//// reset useMana
+		//DWORD useManaAddr = moduleBase + 0x525C1;
+		//mem::Patch((BYTE*)useManaAddr, (BYTE*)"\x3b\xc2\x7c\xe6\x2b\xc2", 6);
 	}
 }
 
