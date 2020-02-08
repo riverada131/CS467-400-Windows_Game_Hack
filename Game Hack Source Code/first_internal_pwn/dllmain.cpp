@@ -37,7 +37,7 @@ DWORD WINAPI HackThread(HMODULE hModule)
 
 	std::cout << "PwnAdventure3 internal cheat." << std::endl;;
 	std::cout << "Team Name: RuNt1m3 T3Rr0r (RUNTIME TERROR)" << std::endl;;
-	std::cout << "Project: Windows Hack Game\n" << std::endl;;
+	std::cout << "Project: Windows Hack Game" << std::endl;;
 
 	bool playerHealth = FALSE;
 	bool bKeepItems = FALSE;
@@ -64,7 +64,7 @@ DWORD WINAPI HackThread(HMODULE hModule)
 	std::cout << "[ 7 ] Walking Speed = 500" << std::endl;
 	std::cout << "[ 8 ] Jump Speed = 999" << std::endl;
 	std::cout << "[ 9 ] Jump Hold Time = 9999" << std::endl;
-	std::cout << "[ End ] Exit game trainer" << std::endl;
+	std::cout << "[ End ] Exit game trainer\n" << std::endl;
 
 	//hack loop
 	while (true) {
