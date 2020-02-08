@@ -39,18 +39,6 @@ DWORD WINAPI HackThread(HMODULE hModule)
 	std::cout << "Team Name: RuNt1m3 T3Rr0r (RUNTIME TERROR)" << std::endl;;
 	std::cout << "Project: Windows Hack Game" << std::endl;;
 
-	bool playerHealth = FALSE;
-	bool bKeepItems = FALSE;
-	bool bIncreasedGunDamage = FALSE;
-	bool bIncreasedSpellDamage = FALSE;
-	bool bUnlimitedAmmo = FALSE;
-	bool bInvincibleHealth = FALSE;
-
-	uintptr_t moduleBase = (uintptr_t)GetModuleHandle(L"GameLogic.dll");
-	uintptr_t localPlayerPtr = (uintptr_t)(moduleBase + 0x97E1C);
-	uintptr_t localPlayerPtr1 = (uintptr_t)(moduleBase + 0x97D7C);
-
-
 	std::cout << "By: RuNt1m3 T3Rr0r\n" << std::endl;
 	std::cout << "Game hacks for PwnAdventure3" << std::endl;
 	std::cout << "NUMPAD TOGGLES MENU" << std::endl;
@@ -60,11 +48,26 @@ DWORD WINAPI HackThread(HMODULE hModule)
 	std::cout << "[ 3 ] Increased Gun Damage (one shot one kill)" << std::endl;
 	std::cout << "[ 4 ] Increased Spell Damage (one shot one kill)" << std::endl;
 	std::cout << "[ 5 ] Unlimited Weapons Ammo" << std::endl;
-	std::cout << "[ 6 ] Regular Walking Speed" << std::endl;
-	std::cout << "[ 7 ] Walking Speed = 500" << std::endl;
-	std::cout << "[ 8 ] Jump Speed = 999" << std::endl;
-	std::cout << "[ 9 ] Jump Hold Time = 9999" << std::endl;
+	std::cout << "[ 6 ] Increase walk speed" << std::endl;
+	std::cout << "[ 7 ] Increase jump speed" << std::endl;
+	std::cout << "[ 8 ] Increase jump speed hold time" << std::endl;
+	std::cout << "[ 9 ] N/A - No cheat assigned" << std::endl;
 	std::cout << "[ End ] Exit game trainer\n" << std::endl;
+
+	bool playerHealth = FALSE;
+	bool playerMana = FALSE;
+	bool bKeepItems = FALSE;
+	bool bIncreasedGunDamage = FALSE;
+	bool bIncreasedSpellDamage = FALSE;
+	bool bUnlimitedAmmo = FALSE;
+	bool bInvincibleHealth = FALSE;
+	bool bwalkspeed = FALSE;
+	bool bJumpSpeed = FALSE;
+	bool bJumpHoldTime = FALSE;
+
+	uintptr_t moduleBase = (uintptr_t)GetModuleHandle(L"GameLogic.dll");
+	uintptr_t localPlayerPtr = (uintptr_t)(moduleBase + 0x97E1C);
+	uintptr_t localPlayerPtr1 = (uintptr_t)(moduleBase + 0x97D7C);
 
 	//hack loop
 	while (true) {
@@ -81,76 +84,110 @@ DWORD WINAPI HackThread(HMODULE hModule)
 
 		if (GetAsyncKeyState(VK_NUMPAD0) & 1) {
 			//Change health to 999,999,999
-			std::cout << "Player health changed to 999,999,999" << std::endl;
-			uintptr_t healthPtr = mem::FindDMAAddy(localPlayerPtr, { 0x0, 0x0C, 0xE0, 0x294, 0x234, 0x50C, 0xFFFFFFC0 });
-			*(int*)(healthPtr) = 999999999;
+			playerHealth = !playerHealth;
+				if (playerHealth) {
+					cheat::modPlayerHealth(localPlayerPtr, 1);
+				}
+				else {
+					cheat::modPlayerHealth(localPlayerPtr, 0);
+				}
+			
 		}
 
 		if (GetAsyncKeyState(VK_NUMPAD1) & 1) {
 			//Change mana to 999,999,999
-			std::cout << "Player mana changed to 999,999,999" << std::endl;
-			uintptr_t manaPtr = mem::FindDMAAddy(localPlayerPtr, { 0x0, 0x0C, 0xE0, 0x294, 0x234, 0x50C, 0xBC });
-			*(int*)(manaPtr) = 999999999;
+			playerMana = !playerMana;
+			if (playerMana) {
+				cheat::modPlayerMana(localPlayerPtr, 1);
+			}
+			else {
+				cheat::modPlayerMana(localPlayerPtr, 0);
+			}
 		}
 
 		if (GetAsyncKeyState(VK_NUMPAD2) & 1) {
 			//Keep Items (no inventory loss when buying/selling)
-			std::cout << "KeepItems cheat activated" << std::endl;
 			bKeepItems = !bKeepItems;
-			cheat::KeepItems(moduleBase, bKeepItems);
+			if (bKeepItems) {
+				cheat::KeepItems(moduleBase, bKeepItems, 1);
+			}
+			else {
+				cheat::KeepItems(moduleBase, bKeepItems, 0);
+			}
+			
 		}
 
 		if (GetAsyncKeyState(VK_NUMPAD3) & 1) {
 			//Increased Gun Damage (one shot one kill)
-			std::cout << "Increase gun damage cheat activated" << std::endl;
 			bIncreasedGunDamage = !bIncreasedGunDamage;
-			cheat::IncreasedGunDamage(moduleBase, bIncreasedGunDamage);
+			if (bIncreasedGunDamage) {
+				cheat::IncreasedGunDamage(moduleBase, bIncreasedGunDamage, 1);
+			}
+			else {
+				cheat::IncreasedGunDamage(moduleBase, bIncreasedGunDamage, 0);
+			}
 		}
 
 		if (GetAsyncKeyState(VK_NUMPAD4) & 1) {
 			//Increased Spell Damage (one shot one kill)
-			std::cout << "Increase spell damage cheat activated" << std::endl;
 			bIncreasedSpellDamage = !bIncreasedSpellDamage;
-			cheat::IncreasedSpellDamage(moduleBase, bIncreasedSpellDamage);
+			if (bIncreasedSpellDamage) {
+				cheat::IncreasedSpellDamage(moduleBase, bIncreasedSpellDamage, 1);
+			}
+			else {
+				cheat::IncreasedSpellDamage(moduleBase, bIncreasedSpellDamage, 0);
+			}
+
 		}
 
 		if (GetAsyncKeyState(VK_NUMPAD5) & 1) {
 			//Unlimited Weapons Ammo
-			std::cout << "Unlimited weapon ammo cheat activated" << std::endl;
 			bUnlimitedAmmo = !bUnlimitedAmmo;
-			cheat::UnlimitedAmmo(moduleBase, bUnlimitedAmmo);
+			if (bIncreasedSpellDamage) {
+				cheat::UnlimitedAmmo(moduleBase, bUnlimitedAmmo, 1);
+			}
+			else {
+				cheat::UnlimitedAmmo(moduleBase, bUnlimitedAmmo, 0);
+			}
 		}
 
 		if (GetAsyncKeyState(VK_NUMPAD6) & 1) {
 			//Regular Walking Speed
-			std::cout << "Player walking speed set to normal" << std::endl;
-			uintptr_t walkSpeed = mem::FindDMAAddy(localPlayerPtr1, { 0x4 , 0x8, 0x4, 0x4, 0x10, 0x120 }); //0x97E48
-			float* wsPtr = (float*)walkSpeed;
-			*wsPtr = 200.0;
+			bwalkspeed = !bwalkspeed;
+			if (bwalkspeed) {
+				cheat::modWalkSpeed(localPlayerPtr1, 1);
+			}
+			else {
+				cheat::modWalkSpeed(localPlayerPtr1, 0);
+			}
 		}
 
 		if (GetAsyncKeyState(VK_NUMPAD7) & 1) {
-			//Walking Speed = 500
-			std::cout << "Player walking speed set to 500" << std::endl;
-			uintptr_t walkSpeed = mem::FindDMAAddy(localPlayerPtr1, { 0x4 , 0x8, 0x4, 0x4, 0x10, 0x120 }); //0x97E48
-			float* wsPtr = (float*)walkSpeed;
-			*wsPtr = 500.0;
+			//Jump Speed = 999
+			bJumpSpeed = !bJumpSpeed;
+			if (bJumpSpeed) {
+				cheat::increaseJumpSpeed(localPlayerPtr1, 1);
+			}
+			else {
+				cheat::increaseJumpSpeed(localPlayerPtr1, 0);
+			}
+			
 		}
 
 		if (GetAsyncKeyState(VK_NUMPAD8) & 1) {
-			//Jump Speed = 999
-			std::cout << "Player jump speed set to 999" << std::endl;
-			uintptr_t jumpSpeed = mem::FindDMAAddy(localPlayerPtr1, { 0x4 , 0x8, 0x10, 0x124 }); //0x97E48
-			float* jsPtr = (float*)jumpSpeed;
-			*jsPtr = 999.0;
+			//Jump Hold Time = 9999
+			bJumpHoldTime = !bJumpHoldTime;
+			if (bJumpHoldTime) {
+				cheat::increaseJumpHoldTime(localPlayerPtr1, 1);
+			}
+			else {
+				cheat::increaseJumpHoldTime(localPlayerPtr1, 0);
+			}
 		}
 
 		if (GetAsyncKeyState(VK_NUMPAD9) & 1) {
-			//Jump Hold Time = 9999
-			std::cout << "Player jump hold time set to 9999" << std::endl;
-			uintptr_t jumpHoldTime = mem::FindDMAAddy(localPlayerPtr1, { 0x1C , 0x4, 0x224, 0x30, 0x18, 0x3E0, 0x128 }); //0x97E48
-			float* jhtPtr = (float*)jumpHoldTime;
-			*jhtPtr = 9999.0;
+			//Unassigned
+			
 		}
 		Sleep(5);
 	}					  
@@ -179,19 +216,3 @@ BOOL APIENTRY DllMain(HMODULE hModule,
 	}
 	return TRUE;
 }
-
-//Unused code:
-//std::cout << "Module Base = " << std::hex << moduleBase << std::endl;
-//std::cout << "Local Player Pointer = " << std::hex << localPlayerPtr << std::endl;
-
-/*uintptr_t healthPtr = mem::FindDMAAddy(localPlayerPtr, { 0x0, 0x0C, 0xE0, 0x294, 0x234, 0x50C, 0xFFFFFFC0 });
-std::cout << "Health Pointer = " << std::hex << healthPtr << std::endl;
-*(int*)(healthPtr) = 1000;
-
-uintptr_t manaPtr = mem::FindDMAAddy(localPlayerPtr, { 0x0, 0x0C, 0xE0, 0x294, 0x234, 0x50C, 0xBC });
-std::cout << "Mana Pointer = " << std::hex << manaPtr << std::endl;
-*(int*)(manaPtr) = 1000;*/
-
-/*std::string gameHack;
-std::cin.clear();
-std::cin >> gameHack;*/

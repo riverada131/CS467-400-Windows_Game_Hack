@@ -27,23 +27,15 @@
 #include <thread>
 #include "mem.h"
 
-//DWORD jmpBackAddr;
-//int hookLen;
-//DWORD hookAddr;
-
 namespace cheat {
-	void KeepItems(uintptr_t moduleBase, bool bKeepItems);
-	void IncreasedGunDamage(uintptr_t moduleBase, bool bIncreasedGunDamage);
-	void IncreasedSpellDamage(uintptr_t moduleBase, bool bIncreasedSpellDamage);
-	void UnlimitedAmmo(uintptr_t moduleBase, bool bUnlimitedAmmo);
-	void InvincibleHealth(uintptr_t moduleBase, bool bInvincibleHealth);	
+    void modPlayerHealth(uintptr_t localPlayerPtr, int check_val);
+    void modPlayerMana(uintptr_t localPlayerPtr, int check_val);
+	void KeepItems(uintptr_t moduleBase, bool bKeepItems, int check_val);
+	void IncreasedGunDamage(uintptr_t moduleBase, bool bIncreasedGunDamage, int check_val);
+	void IncreasedSpellDamage(uintptr_t moduleBase, bool bIncreasedSpellDamage, int check_val);
+    void UnlimitedAmmo(uintptr_t moduleBase, bool bUnlimitedAmmo, int check_val);
+	void InvincibleHealth(uintptr_t moduleBase, bool bInvincibleHealth, int check_val);
+    void modWalkSpeed(uintptr_t localPlayerPtr1, int check_val);
+    void increaseJumpSpeed(uintptr_t localPlayerPtr1, int check_val);
+    void increaseJumpHoldTime(uintptr_t localPlayerPtr1, int check_val);
 }
-
-//__declspec(naked) void getMana();
-//__declspec(naked) void resetMana();
-//__declspec(naked) void walkSpeedNormal();
-//__declspec(naked) void walkSpeed500();
-//__declspec(naked) void walkSpeed1000();
-//__declspec(naked) void walkSpeed10000();
-//__declspec(naked) void jumpSpeed999();
-//__declspec(naked) void jumpHoldTime999();

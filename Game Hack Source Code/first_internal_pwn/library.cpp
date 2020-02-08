@@ -23,25 +23,21 @@
 #include "mem.h"
 #include "library.h"
 
-
 /****************************************************************************
  * Description:
  *
  ****************************************************************************/
-void cheat::KeepItems(uintptr_t moduleBase, bool bKeepItems)
-{
-	//if hack is toggled on
-	if (bKeepItems)
-	{
-		//keep pwncoins and ammo even when you spend pwncoins or sell ammo
-		//by nopping out the code that subtracts from your current inventory item (ammo or pwncoins)
-		mem::Nop((BYTE*)(moduleBase + 0x52215), 2);
+
+void cheat::modPlayerHealth(uintptr_t localPlayerPtr, int check_val) {
+	if (check_val == 1) {
+		std::cout << "Player health changed to 999,999,999" << std::endl;
+		uintptr_t healthPtr = mem::FindDMAAddy(localPlayerPtr, { 0x0, 0x0C, 0xE0, 0x294, 0x234, 0x50C, 0xFFFFFFC0 });
+		*(int*)(healthPtr) = 999999999;
 	}
-	//if hack is toggled off
-	else
-	{
-		//patch back in the original code that subtracts from your current inventory item (ammo or pwncoins)
-		mem::Patch((BYTE*)(moduleBase + 0x52215), (BYTE*)"\x2B\xCF", 2);
+	else {
+		std::cout << "Player health changed to 100" << std::endl;
+		uintptr_t healthPtr = mem::FindDMAAddy(localPlayerPtr, { 0x0, 0x0C, 0xE0, 0x294, 0x234, 0x50C, 0xFFFFFFC0 });
+		*(int*)(healthPtr) = 100;
 	}
 }
 
@@ -49,10 +45,51 @@ void cheat::KeepItems(uintptr_t moduleBase, bool bKeepItems)
  * Description:
  *
  ****************************************************************************/
-void cheat::IncreasedGunDamage(uintptr_t moduleBase, bool bIncreasedGunDamage)
+
+void cheat::modPlayerMana(uintptr_t localPlayerPtr, int check_val) {
+	if (check_val == 1) {
+		std::cout << "Player mana changed to 999,999,999" << std::endl;
+		uintptr_t manaPtr = mem::FindDMAAddy(localPlayerPtr, { 0x0, 0x0C, 0xE0, 0x294, 0x234, 0x50C, 0xBC });
+		*(int*)(manaPtr) = 999999999;
+	}
+	else {
+		std::cout << "Player mana changed to 100" << std::endl;
+		uintptr_t manaPtr = mem::FindDMAAddy(localPlayerPtr, { 0x0, 0x0C, 0xE0, 0x294, 0x234, 0x50C, 0xBC });
+		*(int*)(manaPtr) = 100;
+	}
+}
+
+/****************************************************************************
+ * Description:
+ *
+ ****************************************************************************/
+void cheat::KeepItems(uintptr_t moduleBase, bool bKeepItems, int check_val)
 {
 	//if hack is toggled on
-	if (bIncreasedGunDamage)
+	if (check_val == 1)
+	{
+		//keep pwncoins and ammo even when you spend pwncoins or sell ammo
+		//by nopping out the code that subtracts from your current inventory item (ammo or pwncoins)
+		mem::Nop((BYTE*)(moduleBase + 0x52215), 2);
+		std::cout << "Keep items cheat activated" << std::endl;
+	}
+	//if hack is toggled off
+	else
+	{
+		//patch back in the original code that subtracts from your current inventory item (ammo or pwncoins)
+		mem::Patch((BYTE*)(moduleBase + 0x52215), (BYTE*)"\x2B\xCF", 2);
+		std::cout << "Keep items cheat deactivated" << std::endl;
+	}
+}
+
+/****************************************************************************
+ * Description:
+ *
+ ****************************************************************************/
+void cheat::IncreasedGunDamage(uintptr_t moduleBase, bool bIncreasedGunDamage, int check_val)
+{
+	//if hack is toggled on
+	if (check_val == 1)
 	{
 		//set pistol damage to 2000 via patch
 		mem::Patch((BYTE*)(moduleBase + 0x13930), (BYTE*)"\xB8\xD0\x07\x00\x00", 5);
@@ -62,6 +99,8 @@ void cheat::IncreasedGunDamage(uintptr_t moduleBase, bool bIncreasedGunDamage)
 
 		//set cowboy coder damage to 2000 via patch
 		mem::Patch((BYTE*)(moduleBase + 0x13AA0), (BYTE*)"\xB8\xD0\x07\x00\x00", 5);
+
+		std::cout << "Increase gun damage cheat activated" << std::endl;
 	}
 	//if hack is toggled off
 	else
@@ -74,6 +113,8 @@ void cheat::IncreasedGunDamage(uintptr_t moduleBase, bool bIncreasedGunDamage)
 
 		//set cowboy coder damage back to default via patch of original code
 		mem::Patch((BYTE*)(moduleBase + 0x13AA0), (BYTE*)"\xB8\x3C\x00\x00\x00", 5);
+
+		std::cout << "Increase gun damage cheat deactivated" << std::endl;
 	}
 }
 
@@ -81,16 +122,18 @@ void cheat::IncreasedGunDamage(uintptr_t moduleBase, bool bIncreasedGunDamage)
  * Description:
  *
  ****************************************************************************/
-void cheat::IncreasedSpellDamage(uintptr_t moduleBase, bool bIncreasedSpellDamage)
+void cheat::IncreasedSpellDamage(uintptr_t moduleBase, bool bIncreasedSpellDamage, int check_val)
 {
 	//if hack is toggled on
-	if (bIncreasedSpellDamage)
+	if (check_val == 1)
 	{
 		//set balls of fire damage to 2000 via patch
 		mem::Patch((BYTE*)(moduleBase + 0xD7E0), (BYTE*)"\xB8\xD0\x07\x00\x00", 5);
 
 		//set zero cool damage to 2000 via patch
 		mem::Patch((BYTE*)(moduleBase + 0x136F0), (BYTE*)"\xB8\xD0\x07\x00\x00", 5);
+
+		std::cout << "Increase spell damage cheat activated" << std::endl;
 	}
 	//if hack is toggled off
 	else
@@ -100,31 +143,32 @@ void cheat::IncreasedSpellDamage(uintptr_t moduleBase, bool bIncreasedSpellDamag
 
 		//set zero cool damage back to default via patch of the original code
 		mem::Patch((BYTE*)(moduleBase + 0x136F0), (BYTE*)"\xB8\x20\x00\x00\x00", 5);
+
+		std::cout << "Increase spell damage cheat deactivated" << std::endl;
 	}
-}
-
-
-void cheat::UnlimitedAmmo(uintptr_t moduleBase, bool bUnlimitedAmmo)
-{
 }
 
 /****************************************************************************
  * Description:
  *
  ****************************************************************************/
-void UnlimitedAmmo(uintptr_t moduleBase, bool bUnlimitedAmmo)
+void cheat::UnlimitedAmmo(uintptr_t moduleBase, bool bUnlimitedAmmo,int check_val)
 {
 	//if hack is toggled on
-	if (bUnlimitedAmmo)
+	if (check_val == 1)
 	{
 		//give unlimited ammo for all guns by by nopping out the code that subtracts from your current loaded ammo
 		mem::Nop((BYTE*)(moduleBase + 0x52394), 2);
+
+		std::cout << "Unlimited weapon ammo cheat activated" << std::endl;
 	}
 	//if hack is toggled off
 	else
 	{
 		//put back in the code that subtracts from your current loaded ammo via patch of the original code 
 		mem::Patch((BYTE*)(moduleBase + 0x52394), (BYTE*)"\x2B\xCF", 2);
+
+		std::cout << "Unlimited weapon ammo cheat deactivated" << std::endl;
 	}
 }
 
@@ -132,121 +176,76 @@ void UnlimitedAmmo(uintptr_t moduleBase, bool bUnlimitedAmmo)
  * Description:
  *
  ****************************************************************************/
-void cheat::InvincibleHealth(uintptr_t moduleBase, bool bInvincibleHealth)
+void cheat::InvincibleHealth(uintptr_t moduleBase, bool bInvincibleHealth, int check_val)
 {
 	//if hack is toggled on
-	if (bInvincibleHealth)
+	if (check_val == 1)
 	{
 		//make player invincible by preventing any damage to health by nopping out the player::Damage() function (except for the return)
 		mem::Nop((BYTE*)(moduleBase + 0x51150), 202);
+
+		std::cout << "Unlimited health cheat activated" << std::endl;
+	}	
+}
+
+/****************************************************************************
+ * Description:
+ *
+ ****************************************************************************/
+
+void cheat::modWalkSpeed(uintptr_t localPlayerPtr1, int check_val) {
+	if (check_val == 1) {
+		std::cout << "Player walking speed cheat activated" << std::endl;
+		uintptr_t walkSpeed = mem::FindDMAAddy(localPlayerPtr1, { 0x4 , 0x8, 0x4, 0x4, 0x10, 0x120 }); //0x97E48
+		float* wsPtr = (float*)walkSpeed;
+		*wsPtr = 500.00;
+	}
+	else {
+		std::cout << "Player walking speed cheat deactivated" << std::endl;
+		uintptr_t walkSpeed = mem::FindDMAAddy(localPlayerPtr1, { 0x4 , 0x8, 0x4, 0x4, 0x10, 0x120 }); //0x97E48
+		float* wsPtr = (float*)walkSpeed;
+		*wsPtr = 200.0;
 	}
 	
 }
 
-//
-///****************************************************************************
-// * Description:
-// *
-// ****************************************************************************/
-//__declspec(naked) void getMana()
-//{
-//	__asm
-//	{
-//		mov EAX, 0x69
-//		jmp[jmpBackAddr]
-//	}
-//}
-//
-///****************************************************************************
-// * Description:
-// *
-// ****************************************************************************/
-//void __declspec(naked) resetMana()
-//{
-//	__asm
-//	{
-//		mov EAX, dword ptr[ECX + 0xBC]
-//		jmp[jmpBackAddr]
-//	}
-//}
-//
-///****************************************************************************
-// * Description:
-// *
-// ****************************************************************************/
-//__declspec(naked) void walkSpeedNormal()
-//{
-//	__asm
-//	{
-//		mov dword ptr[ECX + 0x120], 0x437a0000
-//		FLD dword ptr[ECX + 0x120]
-//		jmp[jmpBackAddr]
-//	}
-//}
-//
-///****************************************************************************
-// * Description:
-// *
-// ****************************************************************************/
-//__declspec(naked) void walkSpeed500()
-//{
-//	__asm
-//	{
-//		mov dword ptr[ECX + 0x120], 0x43fa0000
-//		FLD dword ptr[ECX + 0x120]
-//		jmp[jmpBackAddr]
-//	}
-//}
-//
-///****************************************************************************
-// * Description:
-// *
-// ****************************************************************************/
-//__declspec(naked) void walkSpeed1000()
-//{
-//	__asm
-//	{
-//		mov dword ptr[ECX + 0x120], 0x447a0000
-//		FLD dword ptr[ECX + 0x120]
-//		jmp[jmpBackAddr]
-//	}
-//}
-//
-///****************************************************************************
-// * Description:
-// *
-// ****************************************************************************/
-//__declspec(naked) void walkSpeed10000()
-//{
-//	__asm
-//	{
-//		mov dword ptr[ECX + 0x120], 0x461c4000
-//		FLD dword ptr[ECX + 0x120]
-//		jmp[jmpBackAddr]
-//	}
-//}
-//
-///****************************************************************************
-// * Description:
-// *
-// ****************************************************************************/
-//__declspec(naked) void jumpSpeed999()
-//{
-//	__asm
-//	{
-//		mov dword ptr[ECX + 0x124], 0x4479c000
-//		FLD dword ptr[ECX + 0x124]
-//		jmp[jmpBackAddr]
-//	}
-//}
-//
-//
-//void __declspec(naked) jumpHoldTime999()
-//{
-//	__asm
-//	{
-//		mov dword ptr[ECX + 0x128], 0x4479c000
-//		FLD dword ptr[ECX + 0x128]
-//		jmp[jmpBackAddr]
-//	}
-//}
+/****************************************************************************
+ * Description:
+ *
+ ****************************************************************************/
+
+void cheat::increaseJumpSpeed(uintptr_t localPlayerPtr1, int check_val) {
+	if (check_val == 1) {
+		std::cout << "Player jump speed cheat activated" << std::endl;
+		uintptr_t jumpSpeed = mem::FindDMAAddy(localPlayerPtr1, { 0x4 , 0x8, 0x10, 0x124 }); //0x97E48
+		float* jsPtr = (float*)jumpSpeed;
+		*jsPtr = 999.0;
+	}
+	else {
+		std::cout << "Player jump speed cheat deactivated" << std::endl;
+		uintptr_t jumpSpeed = mem::FindDMAAddy(localPlayerPtr1, { 0x4 , 0x8, 0x10, 0x124 }); //0x97E48
+		float* jsPtr = (float*)jumpSpeed;
+		*jsPtr = 200.0;
+	}
+
+}
+
+/****************************************************************************
+ * Description:
+ *
+ ****************************************************************************/
+
+void cheat::increaseJumpHoldTime(uintptr_t localPlayerPtr1, int check_val) {
+	if (check_val == 1) {
+		std::cout << "Player jump hold time activated" << std::endl;
+		uintptr_t jumpHoldTime = mem::FindDMAAddy(localPlayerPtr1, { 0x1C , 0x4, 0x224, 0x30, 0x18, 0x3E0, 0x128 }); //0x97E48
+		float* jhtPtr = (float*)jumpHoldTime;
+		*jhtPtr = 9999.0;
+	}
+	else {
+		std::cout << "Player jump hold cheat deactivated" << std::endl;
+		uintptr_t jumpHoldTime = mem::FindDMAAddy(localPlayerPtr1, { 0x1C , 0x4, 0x224, 0x30, 0x18, 0x3E0, 0x128 }); //0x97E48
+		float* jhtPtr = (float*)jumpHoldTime;
+		*jhtPtr = 200.0;
+	}
+}
