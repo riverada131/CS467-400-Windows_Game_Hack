@@ -51,7 +51,7 @@ DWORD WINAPI HackThread(HMODULE hModule)
 	std::cout << "[ 6 ] Increase walk speed" << std::endl;
 	std::cout << "[ 7 ] Increase jump speed" << std::endl;
 	std::cout << "[ 8 ] Increase jump speed hold time" << std::endl;
-	std::cout << "[ 9 ] Add 999,999,999 coins" << std::endl;
+	std::cout << "[ 9 ] Not Active: coin cheat" << std::endl;
 	std::cout << "[ End ] Exit game trainer\n" << std::endl;
 
 	bool playerHealth = FALSE;
@@ -185,12 +185,12 @@ DWORD WINAPI HackThread(HMODULE hModule)
 		if (GetAsyncKeyState(VK_NUMPAD9) & 1) {
 			//Add Coins
 			bAddCoin = !bAddCoin;
-			if (bAddCoin) {
+			/*if (bAddCoin) {
 				cheat::AddCoins(localPlayerPtr1, 1);
 			}
 			else {
 				cheat::AddCoins(localPlayerPtr1, 0);
-			}
+			}*/
 		}
 		Sleep(5);
 	}					  
