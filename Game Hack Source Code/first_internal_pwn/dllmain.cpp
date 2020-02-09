@@ -32,7 +32,7 @@ DWORD WINAPI HackThread(HMODULE hModule)
 	//Create console
 	AllocConsole();
 	FILE* f;
-	freopen_s(&f, "CONIN$", "r", stdin);
+	//freopen_s(&f, "CONIN$", "r", stdin); allows console to receive input - currently not needed
 	freopen_s(&f, "CONOUT$", "w", stdout);
 
 	std::cout << "PwnAdventure3 internal cheat." << std::endl;;
