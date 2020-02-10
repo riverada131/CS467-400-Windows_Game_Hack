@@ -1,2 +1,9 @@
 ﻿  dllmain.cpp
-  first_internal_pwn.vcxproj -> C:\Users\danie\Desktop\first_internal_pwn\Debug\first_internal_pwn.dll
+  library.cpp
+C:\Users\danie\Documents\GitHub\CS467-400-Windows_Game_Hack\Game Hack Source Code\first_internal_pwn\library.cpp(275,24): warning C4305: '=': truncation from 'double' to 'float'
+  mem.cpp
+  myform.cpp
+  proc.cpp
+  stdafx.cpp
+  Generating Code...
+  first_internal_pwn.vcxproj -> C:\Users\danie\Documents\GitHub\CS467-400-Windows_Game_Hack\Game Hack Source Code\first_internal_pwn\Debug\first_internal_pwn.dll
