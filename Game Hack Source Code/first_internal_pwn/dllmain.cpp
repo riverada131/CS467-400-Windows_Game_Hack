@@ -17,12 +17,9 @@
   ****************************************************************************/
 
 // dllmain.cpp : Defines the entry point for the DLL application.
-#include "stdafx.h"
 #include <windows.h>
 #include <iostream>
-#include <TlHelp32.h>
 #include "mem.h"
-#include "proc.h"
 #include "library.h"
 #include "myform.h"
 #include <string.h>
@@ -71,12 +68,8 @@ DWORD WINAPI HackThread(HMODULE hModule)
 
 	//hack loop
 	while (true) {
-		//Key input section
-		
 
-		// NOP use mana cmp and sub
-		DWORD nopAddr = moduleBase + 0x525C1;
-		mem::Nop((BYTE*)nopAddr, 6);
+		//Key input section
 
 		if (GetAsyncKeyState(VK_END) & 1) {
 			break;
@@ -185,11 +178,19 @@ DWORD WINAPI HackThread(HMODULE hModule)
 			}
 		}
 
+		
 		if (GetAsyncKeyState(VK_NUMPAD9) & 1) {
-			//Unassigned
-			
+			float xPos, yPos, zPos;
+			std::cin.clear();
+			std::cout << "X: ";
+			std::cin >> xPos;
+			std::cout << "Y: ";
+			std::cin >> yPos;
+			std::cout << "Z: ";
+			std::cin >> zPos;
+			cheat::Teleport(localPlayerPtr, xPos, yPos, zPos);
 		}
-		Sleep(5);
+		Sleep(1);
 	}					  
 	
 	//cleanup and eject

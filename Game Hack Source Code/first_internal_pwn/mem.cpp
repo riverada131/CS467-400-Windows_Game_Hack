@@ -17,7 +17,7 @@
  *
  ****************************************************************************/
 
-#include "stdafx.h"
+
 #include "mem.h"
 
 //https://guidedhacking.com/threads/how-to-hack-any-game-first-internal-hack-dll-tutorial.12142/
