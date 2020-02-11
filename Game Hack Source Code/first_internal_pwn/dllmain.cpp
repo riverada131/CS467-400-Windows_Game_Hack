@@ -180,6 +180,10 @@ DWORD WINAPI HackThread(HMODULE hModule)
 
 		
 		if (GetAsyncKeyState(VK_NUMPAD9) & 1) {
+			std::cout << "Starting Position:  x:-53090,   y: -57298,  z: 1027" << std::endl;
+			std::cout << "Fireball:           x:-43651,   y:-55970,   z: 324" << std::endl;
+			std::cout << "Starting Buildings: x:-39456,   y:-21931,   z:2796" << std::endl;
+
 			float xPos, yPos, zPos;
 			std::cin.clear();
 			std::cout << "X: ";
