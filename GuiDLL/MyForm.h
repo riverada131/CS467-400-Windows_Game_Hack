@@ -37,16 +37,16 @@ namespace GuiDLL {
 
 	protected:
 
-	private: System::Windows::Forms::RadioButton^ radioButton1;
-	private: System::Windows::Forms::RadioButton^ radioButton2;
-	private: System::Windows::Forms::RadioButton^ radioButton3;
-	private: System::Windows::Forms::RadioButton^ radioButton4;
-	private: System::Windows::Forms::RadioButton^ radioButton5;
-	private: System::Windows::Forms::RadioButton^ radioButton6;
-	private: System::Windows::Forms::RadioButton^ radioButton7;
-	private: System::Windows::Forms::RadioButton^ radioButton8;
-	private: System::Windows::Forms::RadioButton^ radioButton9;
-	private: System::Windows::Forms::RadioButton^ radioButton10;
+
+
+
+
+
+
+
+
+
+
 
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::Label^ label2;
@@ -54,6 +54,16 @@ namespace GuiDLL {
 	private: System::Windows::Forms::TextBox^ textBox1;
 	private: System::Windows::Forms::TextBox^ textBox2;
 	private: System::Windows::Forms::TextBox^ textBox3;
+	private: System::Windows::Forms::CheckBox^ checkBox1;
+	private: System::Windows::Forms::CheckBox^ checkBox2;
+	private: System::Windows::Forms::CheckBox^ checkBox3;
+	private: System::Windows::Forms::CheckBox^ checkBox4;
+	private: System::Windows::Forms::CheckBox^ checkBox5;
+	private: System::Windows::Forms::CheckBox^ checkBox6;
+	private: System::Windows::Forms::CheckBox^ checkBox7;
+	private: System::Windows::Forms::CheckBox^ checkBox8;
+	private: System::Windows::Forms::CheckBox^ checkBox9;
+	private: System::Windows::Forms::CheckBox^ checkBox10;
 
 
 	private: System::ComponentModel::IContainer^ components;
@@ -74,136 +84,23 @@ namespace GuiDLL {
 		void InitializeComponent(void)
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
-			this->radioButton1 = (gcnew System::Windows::Forms::RadioButton());
-			this->radioButton2 = (gcnew System::Windows::Forms::RadioButton());
-			this->radioButton3 = (gcnew System::Windows::Forms::RadioButton());
-			this->radioButton4 = (gcnew System::Windows::Forms::RadioButton());
-			this->radioButton5 = (gcnew System::Windows::Forms::RadioButton());
-			this->radioButton6 = (gcnew System::Windows::Forms::RadioButton());
-			this->radioButton7 = (gcnew System::Windows::Forms::RadioButton());
-			this->radioButton8 = (gcnew System::Windows::Forms::RadioButton());
-			this->radioButton9 = (gcnew System::Windows::Forms::RadioButton());
-			this->radioButton10 = (gcnew System::Windows::Forms::RadioButton());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
+			this->checkBox1 = (gcnew System::Windows::Forms::CheckBox());
+			this->checkBox2 = (gcnew System::Windows::Forms::CheckBox());
+			this->checkBox3 = (gcnew System::Windows::Forms::CheckBox());
+			this->checkBox4 = (gcnew System::Windows::Forms::CheckBox());
+			this->checkBox5 = (gcnew System::Windows::Forms::CheckBox());
+			this->checkBox6 = (gcnew System::Windows::Forms::CheckBox());
+			this->checkBox7 = (gcnew System::Windows::Forms::CheckBox());
+			this->checkBox8 = (gcnew System::Windows::Forms::CheckBox());
+			this->checkBox9 = (gcnew System::Windows::Forms::CheckBox());
+			this->checkBox10 = (gcnew System::Windows::Forms::CheckBox());
 			this->SuspendLayout();
-			// 
-			// radioButton1
-			// 
-			this->radioButton1->AutoSize = true;
-			this->radioButton1->Location = System::Drawing::Point(16, 124);
-			this->radioButton1->Name = L"radioButton1";
-			this->radioButton1->Size = System::Drawing::Size(111, 21);
-			this->radioButton1->TabIndex = 16;
-			this->radioButton1->TabStop = true;
-			this->radioButton1->Text = L"Health Cheat";
-			this->radioButton1->UseVisualStyleBackColor = true;
-			this->radioButton1->CheckedChanged += gcnew System::EventHandler(this, &MyForm::radioButton1_CheckedChanged);
-			// 
-			// radioButton2
-			// 
-			this->radioButton2->AutoSize = true;
-			this->radioButton2->Location = System::Drawing::Point(16, 152);
-			this->radioButton2->Name = L"radioButton2";
-			this->radioButton2->Size = System::Drawing::Size(105, 21);
-			this->radioButton2->TabIndex = 17;
-			this->radioButton2->TabStop = true;
-			this->radioButton2->Text = L"Mana Cheat";
-			this->radioButton2->UseVisualStyleBackColor = true;
-			// 
-			// radioButton3
-			// 
-			this->radioButton3->AutoSize = true;
-			this->radioButton3->Location = System::Drawing::Point(16, 180);
-			this->radioButton3->Name = L"radioButton3";
-			this->radioButton3->Size = System::Drawing::Size(140, 21);
-			this->radioButton3->TabIndex = 18;
-			this->radioButton3->TabStop = true;
-			this->radioButton3->Text = L"Keep Items Cheat";
-			this->radioButton3->UseVisualStyleBackColor = true;
-			// 
-			// radioButton4
-			// 
-			this->radioButton4->AutoSize = true;
-			this->radioButton4->Location = System::Drawing::Point(16, 208);
-			this->radioButton4->Name = L"radioButton4";
-			this->radioButton4->Size = System::Drawing::Size(220, 21);
-			this->radioButton4->TabIndex = 19;
-			this->radioButton4->TabStop = true;
-			this->radioButton4->Text = L"Increased Gun Damage Cheat";
-			this->radioButton4->UseVisualStyleBackColor = true;
-			// 
-			// radioButton5
-			// 
-			this->radioButton5->AutoSize = true;
-			this->radioButton5->Location = System::Drawing::Point(16, 236);
-			this->radioButton5->Name = L"radioButton5";
-			this->radioButton5->Size = System::Drawing::Size(224, 21);
-			this->radioButton5->TabIndex = 20;
-			this->radioButton5->TabStop = true;
-			this->radioButton5->Text = L"Increased Spell Damage Cheat";
-			this->radioButton5->UseVisualStyleBackColor = true;
-			this->radioButton5->CheckedChanged += gcnew System::EventHandler(this, &MyForm::radioButton5_CheckedChanged);
-			// 
-			// radioButton6
-			// 
-			this->radioButton6->AutoSize = true;
-			this->radioButton6->Location = System::Drawing::Point(16, 264);
-			this->radioButton6->Name = L"radioButton6";
-			this->radioButton6->Size = System::Drawing::Size(228, 21);
-			this->radioButton6->TabIndex = 21;
-			this->radioButton6->TabStop = true;
-			this->radioButton6->Text = L"Unlimited Weapon Ammo Cheat";
-			this->radioButton6->UseVisualStyleBackColor = true;
-			// 
-			// radioButton7
-			// 
-			this->radioButton7->AutoSize = true;
-			this->radioButton7->Location = System::Drawing::Point(16, 292);
-			this->radioButton7->Name = L"radioButton7";
-			this->radioButton7->Size = System::Drawing::Size(204, 21);
-			this->radioButton7->TabIndex = 22;
-			this->radioButton7->TabStop = true;
-			this->radioButton7->Text = L"Increase Walk Speed Cheat";
-			this->radioButton7->UseVisualStyleBackColor = true;
-			// 
-			// radioButton8
-			// 
-			this->radioButton8->AutoSize = true;
-			this->radioButton8->Location = System::Drawing::Point(16, 320);
-			this->radioButton8->Name = L"radioButton8";
-			this->radioButton8->Size = System::Drawing::Size(215, 21);
-			this->radioButton8->TabIndex = 23;
-			this->radioButton8->TabStop = true;
-			this->radioButton8->Text = L"Increased Jump Speed Cheat";
-			this->radioButton8->UseVisualStyleBackColor = true;
-			// 
-			// radioButton9
-			// 
-			this->radioButton9->AutoSize = true;
-			this->radioButton9->Location = System::Drawing::Point(16, 348);
-			this->radioButton9->Name = L"radioButton9";
-			this->radioButton9->Size = System::Drawing::Size(283, 21);
-			this->radioButton9->TabIndex = 24;
-			this->radioButton9->TabStop = true;
-			this->radioButton9->Text = L"Increased Jump Speed Hold Time Cheat";
-			this->radioButton9->UseVisualStyleBackColor = true;
-			// 
-			// radioButton10
-			// 
-			this->radioButton10->AutoSize = true;
-			this->radioButton10->Location = System::Drawing::Point(16, 376);
-			this->radioButton10->Name = L"radioButton10";
-			this->radioButton10->Size = System::Drawing::Size(82, 21);
-			this->radioButton10->TabIndex = 25;
-			this->radioButton10->TabStop = true;
-			this->radioButton10->Text = L"Teleport";
-			this->radioButton10->UseVisualStyleBackColor = true;
-			this->radioButton10->CheckedChanged += gcnew System::EventHandler(this, &MyForm::radioButton10_CheckedChanged);
 			// 
 			// label1
 			// 
@@ -254,6 +151,108 @@ namespace GuiDLL {
 			this->textBox3->Size = System::Drawing::Size(100, 22);
 			this->textBox3->TabIndex = 31;
 			// 
+			// checkBox1
+			// 
+			this->checkBox1->AutoSize = true;
+			this->checkBox1->Location = System::Drawing::Point(12, 122);
+			this->checkBox1->Name = L"checkBox1";
+			this->checkBox1->Size = System::Drawing::Size(112, 21);
+			this->checkBox1->TabIndex = 32;
+			this->checkBox1->Text = L"Health Cheat";
+			this->checkBox1->UseVisualStyleBackColor = true;
+			this->checkBox1->CheckedChanged += gcnew System::EventHandler(this, &MyForm::checkBox1_CheckedChanged_1);
+			// 
+			// checkBox2
+			// 
+			this->checkBox2->AutoSize = true;
+			this->checkBox2->Location = System::Drawing::Point(12, 151);
+			this->checkBox2->Name = L"checkBox2";
+			this->checkBox2->Size = System::Drawing::Size(106, 21);
+			this->checkBox2->TabIndex = 33;
+			this->checkBox2->Text = L"Mana Cheat";
+			this->checkBox2->UseVisualStyleBackColor = true;
+			// 
+			// checkBox3
+			// 
+			this->checkBox3->AutoSize = true;
+			this->checkBox3->Location = System::Drawing::Point(12, 179);
+			this->checkBox3->Name = L"checkBox3";
+			this->checkBox3->Size = System::Drawing::Size(134, 21);
+			this->checkBox3->TabIndex = 34;
+			this->checkBox3->Text = L"Keep Item Cheat";
+			this->checkBox3->UseVisualStyleBackColor = true;
+			// 
+			// checkBox4
+			// 
+			this->checkBox4->AutoSize = true;
+			this->checkBox4->Location = System::Drawing::Point(12, 207);
+			this->checkBox4->Name = L"checkBox4";
+			this->checkBox4->Size = System::Drawing::Size(213, 21);
+			this->checkBox4->TabIndex = 35;
+			this->checkBox4->Text = L"Increase Gun Damage Cheat";
+			this->checkBox4->UseVisualStyleBackColor = true;
+			this->checkBox4->CheckedChanged += gcnew System::EventHandler(this, &MyForm::checkBox4_CheckedChanged);
+			// 
+			// checkBox5
+			// 
+			this->checkBox5->AutoSize = true;
+			this->checkBox5->Location = System::Drawing::Point(12, 235);
+			this->checkBox5->Name = L"checkBox5";
+			this->checkBox5->Size = System::Drawing::Size(217, 21);
+			this->checkBox5->TabIndex = 36;
+			this->checkBox5->Text = L"Increase Spell Damage Cheat";
+			this->checkBox5->UseVisualStyleBackColor = true;
+			// 
+			// checkBox6
+			// 
+			this->checkBox6->AutoSize = true;
+			this->checkBox6->Location = System::Drawing::Point(12, 263);
+			this->checkBox6->Name = L"checkBox6";
+			this->checkBox6->Size = System::Drawing::Size(229, 21);
+			this->checkBox6->TabIndex = 37;
+			this->checkBox6->Text = L"Unlimited Weapon Ammo Cheat";
+			this->checkBox6->UseVisualStyleBackColor = true;
+			// 
+			// checkBox7
+			// 
+			this->checkBox7->AutoSize = true;
+			this->checkBox7->Location = System::Drawing::Point(12, 290);
+			this->checkBox7->Name = L"checkBox7";
+			this->checkBox7->Size = System::Drawing::Size(205, 21);
+			this->checkBox7->TabIndex = 38;
+			this->checkBox7->Text = L"Increase Walk Speed Cheat";
+			this->checkBox7->UseVisualStyleBackColor = true;
+			// 
+			// checkBox8
+			// 
+			this->checkBox8->AutoSize = true;
+			this->checkBox8->Location = System::Drawing::Point(12, 320);
+			this->checkBox8->Name = L"checkBox8";
+			this->checkBox8->Size = System::Drawing::Size(208, 21);
+			this->checkBox8->TabIndex = 39;
+			this->checkBox8->Text = L"Increase Jump Speed Cheat";
+			this->checkBox8->UseVisualStyleBackColor = true;
+			// 
+			// checkBox9
+			// 
+			this->checkBox9->AutoSize = true;
+			this->checkBox9->Location = System::Drawing::Point(12, 347);
+			this->checkBox9->Name = L"checkBox9";
+			this->checkBox9->Size = System::Drawing::Size(276, 21);
+			this->checkBox9->TabIndex = 40;
+			this->checkBox9->Text = L"Increase Jump Speed Hold Time Cheat";
+			this->checkBox9->UseVisualStyleBackColor = true;
+			// 
+			// checkBox10
+			// 
+			this->checkBox10->AutoSize = true;
+			this->checkBox10->Location = System::Drawing::Point(12, 373);
+			this->checkBox10->Name = L"checkBox10";
+			this->checkBox10->Size = System::Drawing::Size(83, 21);
+			this->checkBox10->TabIndex = 41;
+			this->checkBox10->Text = L"Teleport";
+			this->checkBox10->UseVisualStyleBackColor = true;
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
@@ -261,23 +260,23 @@ namespace GuiDLL {
 			this->BackColor = System::Drawing::SystemColors::ControlDark;
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			this->ClientSize = System::Drawing::Size(550, 479);
+			this->ClientSize = System::Drawing::Size(465, 479);
+			this->Controls->Add(this->checkBox10);
+			this->Controls->Add(this->checkBox9);
+			this->Controls->Add(this->checkBox8);
+			this->Controls->Add(this->checkBox7);
+			this->Controls->Add(this->checkBox6);
+			this->Controls->Add(this->checkBox5);
+			this->Controls->Add(this->checkBox4);
+			this->Controls->Add(this->checkBox3);
+			this->Controls->Add(this->checkBox2);
+			this->Controls->Add(this->checkBox1);
 			this->Controls->Add(this->textBox3);
 			this->Controls->Add(this->textBox2);
 			this->Controls->Add(this->textBox1);
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
-			this->Controls->Add(this->radioButton10);
-			this->Controls->Add(this->radioButton9);
-			this->Controls->Add(this->radioButton8);
-			this->Controls->Add(this->radioButton7);
-			this->Controls->Add(this->radioButton6);
-			this->Controls->Add(this->radioButton5);
-			this->Controls->Add(this->radioButton4);
-			this->Controls->Add(this->radioButton3);
-			this->Controls->Add(this->radioButton2);
-			this->Controls->Add(this->radioButton1);
 			this->Margin = System::Windows::Forms::Padding(4);
 			this->Name = L"MyForm";
 			this->Text = L"PwnTrainer By RuNt1M3 T3RroR";
@@ -307,5 +306,9 @@ namespace GuiDLL {
 	}
 	private: System::Void label3_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
+private: System::Void checkBox1_CheckedChanged_1(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void checkBox4_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+}
 };
 }
