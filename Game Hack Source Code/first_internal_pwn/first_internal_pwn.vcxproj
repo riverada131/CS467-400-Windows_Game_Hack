@@ -156,7 +156,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="framework.h" />
     <ClInclude Include="library.h" />
     <ClInclude Include="mem.h" />
     <ClInclude Include="MyForm.h">
