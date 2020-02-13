@@ -13,14 +13,8 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="pch">
-      <UniqueIdentifier>{9e90197e-e8da-4049-91fc-5bb96e00c474}</UniqueIdentifier>
-    </Filter>
     <Filter Include="mem">
       <UniqueIdentifier>{d420f465-ae9d-4d72-80a5-207dfbb9f192}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="proc">
-      <UniqueIdentifier>{82ddfa2e-8fa7-40b6-96ca-67e5bb567924}</UniqueIdentifier>
     </Filter>
     <Filter Include="library">
       <UniqueIdentifier>{0a150677-f2a4-4d9b-88bd-3394bbc5e8c7}</UniqueIdentifier>
@@ -33,15 +27,6 @@
     <ClInclude Include="mem.h">
       <Filter>mem</Filter>
     </ClInclude>
-    <ClInclude Include="proc.h">
-      <Filter>proc</Filter>
-    </ClInclude>
-    <ClInclude Include="stdafx.h">
-      <Filter>pch</Filter>
-    </ClInclude>
-    <ClInclude Include="targetver.h">
-      <Filter>pch</Filter>
-    </ClInclude>
     <ClInclude Include="library.h">
       <Filter>library</Filter>
     </ClInclude>
@@ -52,12 +37,6 @@
   <ItemGroup>
     <ClCompile Include="mem.cpp">
       <Filter>mem</Filter>
-    </ClCompile>
-    <ClCompile Include="proc.cpp">
-      <Filter>proc</Filter>
-    </ClCompile>
-    <ClCompile Include="stdafx.cpp">
-      <Filter>pch</Filter>
     </ClCompile>
     <ClCompile Include="dllmain.cpp">
       <Filter>Source Files</Filter>

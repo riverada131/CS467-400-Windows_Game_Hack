@@ -18,13 +18,10 @@
  *
  ****************************************************************************/
 
-#include "stdafx.h"
 #include <iostream>
 #include <windows.h>
 #include <ios>
 #include <vector>
-#include <limits>
-#include <thread>
 #include "mem.h"
 
 namespace cheat {
@@ -39,4 +36,5 @@ namespace cheat {
     void modWalkSpeed(uintptr_t localPlayerPtr1, int check_val);
     void increaseJumpSpeed(uintptr_t localPlayerPtr1, int check_val);
     void increaseJumpHoldTime(uintptr_t localPlayerPtr1, int check_val);
+    void Teleport(uintptr_t localPlayerPtr, float xPosVal, float yPosVal, float zPosVal);
 }

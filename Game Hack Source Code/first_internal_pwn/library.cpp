@@ -18,8 +18,6 @@
 ****************************************************************************/
 
 // dllmain.cpp : Defines the entry point for the DLL application.
-#include "stdafx.h"
-#include <iostream>
 #include "mem.h"
 #include "library.h"
 
@@ -70,9 +68,9 @@ void cheat::modPlayerMana(uintptr_t localPlayerPtr, uintptr_t moduleBase, int ch
 		uintptr_t manaPtr = mem::FindDMAAddy(localPlayerPtr, { 0x0, 0x0C, 0xE0, 0x294, 0x234, 0x50C, 0xBC });
 		*(int*)(manaPtr) = 999999999;
 
+		// NOP out useMana function
 		DWORD nopAddr = moduleBase + 0x525C1;
 		mem::Nop((BYTE*)nopAddr, 6);
-
 	}
 	else {
 		std::cout << "Player mana cheat deactivated" << std::endl;
@@ -274,4 +272,30 @@ void cheat::increaseJumpHoldTime(uintptr_t localPlayerPtr1, int check_val) {
 		float* jhtPtr = (float*)jumpHoldTime;
 		*jhtPtr = 0.200000003;
 	}
+}
+
+/****************************************************************************
+ * Description:
+ *
+ ****************************************************************************/
+
+void cheat::Teleport(uintptr_t localPlayerPtr, float xPosVal, float yPosVal, float zPosVal) {
+	/*
+	Starting Position: x:-53090, y:-57298, z:1027
+	Fireball: x:-43651, y:-55970, z:324
+	Starting Buildings: x:-39456, y:-21931, z:2796
+	*/
+
+	std::cout << "Teleporting to (" << xPosVal << ", " << yPosVal << ", " << zPosVal << ")" << std::endl;
+	uintptr_t xPosAddr = mem::FindDMAAddy(localPlayerPtr, { 0x24 , 0xC, 0xC8, 0x424, 0x184, 0x74, 0x90 }); //0x97E1C
+	float* xPos = (float*)xPosAddr;
+	*xPos = xPosVal;
+
+	uintptr_t yPosAddr = mem::FindDMAAddy(localPlayerPtr, { 0x24 , 0xC, 0xC8, 0x424, 0x184, 0x74, 0x94 }); //0x97E1C
+	float* yPos = (float*)yPosAddr;
+	*yPos = yPosVal;
+
+	uintptr_t zPosAddr = mem::FindDMAAddy(localPlayerPtr, { 0x24 , 0xC, 0xC8, 0x424, 0x184, 0x74, 0x98 }); //0x97E1C
+	float* zPos = (float*)zPosAddr;
+	*zPos = zPosVal;
 }
