@@ -36,8 +36,8 @@ namespace cheat {
 	void IncreasedSpellDamage(uintptr_t moduleBase, int check_val);
     void UnlimitedAmmo(uintptr_t moduleBase, int check_val);
 	void InvincibleHealth(uintptr_t moduleBase, int check_val);
-    void modWalkSpeed(uintptr_t localPlayerPtr1, int check_val);
-    void increaseJumpSpeed(uintptr_t localPlayerPtr1, int check_val);
-    void increaseJumpHoldTime(uintptr_t localPlayerPtr1, int check_val);
+    void modWalkSpeed(uintptr_t localPlayerPtr1, int speed_modifier, int check_val);
+    void increaseJumpSpeed(uintptr_t localPlayerPtr1, int speed_modifier, int check_val);
+    void increaseJumpHoldTime(uintptr_t localPlayerPtr1, int hold_modifier, int check_val);
     void Teleport(uintptr_t localPlayerPtr, float xPosVal, float yPosVal, float zPosVal);
 }

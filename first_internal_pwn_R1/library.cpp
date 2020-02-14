@@ -219,20 +219,22 @@ void cheat::InvincibleHealth(uintptr_t moduleBase, int check_val)
  *
  ****************************************************************************/
 
-void cheat::modWalkSpeed(uintptr_t localPlayerPtr1, int check_val) {
-	if (check_val == 1) {
-		std::cout << "Player walking speed cheat activated" << std::endl;
+void cheat::modWalkSpeed(uintptr_t localPlayerPtr1, int speed_modifier, int check_val) {
 		uintptr_t walkSpeed = mem::FindDMAAddy(localPlayerPtr1, { 0x4 , 0x8, 0x4, 0x4, 0x10, 0x120 }); //0x97E48
 		float* wsPtr = (float*)walkSpeed;
-		*wsPtr = 500.00;
-	}
-	else {
-		std::cout << "Player walking speed cheat deactivated" << std::endl;
-		uintptr_t walkSpeed = mem::FindDMAAddy(localPlayerPtr1, { 0x4 , 0x8, 0x4, 0x4, 0x10, 0x120 }); //0x97E48
-		float* wsPtr = (float*)walkSpeed;
-		*wsPtr = 200.0;
-	}
-	
+		*wsPtr = 200.0 * speed_modifier;
+}
+
+
+/****************************************************************************
+ * Description:
+ *
+ ****************************************************************************/
+
+void cheat::increaseJumpSpeed(uintptr_t localPlayerPtr1, int speed_modifier, int check_val) {
+		uintptr_t jumpSpeed = mem::FindDMAAddy(localPlayerPtr1, { 0x4 , 0x8, 0x10, 0x124 }); //0x97E48
+		float* jsPtr = (float*)jumpSpeed;
+		*jsPtr = 420.0 * speed_modifier;
 }
 
 /****************************************************************************
@@ -240,40 +242,10 @@ void cheat::modWalkSpeed(uintptr_t localPlayerPtr1, int check_val) {
  *
  ****************************************************************************/
 
-void cheat::increaseJumpSpeed(uintptr_t localPlayerPtr1, int check_val) {
-	if (check_val == 1) {
-		std::cout << "Player jump speed cheat activated" << std::endl;
-		uintptr_t jumpSpeed = mem::FindDMAAddy(localPlayerPtr1, { 0x4 , 0x8, 0x10, 0x124 }); //0x97E48
-		float* jsPtr = (float*)jumpSpeed;
-		*jsPtr = 999.0;
-	}
-	else {
-		std::cout << "Player jump speed cheat deactivated" << std::endl;
-		uintptr_t jumpSpeed = mem::FindDMAAddy(localPlayerPtr1, { 0x4 , 0x8, 0x10, 0x124 }); //0x97E48
-		float* jsPtr = (float*)jumpSpeed;
-		*jsPtr = 420.0;
-	}
-
-}
-
-/****************************************************************************
- * Description:
- *
- ****************************************************************************/
-
-void cheat::increaseJumpHoldTime(uintptr_t localPlayerPtr1, int check_val) {
-	if (check_val == 1) {
-		std::cout << "Player jump hold time activated" << std::endl;
+void cheat::increaseJumpHoldTime(uintptr_t localPlayerPtr1, int hold_modifier, int check_val) {
 		uintptr_t jumpHoldTime = mem::FindDMAAddy(localPlayerPtr1, { 0x1C , 0x4, 0x224, 0x30, 0x18, 0x3E0, 0x128 }); //0x97E48
 		float* jhtPtr = (float*)jumpHoldTime;
-		*jhtPtr = 9999.0;
-	}
-	else {
-		std::cout << "Player jump hold cheat deactivated" << std::endl;
-		uintptr_t jumpHoldTime = mem::FindDMAAddy(localPlayerPtr1, { 0x1C , 0x4, 0x224, 0x30, 0x18, 0x3E0, 0x128 }); //0x97E48
-		float* jhtPtr = (float*)jumpHoldTime;
-		*jhtPtr = 0.200000003;
-	}
+		*jhtPtr = 0.200000003 * (hold_modifier * 1000);
 }
 
 /****************************************************************************
@@ -300,4 +272,3 @@ void cheat::Teleport(uintptr_t localPlayerPtr, float xPosVal, float yPosVal, flo
 	uintptr_t zPosAddr = mem::FindDMAAddy(localPlayerPtr, { 0x24 , 0xC, 0xC8, 0x424, 0x184, 0x74, 0x98 }); //0x97E1C
 	float* zPos = (float*)zPosAddr;
 	*zPos = zPosVal;
-}
