@@ -99,7 +99,7 @@ DWORD WINAPI HackThread(HMODULE hModule)
 	HWND hwnd = CreateWindowEx(
 		0,                              // Optional window styles.
 		CLASS_NAME,                     // Window class
-		L"Pwn Adventure 3 Hacks",    // Window text
+		L"Pwn Adventure 3 Hacks",		// Window text
 		WS_OVERLAPPEDWINDOW,            // Window style
 
 		// Size and position
