@@ -272,3 +272,4 @@ void cheat::Teleport(uintptr_t localPlayerPtr, float xPosVal, float yPosVal, flo
 	uintptr_t zPosAddr = mem::FindDMAAddy(localPlayerPtr, { 0x24 , 0xC, 0xC8, 0x424, 0x184, 0x74, 0x98 }); //0x97E1C
 	float* zPos = (float*)zPosAddr;
 	*zPos = zPosVal;
+}
