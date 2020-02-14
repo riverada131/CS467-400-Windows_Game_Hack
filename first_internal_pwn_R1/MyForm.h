@@ -235,6 +235,7 @@ namespace GuiDLL {
 			this->checkBox6->TabIndex = 37;
 			this->checkBox6->Text = L"Unlimited Weapon Ammo Cheat";
 			this->checkBox6->UseVisualStyleBackColor = true;
+			this->checkBox6->CheckedChanged += gcnew System::EventHandler(this, &MyForm::checkBox6_CheckedChanged);
 			// 
 			// checkBox7
 			// 
