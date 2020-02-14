@@ -39,4 +39,5 @@ namespace cheat {
     void modWalkSpeed(uintptr_t localPlayerPtr1, int check_val);
     void increaseJumpSpeed(uintptr_t localPlayerPtr1, int check_val);
     void increaseJumpHoldTime(uintptr_t localPlayerPtr1, int check_val);
+    void Teleport(uintptr_t localPlayerPtr, float xPosVal, float yPosVal, float zPosVal);
 }
