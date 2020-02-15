@@ -145,7 +145,7 @@ namespace GuiDLL {
 			this->label1->Location = System::Drawing::Point(6, 21);
 			this->label1->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(26, 13);
+			this->label1->Size = System::Drawing::Size(28, 15);
 			this->label1->TabIndex = 26;
 			this->label1->Text = L"X = ";
 			this->label1->Click += gcnew System::EventHandler(this, &MyForm::label1_Click);
@@ -156,7 +156,7 @@ namespace GuiDLL {
 			this->label2->Location = System::Drawing::Point(6, 49);
 			this->label2->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(26, 13);
+			this->label2->Size = System::Drawing::Size(27, 15);
 			this->label2->TabIndex = 27;
 			this->label2->Text = L"Y = ";
 			this->label2->Click += gcnew System::EventHandler(this, &MyForm::label2_Click);
@@ -167,7 +167,7 @@ namespace GuiDLL {
 			this->label3->Location = System::Drawing::Point(6, 76);
 			this->label3->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(26, 13);
+			this->label3->Size = System::Drawing::Size(27, 15);
 			this->label3->TabIndex = 28;
 			this->label3->Text = L"Z = ";
 			this->label3->Click += gcnew System::EventHandler(this, &MyForm::label3_Click);
@@ -177,9 +177,9 @@ namespace GuiDLL {
 			this->textBox1->Location = System::Drawing::Point(45, 19);
 			this->textBox1->Margin = System::Windows::Forms::Padding(2);
 			this->textBox1->Name = L"textBox1";
-			this->textBox1->Text = L"-43651";
 			this->textBox1->Size = System::Drawing::Size(76, 20);
 			this->textBox1->TabIndex = 29;
+			this->textBox1->Text = L"-43651";
 			this->textBox1->TextChanged += gcnew System::EventHandler(this, &MyForm::textBox1_TextChanged);
 			// 
 			// textBox2
@@ -187,9 +187,9 @@ namespace GuiDLL {
 			this->textBox2->Location = System::Drawing::Point(45, 46);
 			this->textBox2->Margin = System::Windows::Forms::Padding(2);
 			this->textBox2->Name = L"textBox2";
-			this->textBox2->Text = L"-55970";
 			this->textBox2->Size = System::Drawing::Size(76, 20);
 			this->textBox2->TabIndex = 30;
+			this->textBox2->Text = L"-55970";
 			this->textBox2->TextChanged += gcnew System::EventHandler(this, &MyForm::textBox2_TextChanged);
 			// 
 			// textBox3
@@ -197,9 +197,9 @@ namespace GuiDLL {
 			this->textBox3->Location = System::Drawing::Point(45, 74);
 			this->textBox3->Margin = System::Windows::Forms::Padding(2);
 			this->textBox3->Name = L"textBox3";
-			this->textBox3->Text = L"324";
 			this->textBox3->Size = System::Drawing::Size(76, 20);
 			this->textBox3->TabIndex = 31;
+			this->textBox3->Text = L"324";
 			this->textBox3->TextChanged += gcnew System::EventHandler(this, &MyForm::textBox3_TextChanged);
 			// 
 			// checkBox1
@@ -208,7 +208,7 @@ namespace GuiDLL {
 			this->checkBox1->Location = System::Drawing::Point(5, 23);
 			this->checkBox1->Margin = System::Windows::Forms::Padding(2);
 			this->checkBox1->Name = L"checkBox1";
-			this->checkBox1->Size = System::Drawing::Size(88, 17);
+			this->checkBox1->Size = System::Drawing::Size(100, 19);
 			this->checkBox1->TabIndex = 32;
 			this->checkBox1->Text = L"Health Cheat";
 			this->checkBox1->UseVisualStyleBackColor = true;
@@ -220,7 +220,7 @@ namespace GuiDLL {
 			this->checkBox2->Location = System::Drawing::Point(5, 47);
 			this->checkBox2->Margin = System::Windows::Forms::Padding(2);
 			this->checkBox2->Name = L"checkBox2";
-			this->checkBox2->Size = System::Drawing::Size(84, 17);
+			this->checkBox2->Size = System::Drawing::Size(96, 19);
 			this->checkBox2->TabIndex = 33;
 			this->checkBox2->Text = L"Mana Cheat";
 			this->checkBox2->UseVisualStyleBackColor = true;
@@ -232,7 +232,7 @@ namespace GuiDLL {
 			this->checkBox3->Location = System::Drawing::Point(7, 18);
 			this->checkBox3->Margin = System::Windows::Forms::Padding(2);
 			this->checkBox3->Name = L"checkBox3";
-			this->checkBox3->Size = System::Drawing::Size(105, 17);
+			this->checkBox3->Size = System::Drawing::Size(120, 19);
 			this->checkBox3->TabIndex = 34;
 			this->checkBox3->Text = L"Keep Item Cheat";
 			this->checkBox3->UseVisualStyleBackColor = true;
@@ -244,7 +244,7 @@ namespace GuiDLL {
 			this->checkBox4->Location = System::Drawing::Point(5, 18);
 			this->checkBox4->Margin = System::Windows::Forms::Padding(2);
 			this->checkBox4->Name = L"checkBox4";
-			this->checkBox4->Size = System::Drawing::Size(164, 17);
+			this->checkBox4->Size = System::Drawing::Size(188, 19);
 			this->checkBox4->TabIndex = 35;
 			this->checkBox4->Text = L"Increase Gun Damage Cheat";
 			this->checkBox4->UseVisualStyleBackColor = true;
@@ -256,7 +256,7 @@ namespace GuiDLL {
 			this->checkBox5->Location = System::Drawing::Point(5, 41);
 			this->checkBox5->Margin = System::Windows::Forms::Padding(2);
 			this->checkBox5->Name = L"checkBox5";
-			this->checkBox5->Size = System::Drawing::Size(167, 17);
+			this->checkBox5->Size = System::Drawing::Size(193, 19);
 			this->checkBox5->TabIndex = 36;
 			this->checkBox5->Text = L"Increase Spell Damage Cheat";
 			this->checkBox5->UseVisualStyleBackColor = true;
@@ -268,7 +268,7 @@ namespace GuiDLL {
 			this->checkBox6->Location = System::Drawing::Point(5, 64);
 			this->checkBox6->Margin = System::Windows::Forms::Padding(2);
 			this->checkBox6->Name = L"checkBox6";
-			this->checkBox6->Size = System::Drawing::Size(176, 17);
+			this->checkBox6->Size = System::Drawing::Size(205, 19);
 			this->checkBox6->TabIndex = 37;
 			this->checkBox6->Text = L"Unlimited Weapon Ammo Cheat";
 			this->checkBox6->UseVisualStyleBackColor = true;
@@ -279,9 +279,9 @@ namespace GuiDLL {
 			this->groupBox1->Controls->Add(this->checkBox1);
 			this->groupBox1->Controls->Add(this->checkBox2);
 			this->groupBox1->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->groupBox1->Location = System::Drawing::Point(12, 134);
+			this->groupBox1->Location = System::Drawing::Point(12, 110);
 			this->groupBox1->Name = L"groupBox1";
-			this->groupBox1->Size = System::Drawing::Size(257, 81);
+			this->groupBox1->Size = System::Drawing::Size(188, 81);
 			this->groupBox1->TabIndex = 42;
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"Health/Mana Mod";
@@ -294,9 +294,9 @@ namespace GuiDLL {
 			this->groupBox2->Controls->Add(this->radioButton2);
 			this->groupBox2->Controls->Add(this->radioButton1);
 			this->groupBox2->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->groupBox2->Location = System::Drawing::Point(12, 419);
+			this->groupBox2->Location = System::Drawing::Point(12, 395);
 			this->groupBox2->Name = L"groupBox2";
-			this->groupBox2->Size = System::Drawing::Size(258, 102);
+			this->groupBox2->Size = System::Drawing::Size(188, 102);
 			this->groupBox2->TabIndex = 43;
 			this->groupBox2->TabStop = false;
 			this->groupBox2->Text = L"Walk/Run Mod";
@@ -307,7 +307,7 @@ namespace GuiDLL {
 			this->radioButton3->AutoSize = true;
 			this->radioButton3->Location = System::Drawing::Point(9, 69);
 			this->radioButton3->Name = L"radioButton3";
-			this->radioButton3->Size = System::Drawing::Size(100, 17);
+			this->radioButton3->Size = System::Drawing::Size(112, 19);
 			this->radioButton3->TabIndex = 41;
 			this->radioButton3->TabStop = true;
 			this->radioButton3->Text = L"4X Walk Speed";
@@ -319,7 +319,7 @@ namespace GuiDLL {
 			this->radioButton2->AutoSize = true;
 			this->radioButton2->Location = System::Drawing::Point(9, 44);
 			this->radioButton2->Name = L"radioButton2";
-			this->radioButton2->Size = System::Drawing::Size(94, 17);
+			this->radioButton2->Size = System::Drawing::Size(105, 19);
 			this->radioButton2->TabIndex = 40;
 			this->radioButton2->TabStop = true;
 			this->radioButton2->Text = L"2X Walk Seed";
@@ -331,7 +331,7 @@ namespace GuiDLL {
 			this->radioButton1->AutoSize = true;
 			this->radioButton1->Location = System::Drawing::Point(9, 19);
 			this->radioButton1->Name = L"radioButton1";
-			this->radioButton1->Size = System::Drawing::Size(120, 17);
+			this->radioButton1->Size = System::Drawing::Size(138, 19);
 			this->radioButton1->TabIndex = 39;
 			this->radioButton1->TabStop = true;
 			this->radioButton1->Text = L"Normal Walk Speed";
@@ -345,9 +345,9 @@ namespace GuiDLL {
 			this->Damage->Controls->Add(this->checkBox5);
 			this->Damage->Controls->Add(this->checkBox6);
 			this->Damage->ForeColor = System::Drawing::SystemColors::ButtonFace;
-			this->Damage->Location = System::Drawing::Point(276, 134);
+			this->Damage->Location = System::Drawing::Point(210, 110);
 			this->Damage->Name = L"Damage";
-			this->Damage->Size = System::Drawing::Size(243, 100);
+			this->Damage->Size = System::Drawing::Size(217, 100);
 			this->Damage->TabIndex = 43;
 			this->Damage->TabStop = false;
 			this->Damage->Text = L"Damage Mod";
@@ -364,9 +364,9 @@ namespace GuiDLL {
 			this->groupBox3->Controls->Add(this->label2);
 			this->groupBox3->Controls->Add(this->button1);
 			this->groupBox3->ForeColor = System::Drawing::SystemColors::ButtonFace;
-			this->groupBox3->Location = System::Drawing::Point(276, 234);
+			this->groupBox3->Location = System::Drawing::Point(210, 210);
 			this->groupBox3->Name = L"groupBox3";
-			this->groupBox3->Size = System::Drawing::Size(243, 106);
+			this->groupBox3->Size = System::Drawing::Size(217, 106);
 			this->groupBox3->TabIndex = 44;
 			this->groupBox3->TabStop = false;
 			this->groupBox3->Text = L"Teleportation Mod";
@@ -376,7 +376,7 @@ namespace GuiDLL {
 			// 
 			this->button1->FlatAppearance->MouseDownBackColor = System::Drawing::Color::DarkGreen;
 			this->button1->FlatAppearance->MouseOverBackColor = System::Drawing::Color::LimeGreen;
-			this->button1->Location = System::Drawing::Point(162, 77);
+			this->button1->Location = System::Drawing::Point(132, 76);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(75, 23);
 			this->button1->TabIndex = 32;
@@ -388,9 +388,9 @@ namespace GuiDLL {
 			this->groupBox5->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->groupBox5->Controls->Add(this->checkBox3);
 			this->groupBox5->ForeColor = System::Drawing::SystemColors::ButtonFace;
-			this->groupBox5->Location = System::Drawing::Point(276, 365);
+			this->groupBox5->Location = System::Drawing::Point(210, 315);
 			this->groupBox5->Name = L"groupBox5";
-			this->groupBox5->Size = System::Drawing::Size(243, 51);
+			this->groupBox5->Size = System::Drawing::Size(217, 51);
 			this->groupBox5->TabIndex = 46;
 			this->groupBox5->TabStop = false;
 			this->groupBox5->Text = L"Inventory Mod";
@@ -403,9 +403,9 @@ namespace GuiDLL {
 			this->groupBox6->Controls->Add(this->radioButton8);
 			this->groupBox6->Controls->Add(this->radioButton7);
 			this->groupBox6->ForeColor = System::Drawing::SystemColors::ButtonFace;
-			this->groupBox6->Location = System::Drawing::Point(12, 217);
+			this->groupBox6->Location = System::Drawing::Point(12, 193);
 			this->groupBox6->Name = L"groupBox6";
-			this->groupBox6->Size = System::Drawing::Size(257, 98);
+			this->groupBox6->Size = System::Drawing::Size(188, 98);
 			this->groupBox6->TabIndex = 47;
 			this->groupBox6->TabStop = false;
 			this->groupBox6->Text = L"Jump Hold Time Mod";
@@ -416,7 +416,7 @@ namespace GuiDLL {
 			this->radioButton9->AutoSize = true;
 			this->radioButton9->Location = System::Drawing::Point(9, 68);
 			this->radioButton9->Name = L"radioButton9";
-			this->radioButton9->Size = System::Drawing::Size(117, 17);
+			this->radioButton9->Size = System::Drawing::Size(137, 19);
 			this->radioButton9->TabIndex = 43;
 			this->radioButton9->TabStop = true;
 			this->radioButton9->Text = L"4X Jump Hold Time";
@@ -428,7 +428,7 @@ namespace GuiDLL {
 			this->radioButton8->AutoSize = true;
 			this->radioButton8->Location = System::Drawing::Point(9, 18);
 			this->radioButton8->Name = L"radioButton8";
-			this->radioButton8->Size = System::Drawing::Size(137, 17);
+			this->radioButton8->Size = System::Drawing::Size(163, 19);
 			this->radioButton8->TabIndex = 42;
 			this->radioButton8->TabStop = true;
 			this->radioButton8->Text = L"Normal Jump Hold Time";
@@ -440,7 +440,7 @@ namespace GuiDLL {
 			this->radioButton7->AutoSize = true;
 			this->radioButton7->Location = System::Drawing::Point(9, 43);
 			this->radioButton7->Name = L"radioButton7";
-			this->radioButton7->Size = System::Drawing::Size(117, 17);
+			this->radioButton7->Size = System::Drawing::Size(137, 19);
 			this->radioButton7->TabIndex = 41;
 			this->radioButton7->TabStop = true;
 			this->radioButton7->Text = L"2X Jump Hold Time";
@@ -453,9 +453,9 @@ namespace GuiDLL {
 			this->groupBox4->Controls->Add(this->radioButton5);
 			this->groupBox4->Controls->Add(this->radioButton4);
 			this->groupBox4->ForeColor = System::Drawing::SystemColors::ButtonFace;
-			this->groupBox4->Location = System::Drawing::Point(12, 317);
+			this->groupBox4->Location = System::Drawing::Point(12, 293);
 			this->groupBox4->Name = L"groupBox4";
-			this->groupBox4->Size = System::Drawing::Size(258, 100);
+			this->groupBox4->Size = System::Drawing::Size(188, 100);
 			this->groupBox4->TabIndex = 48;
 			this->groupBox4->TabStop = false;
 			this->groupBox4->Text = L"Jump Speed Mod";
@@ -465,7 +465,7 @@ namespace GuiDLL {
 			this->radioButton6->AutoSize = true;
 			this->radioButton6->Location = System::Drawing::Point(10, 70);
 			this->radioButton6->Name = L"radioButton6";
-			this->radioButton6->Size = System::Drawing::Size(100, 17);
+			this->radioButton6->Size = System::Drawing::Size(116, 19);
 			this->radioButton6->TabIndex = 2;
 			this->radioButton6->TabStop = true;
 			this->radioButton6->Text = L"4X Jump Speed";
@@ -477,7 +477,7 @@ namespace GuiDLL {
 			this->radioButton5->AutoSize = true;
 			this->radioButton5->Location = System::Drawing::Point(10, 45);
 			this->radioButton5->Name = L"radioButton5";
-			this->radioButton5->Size = System::Drawing::Size(100, 17);
+			this->radioButton5->Size = System::Drawing::Size(116, 19);
 			this->radioButton5->TabIndex = 1;
 			this->radioButton5->TabStop = true;
 			this->radioButton5->Text = L"2X Jump Speed";
@@ -489,7 +489,7 @@ namespace GuiDLL {
 			this->radioButton4->AutoSize = true;
 			this->radioButton4->Location = System::Drawing::Point(10, 20);
 			this->radioButton4->Name = L"radioButton4";
-			this->radioButton4->Size = System::Drawing::Size(120, 17);
+			this->radioButton4->Size = System::Drawing::Size(142, 19);
 			this->radioButton4->TabIndex = 0;
 			this->radioButton4->TabStop = true;
 			this->radioButton4->Text = L"Normal Jump Speed";
@@ -503,7 +503,7 @@ namespace GuiDLL {
 			this->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			this->ClientSize = System::Drawing::Size(532, 536);
+			this->ClientSize = System::Drawing::Size(444, 503);
 			this->Controls->Add(this->groupBox4);
 			this->Controls->Add(this->groupBox6);
 			this->Controls->Add(this->groupBox5);
