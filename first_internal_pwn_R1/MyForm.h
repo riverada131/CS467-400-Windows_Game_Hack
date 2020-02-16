@@ -260,7 +260,7 @@ namespace GuiDLL {
 			this->checkBox5->TabIndex = 36;
 			this->checkBox5->Text = L"Increase Spell Damage Cheat";
 			this->checkBox5->UseVisualStyleBackColor = true;
-			this->checkBox5->CheckedChanged += gcnew System::EventHandler(this, &MyForm::checkBox6_CheckedChanged);
+			this->checkBox5->CheckedChanged += gcnew System::EventHandler(this, &MyForm::checkBox5_CheckedChanged);
 			// 
 			// checkBox6
 			// 
@@ -272,6 +272,7 @@ namespace GuiDLL {
 			this->checkBox6->TabIndex = 37;
 			this->checkBox6->Text = L"Unlimited Weapon Ammo Cheat";
 			this->checkBox6->UseVisualStyleBackColor = true;
+			this->checkBox6->CheckedChanged += gcnew System::EventHandler(this, &MyForm::checkBox6_CheckedChanged);
 			// 
 			// groupBox1
 			// 
