@@ -18,7 +18,6 @@
 ****************************************************************************/
 
 // dllmain.cpp : Defines the entry point for the DLL application.
-#include "stdafx.h"
 #include <iostream>
 #include "mem.h"
 #include "library.h"
@@ -219,10 +218,10 @@ void cheat::InvincibleHealth(uintptr_t moduleBase, int check_val)
  *
  ****************************************************************************/
 
-void cheat::modWalkSpeed(uintptr_t localPlayerPtr1, int speed_modifier, int check_val) {
+void cheat::modWalkSpeed(uintptr_t localPlayerPtr1, int speed_modifier) {
 		uintptr_t walkSpeed = mem::FindDMAAddy(localPlayerPtr1, { 0x4 , 0x8, 0x4, 0x4, 0x10, 0x120 }); //0x97E48
 		float* wsPtr = (float*)walkSpeed;
-		*wsPtr = 200.0 * speed_modifier;
+		*wsPtr = (float)200.0 * speed_modifier;
 }
 
 
@@ -231,10 +230,10 @@ void cheat::modWalkSpeed(uintptr_t localPlayerPtr1, int speed_modifier, int chec
  *
  ****************************************************************************/
 
-void cheat::increaseJumpSpeed(uintptr_t localPlayerPtr1, int speed_modifier, int check_val) {
+void cheat::increaseJumpSpeed(uintptr_t localPlayerPtr1, int speed_modifier) {
 		uintptr_t jumpSpeed = mem::FindDMAAddy(localPlayerPtr1, { 0x4 , 0x8, 0x10, 0x124 }); //0x97E48
 		float* jsPtr = (float*)jumpSpeed;
-		*jsPtr = 420.0 * speed_modifier;
+		*jsPtr = (float)420.0 * speed_modifier;
 }
 
 /****************************************************************************
@@ -242,14 +241,14 @@ void cheat::increaseJumpSpeed(uintptr_t localPlayerPtr1, int speed_modifier, int
  *
  ****************************************************************************/
 
-void cheat::increaseJumpHoldTime(uintptr_t localPlayerPtr1, int hold_modifier, int check_val) {
+void cheat::increaseJumpHoldTime(uintptr_t localPlayerPtr1, int check_val) {
 		uintptr_t jumpHoldTime = mem::FindDMAAddy(localPlayerPtr1, { 0x1C , 0x4, 0x224, 0x30, 0x18, 0x3E0, 0x128 }); //0x97E48
 		float* jhtPtr = (float*)jumpHoldTime;
 		if (check_val == 1) {
-			*jhtPtr = 10000;
+			*jhtPtr = (float)10000.0;
 		}
 		else {
-			*jhtPtr = 0.200000003;
+			*jhtPtr = (float)0.200000003;
 		}
 }
 

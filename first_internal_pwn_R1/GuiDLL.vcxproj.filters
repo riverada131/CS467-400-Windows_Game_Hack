@@ -16,24 +16,12 @@
     <Filter Include="library">
       <UniqueIdentifier>{37387670-31b0-406f-b608-674c4be8f9d5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="proc">
-      <UniqueIdentifier>{b66de91d-4f32-400b-9a4a-fe3a614e04e5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="pch">
-      <UniqueIdentifier>{e4b3a8cc-afc6-4712-9d7d-17609be4cbb1}</UniqueIdentifier>
-    </Filter>
     <Filter Include="mem">
       <UniqueIdentifier>{50a5b9f0-8e0d-4134-a864-7854eef78969}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="framework.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="MyForm.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Stdafx.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="targetver.h">
@@ -45,12 +33,6 @@
     <ClInclude Include="mem.h">
       <Filter>mem</Filter>
     </ClInclude>
-    <ClInclude Include="pch.h">
-      <Filter>pch</Filter>
-    </ClInclude>
-    <ClInclude Include="proc.h">
-      <Filter>proc</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -58,12 +40,6 @@
     </ClCompile>
     <ClCompile Include="library.cpp">
       <Filter>library</Filter>
-    </ClCompile>
-    <ClCompile Include="pch.cpp">
-      <Filter>pch</Filter>
-    </ClCompile>
-    <ClCompile Include="proc.cpp">
-      <Filter>proc</Filter>
     </ClCompile>
     <ClCompile Include="mem.cpp">
       <Filter>mem</Filter>

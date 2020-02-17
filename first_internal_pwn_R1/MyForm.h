@@ -1,14 +1,11 @@
 #pragma once
 #include <windows.h>
 #include <iostream>
-#include <TlHelp32.h>
 #include "mem.h"
-#include "proc.h"
 #include "library.h"
 #include "MyForm.h"
 #include <string.h>
-#include "Stdafx.h"
-#include "pch.h"
+
 
 namespace GuiDLL {
 
@@ -576,43 +573,43 @@ namespace GuiDLL {
 		uintptr_t moduleBase = (uintptr_t)GetModuleHandle(L"GameLogic.dll");
 		uintptr_t localPlayerPtr1 = (uintptr_t)(moduleBase + 0x97D7C);
 		if (checkBox7->Checked) {
-			cheat::increaseJumpHoldTime(localPlayerPtr1, 1, 1);
+			cheat::increaseJumpHoldTime(localPlayerPtr1, 1);
 		}
 		else {
-			cheat::increaseJumpHoldTime(localPlayerPtr1, 0, 0);
+			cheat::increaseJumpHoldTime(localPlayerPtr1, 0);
 		}
 	}
 
 	private: System::Void radioButton1_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
 		uintptr_t moduleBase = (uintptr_t)GetModuleHandle(L"GameLogic.dll");
 		uintptr_t localPlayerPtr1 = (uintptr_t)(moduleBase + 0x97D7C);
-		cheat::modWalkSpeed(localPlayerPtr1, 1, 1);
+		cheat::modWalkSpeed(localPlayerPtr1, 1);
 	}
 private: System::Void radioButton2_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
 	uintptr_t moduleBase = (uintptr_t)GetModuleHandle(L"GameLogic.dll");
 	uintptr_t localPlayerPtr1 = (uintptr_t)(moduleBase + 0x97D7C);
-	cheat::modWalkSpeed(localPlayerPtr1, 2, 1);
+	cheat::modWalkSpeed(localPlayerPtr1, 2);
 }
 private: System::Void radioButton3_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
 	uintptr_t moduleBase = (uintptr_t)GetModuleHandle(L"GameLogic.dll");
 	uintptr_t localPlayerPtr1 = (uintptr_t)(moduleBase + 0x97D7C);
-	cheat::modWalkSpeed(localPlayerPtr1, 4, 1);
+	cheat::modWalkSpeed(localPlayerPtr1, 4);
 }
 private: System::Void radioButton4_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
 	uintptr_t moduleBase = (uintptr_t)GetModuleHandle(L"GameLogic.dll");
 	uintptr_t localPlayerPtr1 = (uintptr_t)(moduleBase + 0x97D7C);
-	cheat::increaseJumpSpeed(localPlayerPtr1, 1, 1);
+	cheat::increaseJumpSpeed(localPlayerPtr1, 1);
 
 }
 private: System::Void radioButton5_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
 	uintptr_t moduleBase = (uintptr_t)GetModuleHandle(L"GameLogic.dll");
 	uintptr_t localPlayerPtr1 = (uintptr_t)(moduleBase + 0x97D7C);
-	cheat::increaseJumpSpeed(localPlayerPtr1, 2, 1);
+	cheat::increaseJumpSpeed(localPlayerPtr1, 2);
 }
 private: System::Void radioButton6_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
 	uintptr_t moduleBase = (uintptr_t)GetModuleHandle(L"GameLogic.dll");
 	uintptr_t localPlayerPtr1 = (uintptr_t)(moduleBase + 0x97D7C);
-	cheat::increaseJumpSpeed(localPlayerPtr1, 4, 1);
+	cheat::increaseJumpSpeed(localPlayerPtr1, 4);
 }
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 	uintptr_t moduleBase = (uintptr_t)GetModuleHandle(L"GameLogic.dll");
