@@ -245,7 +245,12 @@ void cheat::increaseJumpSpeed(uintptr_t localPlayerPtr1, int speed_modifier, int
 void cheat::increaseJumpHoldTime(uintptr_t localPlayerPtr1, int hold_modifier, int check_val) {
 		uintptr_t jumpHoldTime = mem::FindDMAAddy(localPlayerPtr1, { 0x1C , 0x4, 0x224, 0x30, 0x18, 0x3E0, 0x128 }); //0x97E48
 		float* jhtPtr = (float*)jumpHoldTime;
-		*jhtPtr = 0.200000003 * (hold_modifier * 1000);
+		if (check_val == 1) {
+			*jhtPtr = 10000;
+		}
+		else {
+			*jhtPtr = 0.200000003;
+		}
 }
 
 /****************************************************************************
