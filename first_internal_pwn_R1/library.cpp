@@ -277,3 +277,23 @@ void cheat::Teleport(uintptr_t localPlayerPtr, float xPosVal, float yPosVal, flo
 	float* zPos = (float*)zPosAddr;
 	*zPos = zPosVal;
 }
+
+/****************************************************************************
+ * Description:
+ *
+ ****************************************************************************/
+void cheat::NoItemCooldown(uintptr_t moduleBase, int check_val) {
+	//if hack is toggled on
+	if (check_val == 1)
+	{
+		//set IsItemOnCooldown to false via a patch
+		mem::Patch((BYTE*)(moduleBase + 0x526B2), (BYTE*)"\xB0\x00", 2);
+	}
+	//if hack is toggled off
+	else
+	{
+		//set IsItemOnCooldown back to default (true) via a patch
+		mem::Patch((BYTE*)(moduleBase + 0x526B2), (BYTE*)"\xB0\x01", 2);
+	}
+}
+
