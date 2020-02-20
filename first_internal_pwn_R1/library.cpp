@@ -131,6 +131,9 @@ void cheat::IncreasedGunDamage(uintptr_t moduleBase, int check_val)
 		//set legendary holy hand grenade damage to 2000 via patch
 		mem::Patch((BYTE*)(moduleBase + 0x13F60), (BYTE*)"\xB8\xD0\x07\x00\x00", 5);
 
+		//set legendary golden master revolver damage to 2000 via patch 
+		mem::Patch((BYTE*)(moduleBase + 0x51B0), (BYTE*)"\xB8\xD0\x07\x00\x00", 5);
+
 		std::cout << "Increase gun damage cheat activated" << std::endl;
 	}
 	//if hack is toggled off
@@ -150,6 +153,9 @@ void cheat::IncreasedGunDamage(uintptr_t moduleBase, int check_val)
 
 		//set legendary holy hand grenade damage back to default via patch
 		mem::Patch((BYTE*)(moduleBase + 0x13F60), (BYTE*)"\xB8\x2C\x01\x00\x00", 5);
+
+		//set legendary golden master revolver damage back to default via patch
+		mem::Patch((BYTE*)(moduleBase + 0x51B0), (BYTE*)"\xB8\x7D\x00\x00\x00", 5);
 
 		std::cout << "Increase gun damage cheat deactivated" << std::endl;
 	}
