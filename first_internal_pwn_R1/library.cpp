@@ -125,6 +125,9 @@ void cheat::IncreasedGunDamage(uintptr_t moduleBase, int check_val)
 		//set cowboy coder damage to 2000 via patch
 		mem::Patch((BYTE*)(moduleBase + 0x13AA0), (BYTE*)"\xB8\xD0\x07\x00\x00", 5);
 
+		//set remote exploit (unbearable revenge quest reward rifle) damage  to 2000 via patch
+		mem::Patch((BYTE*)(moduleBase + 0x13C00), (BYTE*)"\xB8\xD0\x07\x00\x00", 5);
+
 		std::cout << "Increase gun damage cheat activated" << std::endl;
 	}
 	//if hack is toggled off
@@ -138,6 +141,9 @@ void cheat::IncreasedGunDamage(uintptr_t moduleBase, int check_val)
 
 		//set cowboy coder damage back to default via patch of original code
 		mem::Patch((BYTE*)(moduleBase + 0x13AA0), (BYTE*)"\xB8\x3C\x00\x00\x00", 5);
+
+		//set remote exploit (unbearable revenge quest reward rifle)damage back to default via patch
+		mem::Patch((BYTE*)(moduleBase + 0x13C00), (BYTE*)"\xB8\x96\x00\x00\x00", 5 );
 
 		std::cout << "Increase gun damage cheat deactivated" << std::endl;
 	}
