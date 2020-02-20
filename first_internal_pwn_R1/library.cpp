@@ -128,6 +128,9 @@ void cheat::IncreasedGunDamage(uintptr_t moduleBase, int check_val)
 		//set remote exploit (unbearable revenge quest reward rifle) damage  to 2000 via patch
 		mem::Patch((BYTE*)(moduleBase + 0x13C00), (BYTE*)"\xB8\xD0\x07\x00\x00", 5);
 
+		//set legendary holy hand grenade damage to 2000 via patch
+		mem::Patch((BYTE*)(moduleBase + 0x13F60), (BYTE*)"\xB8\xD0\x07\x00\x00", 5);
+
 		std::cout << "Increase gun damage cheat activated" << std::endl;
 	}
 	//if hack is toggled off
@@ -144,6 +147,9 @@ void cheat::IncreasedGunDamage(uintptr_t moduleBase, int check_val)
 
 		//set remote exploit (unbearable revenge quest reward rifle)damage back to default via patch
 		mem::Patch((BYTE*)(moduleBase + 0x13C00), (BYTE*)"\xB8\x96\x00\x00\x00", 5 );
+
+		//set legendary holy hand grenade damage back to default via patch
+		mem::Patch((BYTE*)(moduleBase + 0x13F60), (BYTE*)"\xB8\x2C\x01\x00\x00", 5);
 
 		std::cout << "Increase gun damage cheat deactivated" << std::endl;
 	}
@@ -164,6 +170,9 @@ void cheat::IncreasedSpellDamage(uintptr_t moduleBase, int check_val)
 		//set zero cool damage to 2000 via patch
 		mem::Patch((BYTE*)(moduleBase + 0x136F0), (BYTE*)"\xB8\xD0\x07\x00\x00", 5);
 
+		//set legendary char star damage to 2000 via patch
+		mem::Patch((BYTE*)(moduleBase + 0x135B0), (BYTE*)"\xB8\xD0\x07\x00\x00", 5);
+
 		std::cout << "Increase spell damage cheat activated" << std::endl;
 	}
 	//if hack is toggled off
@@ -174,6 +183,9 @@ void cheat::IncreasedSpellDamage(uintptr_t moduleBase, int check_val)
 
 		//set zero cool damage back to default via patch of the original code
 		mem::Patch((BYTE*)(moduleBase + 0x136F0), (BYTE*)"\xB8\x20\x00\x00\x00", 5);
+
+		//set legendary char star damage back to default via patch of the original code
+		mem::Patch((BYTE*)(moduleBase + 0x135B0), (BYTE*)"\xB8\x50\x00\x00\x00", 5);
 
 		std::cout << "Increase spell damage cheat deactivated" << std::endl;
 	}
