@@ -71,7 +71,6 @@ void cheat::modPlayerMana(uintptr_t localPlayerPtr, uintptr_t moduleBase, int ch
 
 		DWORD nopAddr = moduleBase + 0x525C1;
 		mem::Nop((BYTE*)nopAddr, 6);
-
 	}
 	else {
 		std::cout << "Player mana cheat deactivated" << std::endl;
