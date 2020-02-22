@@ -71,7 +71,7 @@ namespace GuiDLL {
 	private: System::Windows::Forms::RadioButton^ radioButton2;
 	private: System::Windows::Forms::RadioButton^ radioButton1;
 
-	
+	private: System::Windows::Forms::ComboBox^ comboBox1;
 
 	private: System::Windows::Forms::GroupBox^ groupBox4;
 	private: System::Windows::Forms::RadioButton^ radioButton6;
@@ -117,8 +117,10 @@ namespace GuiDLL {
 			this->radioButton2 = (gcnew System::Windows::Forms::RadioButton());
 			this->radioButton1 = (gcnew System::Windows::Forms::RadioButton());
 			this->Damage = (gcnew System::Windows::Forms::GroupBox());
+			this->checkBox8 = (gcnew System::Windows::Forms::CheckBox());
 			this->groupBox3 = (gcnew System::Windows::Forms::GroupBox());
 			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
 			this->groupBox5 = (gcnew System::Windows::Forms::GroupBox());
 			this->groupBox6 = (gcnew System::Windows::Forms::GroupBox());
 			this->checkBox7 = (gcnew System::Windows::Forms::CheckBox());
@@ -126,7 +128,6 @@ namespace GuiDLL {
 			this->radioButton6 = (gcnew System::Windows::Forms::RadioButton());
 			this->radioButton5 = (gcnew System::Windows::Forms::RadioButton());
 			this->radioButton4 = (gcnew System::Windows::Forms::RadioButton());
-			this->checkBox8 = (gcnew System::Windows::Forms::CheckBox());
 			this->groupBox1->SuspendLayout();
 			this->groupBox2->SuspendLayout();
 			this->Damage->SuspendLayout();
@@ -139,9 +140,10 @@ namespace GuiDLL {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(8, 26);
+			this->label1->Location = System::Drawing::Point(6, 21);
+			this->label1->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(33, 17);
+			this->label1->Size = System::Drawing::Size(26, 13);
 			this->label1->TabIndex = 26;
 			this->label1->Text = L"X = ";
 			this->label1->Click += gcnew System::EventHandler(this, &MyForm::label1_Click);
@@ -149,9 +151,10 @@ namespace GuiDLL {
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(8, 60);
+			this->label2->Location = System::Drawing::Point(6, 49);
+			this->label2->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(33, 17);
+			this->label2->Size = System::Drawing::Size(26, 13);
 			this->label2->TabIndex = 27;
 			this->label2->Text = L"Y = ";
 			this->label2->Click += gcnew System::EventHandler(this, &MyForm::label2_Click);
@@ -159,50 +162,48 @@ namespace GuiDLL {
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(8, 94);
+			this->label3->Location = System::Drawing::Point(6, 76);
+			this->label3->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(33, 17);
+			this->label3->Size = System::Drawing::Size(26, 13);
 			this->label3->TabIndex = 28;
 			this->label3->Text = L"Z = ";
 			this->label3->Click += gcnew System::EventHandler(this, &MyForm::label3_Click);
 			// 
 			// textBox1
 			// 
-			this->textBox1->Location = System::Drawing::Point(60, 23);
-			this->textBox1->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->textBox1->Location = System::Drawing::Point(45, 19);
+			this->textBox1->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(100, 22);
+			this->textBox1->Size = System::Drawing::Size(76, 20);
 			this->textBox1->TabIndex = 29;
-			this->textBox1->Text = L"-43651";
 			this->textBox1->TextChanged += gcnew System::EventHandler(this, &MyForm::textBox1_TextChanged);
 			// 
 			// textBox2
 			// 
-			this->textBox2->Location = System::Drawing::Point(60, 57);
-			this->textBox2->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->textBox2->Location = System::Drawing::Point(45, 46);
+			this->textBox2->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(100, 22);
+			this->textBox2->Size = System::Drawing::Size(76, 20);
 			this->textBox2->TabIndex = 30;
-			this->textBox2->Text = L"-55970";
 			this->textBox2->TextChanged += gcnew System::EventHandler(this, &MyForm::textBox2_TextChanged);
 			// 
 			// textBox3
 			// 
-			this->textBox3->Location = System::Drawing::Point(60, 91);
-			this->textBox3->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->textBox3->Location = System::Drawing::Point(45, 74);
+			this->textBox3->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->textBox3->Name = L"textBox3";
-			this->textBox3->Size = System::Drawing::Size(100, 22);
+			this->textBox3->Size = System::Drawing::Size(76, 20);
 			this->textBox3->TabIndex = 31;
-			this->textBox3->Text = L"324";
 			this->textBox3->TextChanged += gcnew System::EventHandler(this, &MyForm::textBox3_TextChanged);
 			// 
 			// checkBox1
 			// 
 			this->checkBox1->AutoSize = true;
-			this->checkBox1->Location = System::Drawing::Point(7, 28);
-			this->checkBox1->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->checkBox1->Location = System::Drawing::Point(5, 23);
+			this->checkBox1->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->checkBox1->Name = L"checkBox1";
-			this->checkBox1->Size = System::Drawing::Size(112, 21);
+			this->checkBox1->Size = System::Drawing::Size(88, 17);
 			this->checkBox1->TabIndex = 32;
 			this->checkBox1->Text = L"Health Cheat";
 			this->checkBox1->UseVisualStyleBackColor = true;
@@ -211,10 +212,10 @@ namespace GuiDLL {
 			// checkBox2
 			// 
 			this->checkBox2->AutoSize = true;
-			this->checkBox2->Location = System::Drawing::Point(7, 58);
-			this->checkBox2->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->checkBox2->Location = System::Drawing::Point(5, 47);
+			this->checkBox2->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->checkBox2->Name = L"checkBox2";
-			this->checkBox2->Size = System::Drawing::Size(106, 21);
+			this->checkBox2->Size = System::Drawing::Size(84, 17);
 			this->checkBox2->TabIndex = 33;
 			this->checkBox2->Text = L"Mana Cheat";
 			this->checkBox2->UseVisualStyleBackColor = true;
@@ -223,10 +224,10 @@ namespace GuiDLL {
 			// checkBox3
 			// 
 			this->checkBox3->AutoSize = true;
-			this->checkBox3->Location = System::Drawing::Point(9, 22);
-			this->checkBox3->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->checkBox3->Location = System::Drawing::Point(7, 18);
+			this->checkBox3->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->checkBox3->Name = L"checkBox3";
-			this->checkBox3->Size = System::Drawing::Size(134, 21);
+			this->checkBox3->Size = System::Drawing::Size(105, 17);
 			this->checkBox3->TabIndex = 34;
 			this->checkBox3->Text = L"Keep Item Cheat";
 			this->checkBox3->UseVisualStyleBackColor = true;
@@ -235,10 +236,10 @@ namespace GuiDLL {
 			// checkBox4
 			// 
 			this->checkBox4->AutoSize = true;
-			this->checkBox4->Location = System::Drawing::Point(7, 22);
-			this->checkBox4->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->checkBox4->Location = System::Drawing::Point(5, 18);
+			this->checkBox4->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->checkBox4->Name = L"checkBox4";
-			this->checkBox4->Size = System::Drawing::Size(213, 21);
+			this->checkBox4->Size = System::Drawing::Size(164, 17);
 			this->checkBox4->TabIndex = 35;
 			this->checkBox4->Text = L"Increase Gun Damage Cheat";
 			this->checkBox4->UseVisualStyleBackColor = true;
@@ -247,10 +248,10 @@ namespace GuiDLL {
 			// checkBox5
 			// 
 			this->checkBox5->AutoSize = true;
-			this->checkBox5->Location = System::Drawing::Point(7, 50);
-			this->checkBox5->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->checkBox5->Location = System::Drawing::Point(5, 41);
+			this->checkBox5->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->checkBox5->Name = L"checkBox5";
-			this->checkBox5->Size = System::Drawing::Size(217, 21);
+			this->checkBox5->Size = System::Drawing::Size(167, 17);
 			this->checkBox5->TabIndex = 36;
 			this->checkBox5->Text = L"Increase Spell Damage Cheat";
 			this->checkBox5->UseVisualStyleBackColor = true;
@@ -259,10 +260,10 @@ namespace GuiDLL {
 			// checkBox6
 			// 
 			this->checkBox6->AutoSize = true;
-			this->checkBox6->Location = System::Drawing::Point(7, 79);
-			this->checkBox6->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->checkBox6->Location = System::Drawing::Point(5, 64);
+			this->checkBox6->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->checkBox6->Name = L"checkBox6";
-			this->checkBox6->Size = System::Drawing::Size(188, 21);
+			this->checkBox6->Size = System::Drawing::Size(145, 17);
 			this->checkBox6->TabIndex = 37;
 			this->checkBox6->Text = L"Unlimited Weapon Ammo";
 			this->checkBox6->UseVisualStyleBackColor = true;
@@ -274,11 +275,9 @@ namespace GuiDLL {
 			this->groupBox1->Controls->Add(this->checkBox1);
 			this->groupBox1->Controls->Add(this->checkBox2);
 			this->groupBox1->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->groupBox1->Location = System::Drawing::Point(16, 135);
-			this->groupBox1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->groupBox1->Location = System::Drawing::Point(12, 110);
 			this->groupBox1->Name = L"groupBox1";
-			this->groupBox1->Padding = System::Windows::Forms::Padding(4, 4, 4, 4);
-			this->groupBox1->Size = System::Drawing::Size(251, 100);
+			this->groupBox1->Size = System::Drawing::Size(188, 81);
 			this->groupBox1->TabIndex = 42;
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"Health/Mana Mod";
@@ -291,11 +290,9 @@ namespace GuiDLL {
 			this->groupBox2->Controls->Add(this->radioButton2);
 			this->groupBox2->Controls->Add(this->radioButton1);
 			this->groupBox2->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->groupBox2->Location = System::Drawing::Point(16, 438);
-			this->groupBox2->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->groupBox2->Location = System::Drawing::Point(12, 356);
 			this->groupBox2->Name = L"groupBox2";
-			this->groupBox2->Padding = System::Windows::Forms::Padding(4, 4, 4, 4);
-			this->groupBox2->Size = System::Drawing::Size(251, 126);
+			this->groupBox2->Size = System::Drawing::Size(188, 102);
 			this->groupBox2->TabIndex = 43;
 			this->groupBox2->TabStop = false;
 			this->groupBox2->Text = L"Walk/Run Mod";
@@ -304,10 +301,9 @@ namespace GuiDLL {
 			// radioButton3
 			// 
 			this->radioButton3->AutoSize = true;
-			this->radioButton3->Location = System::Drawing::Point(12, 85);
-			this->radioButton3->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->radioButton3->Location = System::Drawing::Point(9, 69);
 			this->radioButton3->Name = L"radioButton3";
-			this->radioButton3->Size = System::Drawing::Size(126, 21);
+			this->radioButton3->Size = System::Drawing::Size(100, 17);
 			this->radioButton3->TabIndex = 41;
 			this->radioButton3->TabStop = true;
 			this->radioButton3->Text = L"4X Walk Speed";
@@ -317,10 +313,9 @@ namespace GuiDLL {
 			// radioButton2
 			// 
 			this->radioButton2->AutoSize = true;
-			this->radioButton2->Location = System::Drawing::Point(12, 54);
-			this->radioButton2->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->radioButton2->Location = System::Drawing::Point(9, 44);
 			this->radioButton2->Name = L"radioButton2";
-			this->radioButton2->Size = System::Drawing::Size(118, 21);
+			this->radioButton2->Size = System::Drawing::Size(94, 17);
 			this->radioButton2->TabIndex = 40;
 			this->radioButton2->TabStop = true;
 			this->radioButton2->Text = L"2X Walk Seed";
@@ -330,10 +325,9 @@ namespace GuiDLL {
 			// radioButton1
 			// 
 			this->radioButton1->AutoSize = true;
-			this->radioButton1->Location = System::Drawing::Point(12, 23);
-			this->radioButton1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->radioButton1->Location = System::Drawing::Point(9, 19);
 			this->radioButton1->Name = L"radioButton1";
-			this->radioButton1->Size = System::Drawing::Size(154, 21);
+			this->radioButton1->Size = System::Drawing::Size(120, 17);
 			this->radioButton1->TabIndex = 39;
 			this->radioButton1->TabStop = true;
 			this->radioButton1->Text = L"Normal Walk Speed";
@@ -348,15 +342,25 @@ namespace GuiDLL {
 			this->Damage->Controls->Add(this->checkBox5);
 			this->Damage->Controls->Add(this->checkBox6);
 			this->Damage->ForeColor = System::Drawing::SystemColors::ButtonFace;
-			this->Damage->Location = System::Drawing::Point(280, 135);
-			this->Damage->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->Damage->Location = System::Drawing::Point(210, 110);
 			this->Damage->Name = L"Damage";
-			this->Damage->Padding = System::Windows::Forms::Padding(4, 4, 4, 4);
-			this->Damage->Size = System::Drawing::Size(289, 134);
+			this->Damage->Size = System::Drawing::Size(261, 109);
 			this->Damage->TabIndex = 43;
 			this->Damage->TabStop = false;
 			this->Damage->Text = L"Damage Mod";
 			this->Damage->Enter += gcnew System::EventHandler(this, &MyForm::groupBox3_Enter);
+			// 
+			// checkBox8
+			// 
+			this->checkBox8->AutoSize = true;
+			this->checkBox8->Location = System::Drawing::Point(5, 84);
+			this->checkBox8->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->checkBox8->Name = L"checkBox8";
+			this->checkBox8->Size = System::Drawing::Size(178, 17);
+			this->checkBox8->TabIndex = 38;
+			this->checkBox8->Text = L"Rapid Fire (No Cooldown) Cheat";
+			this->checkBox8->UseVisualStyleBackColor = true;
+			this->checkBox8->CheckedChanged += gcnew System::EventHandler(this, &MyForm::checkBox8_CheckedChanged);
 			// 
 			// groupBox3
 			// 
@@ -368,12 +372,11 @@ namespace GuiDLL {
 			this->groupBox3->Controls->Add(this->label3);
 			this->groupBox3->Controls->Add(this->label2);
 			this->groupBox3->Controls->Add(this->button1);
+			this->groupBox3->Controls->Add(this->comboBox1);
 			this->groupBox3->ForeColor = System::Drawing::SystemColors::ButtonFace;
-			this->groupBox3->Location = System::Drawing::Point(280, 277);
-			this->groupBox3->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->groupBox3->Location = System::Drawing::Point(210, 225);
 			this->groupBox3->Name = L"groupBox3";
-			this->groupBox3->Padding = System::Windows::Forms::Padding(4, 4, 4, 4);
-			this->groupBox3->Size = System::Drawing::Size(289, 130);
+			this->groupBox3->Size = System::Drawing::Size(261, 106);
 			this->groupBox3->TabIndex = 44;
 			this->groupBox3->TabStop = false;
 			this->groupBox3->Text = L"Teleportation Mod";
@@ -383,24 +386,37 @@ namespace GuiDLL {
 			// 
 			this->button1->FlatAppearance->MouseDownBackColor = System::Drawing::Color::DarkGreen;
 			this->button1->FlatAppearance->MouseOverBackColor = System::Drawing::Color::LimeGreen;
-			this->button1->Location = System::Drawing::Point(176, 94);
-			this->button1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->button1->Location = System::Drawing::Point(180, 76);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(100, 28);
+			this->button1->Size = System::Drawing::Size(75, 23);
 			this->button1->TabIndex = 32;
 			this->button1->Text = L"Submit";
 			this->button1->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
+			// 
+			// comboBox1
+			// 
+			this->comboBox1->Location = System::Drawing::Point(127, 19);
+			this->comboBox1->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->comboBox1->Name = L"comboBox1";
+			this->comboBox1->Size = System::Drawing::Size(129, 21);
+			this->comboBox1->TabIndex = 27;
+			this->comboBox1->Text = L"Places of Interest";
+			this->comboBox1->Items->Add("Fireball");
+			this->comboBox1->Items->Add("Major Payne");
+			this->comboBox1->Items->Add("Justin Tolerable");
+			this->comboBox1->Items->Add("Blocky's Revenge");
+			this->comboBox1->Items->Add("Ballmer's Peak");
+			this->comboBox1->Items->Add("Secret Island");
+			this->comboBox1->DropDownClosed += gcnew System::EventHandler(this, &MyForm::comboBox1_Click);
 			// 
 			// groupBox5
 			// 
 			this->groupBox5->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->groupBox5->Controls->Add(this->checkBox3);
 			this->groupBox5->ForeColor = System::Drawing::SystemColors::ButtonFace;
-			this->groupBox5->Location = System::Drawing::Point(280, 419);
-			this->groupBox5->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->groupBox5->Location = System::Drawing::Point(210, 340);
 			this->groupBox5->Name = L"groupBox5";
-			this->groupBox5->Padding = System::Windows::Forms::Padding(4, 4, 4, 4);
-			this->groupBox5->Size = System::Drawing::Size(289, 63);
+			this->groupBox5->Size = System::Drawing::Size(261, 51);
 			this->groupBox5->TabIndex = 46;
 			this->groupBox5->TabStop = false;
 			this->groupBox5->Text = L"Inventory Mod";
@@ -411,11 +427,9 @@ namespace GuiDLL {
 			this->groupBox6->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->groupBox6->Controls->Add(this->checkBox7);
 			this->groupBox6->ForeColor = System::Drawing::SystemColors::ButtonFace;
-			this->groupBox6->Location = System::Drawing::Point(16, 238);
-			this->groupBox6->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->groupBox6->Location = System::Drawing::Point(12, 193);
 			this->groupBox6->Name = L"groupBox6";
-			this->groupBox6->Padding = System::Windows::Forms::Padding(4, 4, 4, 4);
-			this->groupBox6->Size = System::Drawing::Size(251, 63);
+			this->groupBox6->Size = System::Drawing::Size(188, 51);
 			this->groupBox6->TabIndex = 47;
 			this->groupBox6->TabStop = false;
 			this->groupBox6->Text = L"Jump Hold Time Mod";
@@ -424,10 +438,9 @@ namespace GuiDLL {
 			// checkBox7
 			// 
 			this->checkBox7->AutoSize = true;
-			this->checkBox7->Location = System::Drawing::Point(12, 22);
-			this->checkBox7->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->checkBox7->Location = System::Drawing::Point(9, 18);
 			this->checkBox7->Name = L"checkBox7";
-			this->checkBox7->Size = System::Drawing::Size(177, 21);
+			this->checkBox7->Size = System::Drawing::Size(136, 17);
 			this->checkBox7->TabIndex = 42;
 			this->checkBox7->Text = L"Infinite Jump Hold Time";
 			this->checkBox7->UseVisualStyleBackColor = true;
@@ -439,11 +452,9 @@ namespace GuiDLL {
 			this->groupBox4->Controls->Add(this->radioButton5);
 			this->groupBox4->Controls->Add(this->radioButton4);
 			this->groupBox4->ForeColor = System::Drawing::SystemColors::ButtonFace;
-			this->groupBox4->Location = System::Drawing::Point(16, 308);
-			this->groupBox4->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->groupBox4->Location = System::Drawing::Point(12, 250);
 			this->groupBox4->Name = L"groupBox4";
-			this->groupBox4->Padding = System::Windows::Forms::Padding(4, 4, 4, 4);
-			this->groupBox4->Size = System::Drawing::Size(251, 123);
+			this->groupBox4->Size = System::Drawing::Size(188, 100);
 			this->groupBox4->TabIndex = 48;
 			this->groupBox4->TabStop = false;
 			this->groupBox4->Text = L"Jump Speed Mod";
@@ -451,10 +462,9 @@ namespace GuiDLL {
 			// radioButton6
 			// 
 			this->radioButton6->AutoSize = true;
-			this->radioButton6->Location = System::Drawing::Point(13, 86);
-			this->radioButton6->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->radioButton6->Location = System::Drawing::Point(10, 70);
 			this->radioButton6->Name = L"radioButton6";
-			this->radioButton6->Size = System::Drawing::Size(129, 21);
+			this->radioButton6->Size = System::Drawing::Size(100, 17);
 			this->radioButton6->TabIndex = 2;
 			this->radioButton6->TabStop = true;
 			this->radioButton6->Text = L"4X Jump Speed";
@@ -464,10 +474,9 @@ namespace GuiDLL {
 			// radioButton5
 			// 
 			this->radioButton5->AutoSize = true;
-			this->radioButton5->Location = System::Drawing::Point(13, 55);
-			this->radioButton5->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->radioButton5->Location = System::Drawing::Point(10, 45);
 			this->radioButton5->Name = L"radioButton5";
-			this->radioButton5->Size = System::Drawing::Size(129, 21);
+			this->radioButton5->Size = System::Drawing::Size(100, 17);
 			this->radioButton5->TabIndex = 1;
 			this->radioButton5->TabStop = true;
 			this->radioButton5->Text = L"2X Jump Speed";
@@ -477,36 +486,23 @@ namespace GuiDLL {
 			// radioButton4
 			// 
 			this->radioButton4->AutoSize = true;
-			this->radioButton4->Location = System::Drawing::Point(13, 25);
-			this->radioButton4->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->radioButton4->Location = System::Drawing::Point(10, 20);
 			this->radioButton4->Name = L"radioButton4";
-			this->radioButton4->Size = System::Drawing::Size(157, 21);
+			this->radioButton4->Size = System::Drawing::Size(120, 17);
 			this->radioButton4->TabIndex = 0;
 			this->radioButton4->TabStop = true;
 			this->radioButton4->Text = L"Normal Jump Speed";
 			this->radioButton4->UseVisualStyleBackColor = true;
 			this->radioButton4->CheckedChanged += gcnew System::EventHandler(this, &MyForm::radioButton4_CheckedChanged);
 			// 
-			// checkBox8
-			// 
-			this->checkBox8->AutoSize = true;
-			this->checkBox8->Location = System::Drawing::Point(7, 104);
-			this->checkBox8->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
-			this->checkBox8->Name = L"checkBox8";
-			this->checkBox8->Size = System::Drawing::Size(233, 21);
-			this->checkBox8->TabIndex = 38;
-			this->checkBox8->Text = L"Rapid Fire (No Cooldown) Cheat";
-			this->checkBox8->UseVisualStyleBackColor = true;
-			this->checkBox8->CheckedChanged += gcnew System::EventHandler(this, &MyForm::checkBox8_CheckedChanged);
-			// 
 			// MyForm
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			this->ClientSize = System::Drawing::Size(592, 619);
+			this->ClientSize = System::Drawing::Size(483, 503);
 			this->Controls->Add(this->groupBox4);
 			this->Controls->Add(this->groupBox6);
 			this->Controls->Add(this->groupBox5);
@@ -515,7 +511,6 @@ namespace GuiDLL {
 			this->Controls->Add(this->Damage);
 			this->Controls->Add(this->groupBox1);
 			this->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->Name = L"MyForm";
 			this->Text = L"PwnTrainer By RuNt1M3 T3RroR";
 			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
@@ -658,13 +653,53 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 private: System::Void checkBox8_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
     uintptr_t moduleBase = (uintptr_t)GetModuleHandle(L"GameLogic.dll");
 	if (checkBox8->Checked) {
-		cheat::NoItemCooldown(moduleBase, 1);
+		//cheat::NoItemCooldown(moduleBase, 1);
 	}
 	else {
-		cheat::NoItemCooldown(moduleBase, 0);
+		//cheat::NoItemCooldown(moduleBase, 0);
 	}
 }
-
+private: System::Void comboBox1_Click(System::Object^ sender, System::EventArgs^ e) {
+	int selectedIndex = comboBox1->SelectedIndex;
+	switch (selectedIndex){
+		// Fireball
+		case 0:
+			textBox1->Text = L"-43651";
+			textBox2->Text = L"-55970";
+			textBox3->Text = L"324";
+			break;
+		// Major Payne
+		case 1:
+			textBox1->Text = L"-37516.53125";
+			textBox2->Text = L"-18360.04102";
+			textBox3->Text = L"2514.2";
+			break;
+		// Justin Tolerable
+		case 2:
+			textBox1->Text = L"-41117.28516";
+			textBox2->Text = L"-16426.5293";
+			textBox3->Text = L"2368.2";
+			break;
+		// Blocky's Revenge
+		case 3:
+			textBox1->Text = L"-14346.27832";
+			textBox2->Text = L"-6256.738281";
+			textBox3->Text = L"2273";
+			break;
+		// Ballmer's Peak
+		case 4:
+			textBox1->Text = L"-8829.333008";
+			textBox2->Text = L"-9331.948242";
+			textBox3->Text = L"9464";
+			break;
+		// Secret Island
+		case 5:
+			textBox1->Text = L"243084.5";
+			textBox2->Text = L"-251237.2031";
+			textBox3->Text = L"102.7";
+			break;
+	}
+}
 	private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void openFileDialog1_FileOk(System::Object^ sender, System::ComponentModel::CancelEventArgs^ e) {
