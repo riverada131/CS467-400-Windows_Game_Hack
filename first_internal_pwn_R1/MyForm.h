@@ -289,7 +289,7 @@ namespace GuiDLL {
 			this->groupBox2->Controls->Add(this->radioButton2);
 			this->groupBox2->Controls->Add(this->radioButton1);
 			this->groupBox2->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->groupBox2->Location = System::Drawing::Point(14, 409);
+			this->groupBox2->Location = System::Drawing::Point(14, 408);
 			this->groupBox2->Margin = System::Windows::Forms::Padding(5, 5, 5, 5);
 			this->groupBox2->Name = L"groupBox2";
 			this->groupBox2->Padding = System::Windows::Forms::Padding(5, 5, 5, 5);
@@ -436,7 +436,7 @@ namespace GuiDLL {
 			this->groupBox6->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->groupBox6->Controls->Add(this->checkBox7);
 			this->groupBox6->ForeColor = System::Drawing::SystemColors::ButtonFace;
-			this->groupBox6->Location = System::Drawing::Point(14, 214);
+			this->groupBox6->Location = System::Drawing::Point(14, 220);
 			this->groupBox6->Margin = System::Windows::Forms::Padding(5, 5, 5, 5);
 			this->groupBox6->Name = L"groupBox6";
 			this->groupBox6->Padding = System::Windows::Forms::Padding(5, 5, 5, 5);
@@ -464,7 +464,7 @@ namespace GuiDLL {
 			this->groupBox4->Controls->Add(this->radioButton5);
 			this->groupBox4->Controls->Add(this->radioButton4);
 			this->groupBox4->ForeColor = System::Drawing::SystemColors::ButtonFace;
-			this->groupBox4->Location = System::Drawing::Point(14, 282);
+			this->groupBox4->Location = System::Drawing::Point(14, 285);
 			this->groupBox4->Margin = System::Windows::Forms::Padding(5, 5, 5, 5);
 			this->groupBox4->Name = L"groupBox4";
 			this->groupBox4->Padding = System::Windows::Forms::Padding(5, 5, 5, 5);
