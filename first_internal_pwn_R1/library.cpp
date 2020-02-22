@@ -32,6 +32,7 @@ void cheat::modPlayerHealth(uintptr_t localPlayerPtr, int check_val) {
 		std::cout << "Player health changed to 999,999,999" << std::endl;
 		uintptr_t healthPtr = mem::FindDMAAddy(localPlayerPtr, { 0x0, 0x0C, 0xE0, 0x294, 0x234, 0x50C, 0xFFFFFFC0 });
 		*(int*)(healthPtr) = 999999999;
+
 	}
 	else {
 		std::cout << "Player health changed to 100" << std::endl;
