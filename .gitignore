@@ -1,0 +1,15 @@
+
+first_internal_pwn_R1/.vs/GuiDLL/v16/.suo
+first_internal_pwn_R1/.vs/GuiDLL/v16/.suo
+first_internal_pwn_R1/.vs/GuiDLL/v16/Browse.VC.db
+first_internal_pwn_R1/.vs/GuiDLL/v16/Browse.VC.opendb
+first_internal_pwn_R1/.vs/GuiDLL/v16/ipch/AutoPCH/4485360231bb314d/MYFORM.ipch
+first_internal_pwn_R1/.vs/GuiDLL/v16/ipch/AutoPCH/831d687f0aa08f68/LIBRARY.ipch
+first_internal_pwn_R1/.vs/GuiDLL/v16/ipch/AutoPCH/86193770a62c8b42/MEM.ipch
+*.ipch
+*.obj
+*.tlog
+*.pch
+*.log
+*.cache
+*.pdb
