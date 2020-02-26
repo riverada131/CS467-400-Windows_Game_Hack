@@ -671,10 +671,10 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 private: System::Void checkBox8_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
     uintptr_t moduleBase = (uintptr_t)GetModuleHandle(L"GameLogic.dll");
 	if (checkBox8->Checked) {
-		//cheat::NoItemCooldown(moduleBase, 1);
+		cheat::NoItemCooldown(moduleBase, 1);
 	}
 	else {
-		//cheat::NoItemCooldown(moduleBase, 0);
+		cheat::NoItemCooldown(moduleBase, 0);
 	}
 }
 private: System::Void comboBox1_Click(System::Object^ sender, System::EventArgs^ e) {
