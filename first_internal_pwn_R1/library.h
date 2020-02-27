@@ -38,4 +38,5 @@ namespace cheat {
     void increaseJumpHoldTime(uintptr_t localPlayerPtr1, int check_val);
     void Teleport(uintptr_t localPlayerPtr, float xPosVal, float yPosVal, float zPosVal);
     void NoItemCooldown(uintptr_t moduleBase, int check_val);
+    void GiveAllItems(uintptr_t moduleBase, int check_val);
 }

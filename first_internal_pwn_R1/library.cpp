@@ -321,3 +321,21 @@ void cheat::NoItemCooldown(uintptr_t moduleBase, int check_val) {
 	}
 }
 
+/****************************************************************************
+ * Description:
+ *
+ ****************************************************************************/
+void cheat::GiveAllItems(uintptr_t moduleBase, int check_val) {
+	//if hack is toggled on
+	if (check_val == 1)
+	{
+		// Give All Guns
+		mem::Patch((BYTE*)(moduleBase + 0x4FF90), (BYTE*)"\xD9\x81\x20\x01\x00\x00\x51\xE8\xA4\xE6\xFC\xFF\xC3", 13);		
+	}
+	//if hack is toggled off
+	else
+	{
+		// Reset Walking Speed
+		mem::Patch((BYTE*)(moduleBase + 0x4FF90), (BYTE*)"\xD9\x81\x20\x01\x00\x00\xC3", 7);
+	}
+}

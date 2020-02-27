@@ -162,7 +162,7 @@
     <ClInclude Include="library.h" />
     <ClInclude Include="mem.h" />
     <ClInclude Include="MyForm.h">
-      <FileType>CppForm</FileType>
+      <DeploymentContent>false</DeploymentContent>
     </ClInclude>
     <ClInclude Include="targetver.h" />
   </ItemGroup>
@@ -184,9 +184,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="MyForm.resx">
-      <DependentUpon>MyForm.h</DependentUpon>
-    </EmbeddedResource>
+    <EmbeddedResource Include="MyForm.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Background.JPG" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
