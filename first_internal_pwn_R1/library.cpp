@@ -134,6 +134,15 @@ void cheat::IncreasedGunDamage(uintptr_t moduleBase, int check_val)
 		//set legendary golden master revolver damage to 20000 via patch 
 		mem::Patch((BYTE*)(moduleBase + 0x51B0), (BYTE*)"\xB8\x20\x4E\x00\x00", 5);
 
+		//set hand cannon damage to 20000 via patch
+		mem::Patch((BYTE*)(moduleBase + 0x141B0), (BYTE*)"\xB8\x20\x4E\x00\x00", 5);
+
+		//set chain gun damage to 20000 via patch
+		mem::Patch((BYTE*)(moduleBase + 0x13C90), (BYTE*)"\xB8\x20\x4E\x00\x00", 5);
+
+		//set heap spray damage to 20000 via patch (this one uses a x12 multiplier so won't equal 20000 exactly but be very close)
+		mem::Patch((BYTE*)(moduleBase + 0x51A0), (BYTE*)"\xB8\x83\x06\x00\x00", 5);
+
 		std::cout << "Increase gun damage cheat activated" << std::endl;
 	}
 	//if hack is toggled off
@@ -156,6 +165,15 @@ void cheat::IncreasedGunDamage(uintptr_t moduleBase, int check_val)
 
 		//set legendary golden master revolver damage back to default via patch
 		mem::Patch((BYTE*)(moduleBase + 0x51B0), (BYTE*)"\xB8\x7D\x00\x00\x00", 5);
+
+        //set hand cannon damage back to default via patch
+		mem::Patch((BYTE*)(moduleBase + 0x141B0), (BYTE*)"\xB8\x78\x00\x00\x00", 5);
+
+		//set chain gun damage back to default via patch
+		mem::Patch((BYTE*)(moduleBase + 0x13C90), (BYTE*)"\xB8\x12\x00\x00\x00", 5);
+
+		//set heap spray damage back to default  via patch
+		mem::Patch((BYTE*)(moduleBase + 0x51A0), (BYTE*)"\xB8\x14\x00\x00\x00", 5);
 
 		std::cout << "Increase gun damage cheat deactivated" << std::endl;
 	}
