@@ -601,10 +601,10 @@ namespace GuiDLL {
 		uintptr_t localPlayerPtr = (uintptr_t)(moduleBase + 0x97E1C);
 		uintptr_t localPlayerPtr1 = (uintptr_t)(moduleBase + 0x97D7C);
 		if (checkBox1->Checked) {
-			cheat::modPlayerHealth(localPlayerPtr, 1);
+			cheat::modPlayerHealth(localPlayerPtr, moduleBase, 1);
 		}
 		else {
-			cheat::modPlayerHealth(localPlayerPtr, 0);
+			cheat::modPlayerHealth(localPlayerPtr, moduleBase, 0);
 		}
 	}
 	private: System::Void checkBox2_CheckedChanged_1(System::Object^ sender, System::EventArgs^ e) {

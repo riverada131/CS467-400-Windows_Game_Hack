@@ -27,17 +27,25 @@
  *
  ****************************************************************************/
 
-void cheat::modPlayerHealth(uintptr_t localPlayerPtr, int check_val) {
+void cheat::modPlayerHealth(uintptr_t localPlayerPtr, uintptr_t moduleBase, int check_val) {
 	if (check_val == 1) {
 		std::cout << "Player health changed to 999,999,999" << std::endl;
 		uintptr_t healthPtr = mem::FindDMAAddy(localPlayerPtr, { 0x0, 0x0C, 0xE0, 0x294, 0x234, 0x50C, 0xFFFFFFC0 });
 		*(int*)(healthPtr) = 999999999;
 
+		//DWORD Damage_func_address = moduleBase + 0x1FE0; // adrdress for Void Player::Damage(Player *this, IActor *instigator, IItem *item, int dmg, DamageType type)
+		//mem::Nop((BYTE*)Damage_func_address, 1); // NOP one section of hex values
+
+		//DWORD MollyDamageAddr = moduleBase + 0x51150;
+		//mem::Nop((BYTE*)MollyDamageAddr, 202);
 	}
 	else {
 		std::cout << "Player health changed to 100" << std::endl;
 		uintptr_t healthPtr = mem::FindDMAAddy(localPlayerPtr, { 0x0, 0x0C, 0xE0, 0x294, 0x234, 0x50C, 0xFFFFFFC0 });
 		*(int*)(healthPtr) = 100;
+
+		//DWORD Damage_func_address = moduleBase + 0x1FE0; // adrdress for Void Player::Damage(Player *this, IActor *instigator, IItem *item, int dmg, DamageType type)
+		//mem::Patch((BYTE*)Damage_func_address, (BYTE*)"\x55", 1); // restore original value
 	}
 }
 
@@ -244,22 +252,6 @@ void cheat::UnlimitedAmmo(uintptr_t moduleBase, int check_val)
 
 		std::cout << "Unlimited weapon ammo cheat deactivated" << std::endl;
 	}
-}
-
-/****************************************************************************
- * Description:
- *
- ****************************************************************************/
-void cheat::InvincibleHealth(uintptr_t moduleBase, int check_val)
-{
-	//if hack is toggled on
-	if (check_val == 1)
-	{
-		//make player invincible by preventing any damage to health by nopping out the player::Damage() function (except for the return)
-		mem::Nop((BYTE*)(moduleBase + 0x51150), 202);
-
-		std::cout << "Unlimited health cheat activated" << std::endl;
-	}	
 }
 
 /****************************************************************************

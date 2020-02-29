@@ -1,9 +1,3 @@
-﻿  dllmain.cpp
-  library.cpp
-  mem.cpp
-  MyForm.cpp
-  Generating Code...
-C:\Users\danie\Documents\GitHub\CS467-400-Windows_Game_Hack\first_internal_pwn_R1\dllmain.cpp : warning C4747: Calling managed '_DllMain@12': Managed code may not be run under loader lock, including the DLL entrypoint and calls reached from the DLL entrypoint
-  .NETFramework,Version=v4.0.AssemblyAttributes.cpp
+﻿  library.cpp
   LINK : /LTCG specified but no code generation required; remove /LTCG from the link command line to improve linker performance
   GuiDLL.vcxproj -> C:\Users\danie\Documents\GitHub\CS467-400-Windows_Game_Hack\first_internal_pwn_R1\Release\first_internal_pwn_R1.dll

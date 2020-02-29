@@ -25,7 +25,7 @@
 #include "mem.h"
 
 namespace cheat {
-    void modPlayerHealth(uintptr_t localPlayerPtr, int check_val);
+    void modPlayerHealth(uintptr_t localPlayerPtr, uintptr_t moduleBase, int check_val);
     void AddCoins(uintptr_t localPlayerPtr, int check_val);
     void modPlayerMana(uintptr_t localPlayerPtr, uintptr_t moduleBase, int check_val);
 	void KeepItems(uintptr_t moduleBase, int check_val);
