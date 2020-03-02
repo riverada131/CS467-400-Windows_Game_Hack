@@ -269,7 +269,7 @@ namespace GuiDLL {
 			this->checkBox6->Name = L"checkBox6";
 			this->checkBox6->Size = System::Drawing::Size(145, 17);
 			this->checkBox6->TabIndex = 37;
-			this->checkBox6->Text = L"Unlimited Weapon Ammo";
+			this->checkBox6->Text = L"Unlimited Weapon Ammo Cheat";
 			this->checkBox6->UseVisualStyleBackColor = true;
 			this->checkBox6->CheckedChanged += gcnew System::EventHandler(this, &MyForm::checkBox6_CheckedChanged);
 			// 
@@ -601,10 +601,10 @@ namespace GuiDLL {
 		uintptr_t localPlayerPtr = (uintptr_t)(moduleBase + 0x97E1C);
 		uintptr_t localPlayerPtr1 = (uintptr_t)(moduleBase + 0x97D7C);
 		if (checkBox1->Checked) {
-			cheat::modPlayerHealth(localPlayerPtr, 1);
+			cheat::modPlayerHealth(localPlayerPtr, moduleBase, 1);
 		}
 		else {
-			cheat::modPlayerHealth(localPlayerPtr, 0);
+			cheat::modPlayerHealth(localPlayerPtr, moduleBase, 0);
 		}
 	}
 	private: System::Void checkBox2_CheckedChanged_1(System::Object^ sender, System::EventArgs^ e) {

@@ -163,6 +163,7 @@
     <ClInclude Include="mem.h" />
     <ClInclude Include="MyForm.h">
       <DeploymentContent>false</DeploymentContent>
+      <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="targetver.h" />
   </ItemGroup>
