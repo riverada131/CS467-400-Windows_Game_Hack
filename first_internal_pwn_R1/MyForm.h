@@ -437,9 +437,9 @@ namespace GuiDLL {
 			// 
 			// comboBox1
 			// 
-			this->comboBox1->Items->AddRange(gcnew cli::array< System::Object^  >(9) {
+			this->comboBox1->Items->AddRange(gcnew cli::array< System::Object^  >(10) {
 				L"Fireball", L"Major Payne", L"Justin Tolerable",
-					L"Blocky\'s Revenge", L"Ballmer\'s Peak", L"Secret Island", L"Pirate\'s Bay", L"Gold Farm", L"Unbearable Woods"
+					L"Blocky\'s Revenge", L"Ballmer\'s Peak", L"Secret Island", L"Pirate\'s Bay", L"Gold Farm", L"Unbearable Woods", L"Molten Cave"
 			});
 			this->comboBox1->Location = System::Drawing::Point(132, 18);
 			this->comboBox1->Margin = System::Windows::Forms::Padding(2);
@@ -779,6 +779,12 @@ private: System::Void comboBox1_Click(System::Object^ sender, System::EventArgs^
 			textBox1->Text = L"-4219.257812";
 			textBox2->Text = L"61012.51562";
 			textBox3->Text = L"2510.8";
+			break;
+		// Molten Cave
+		case 9:
+			textBox1->Text = L"51816.29688";
+			textBox2->Text = L"2938.386963";
+			textBox3->Text = L"1167.6";
 			break;
 	}
 }
