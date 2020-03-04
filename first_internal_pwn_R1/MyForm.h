@@ -6,6 +6,23 @@
 #include "MyForm.h"
 #include <string.h>
 
+/*****************************************************************************
+ * Name: Molly Johnson, Gaetan Ingrassia, Daniel Rivera
+ * File Name: MyForm.h 
+ * Team: Team Runtime Terror
+ * Organization: Oregon State University
+ * Project Name: Windows Hack Game
+ * Created On: 2/4/2020
+ * Class: CS467-400 Online Capstone Design
+ * William Pfeil - Instructor
+ * Prachi Rahurkar - Teachers Assistant (T.A.)
+ * Iman Aminzahed - Teachers Assistant (T.A.)
+ *****************************************************************************/
+
+/****************************************************************************
+ * Description: Windows form and event handler use adapted from:
+ *https://www.youtube.com/watch?v=0XGQIN9hfGQ
+ ****************************************************************************/
 
 namespace GuiDLL {
 
@@ -586,6 +603,7 @@ namespace GuiDLL {
 
 		}
 #pragma endregion
+	//if all items checkbox is checked, call GiveAllItems with check val 1. If unchecked, call GiveAllItems with check val 0
 	private: System::Void allItemCheckBox_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
 		uintptr_t moduleBase = (uintptr_t)GetModuleHandle(L"GameLogic.dll");
 		//uintptr_t localPlayerPtr1 = (uintptr_t)(moduleBase + 0x97D7C);
@@ -596,6 +614,7 @@ namespace GuiDLL {
 			cheat::GiveAllItems(moduleBase, 0);
 		}
 	}
+	//if checkbox1 is checked, call modPlayerHealth with check val 1. If unchecked, call modPlayerHealth with check val 0
 	private: System::Void checkBox1_CheckedChanged_1(System::Object^ sender, System::EventArgs^ e) {
 		uintptr_t moduleBase = (uintptr_t)GetModuleHandle(L"GameLogic.dll");
 		uintptr_t localPlayerPtr = (uintptr_t)(moduleBase + 0x97E1C);
@@ -607,6 +626,7 @@ namespace GuiDLL {
 			cheat::modPlayerHealth(localPlayerPtr, moduleBase, 0);
 		}
 	}
+	//if checkbox2 is checked, call modPlayerMana with check val 1. If unchecked, call modPlayerMana with check val 0
 	private: System::Void checkBox2_CheckedChanged_1(System::Object^ sender, System::EventArgs^ e) {
 		uintptr_t moduleBase = (uintptr_t)GetModuleHandle(L"GameLogic.dll");
 		uintptr_t localPlayerPtr = (uintptr_t)(moduleBase + 0x97E1C);
@@ -618,6 +638,7 @@ namespace GuiDLL {
 			cheat::modPlayerMana(localPlayerPtr, moduleBase, 0);
 		}
 	}
+	//if checkbox3 is checked, call KeepItems with check val 1. If unchecked, call KeepItems with check val 0
 	private: System::Void checkBox3_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
 		uintptr_t moduleBase = (uintptr_t)GetModuleHandle(L"GameLogic.dll");
 		uintptr_t localPlayerPtr = (uintptr_t)(moduleBase + 0x97E1C);
@@ -629,6 +650,7 @@ namespace GuiDLL {
 			cheat::KeepItems(moduleBase, 0);
 		}
 	}
+    //if checkbox4 is checked, call IncreasedGunDamage with check val 1. If unchecked, call IncreasedGunDamage with check val 0
 	private: System::Void checkBox4_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
 		uintptr_t moduleBase = (uintptr_t)GetModuleHandle(L"GameLogic.dll");
 		uintptr_t localPlayerPtr = (uintptr_t)(moduleBase + 0x97E1C);
@@ -640,6 +662,7 @@ namespace GuiDLL {
 			cheat::IncreasedGunDamage(moduleBase, 0);
 		}
 	}
+	//if checkbox5 is checked, call IncreasedSpellDamage with check val 1. If unchecked, call IncreasedSpellDamage with check val 0
 	private: System::Void checkBox5_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
 		uintptr_t moduleBase = (uintptr_t)GetModuleHandle(L"GameLogic.dll");
 		uintptr_t localPlayerPtr = (uintptr_t)(moduleBase + 0x97E1C);
@@ -651,6 +674,7 @@ namespace GuiDLL {
 			cheat::IncreasedSpellDamage(moduleBase, 0);
 		}
 	}
+	//if checkbox6 is checked, call UnlimitedAmmo with check val 1. If unchecked, call UnlimitedAmmo with check val 0
 	private: System::Void checkBox6_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
 		uintptr_t moduleBase = (uintptr_t)GetModuleHandle(L"GameLogic.dll");
 		uintptr_t localPlayerPtr = (uintptr_t)(moduleBase + 0x97E1C);
@@ -662,6 +686,7 @@ namespace GuiDLL {
 			cheat::UnlimitedAmmo(moduleBase, 0);
 		}
 	}
+	//if checkbox7 is checked, call increaseJumpHoldTime with check val 1. If unchecked, call increaseJumpHoldTime with check val 0
 	private: System::Void checkBox7_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
 		uintptr_t moduleBase = (uintptr_t)GetModuleHandle(L"GameLogic.dll");
 		uintptr_t localPlayerPtr1 = (uintptr_t)(moduleBase + 0x97D7C);
@@ -672,38 +697,44 @@ namespace GuiDLL {
 			cheat::increaseJumpHoldTime(localPlayerPtr1, 0);
 		}
 	}
-
+    //if radio button 1 is selected, call modWalkSpeed w/ speed modifier 1
 	private: System::Void radioButton1_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
 		uintptr_t moduleBase = (uintptr_t)GetModuleHandle(L"GameLogic.dll");
 		uintptr_t localPlayerPtr1 = (uintptr_t)(moduleBase + 0x97D7C);
 		cheat::modWalkSpeed(localPlayerPtr1, 1);
 	}
+ //if radio button 2 is selected, call modWalkSpeed w/ speed modifier 2
 private: System::Void radioButton2_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
 	uintptr_t moduleBase = (uintptr_t)GetModuleHandle(L"GameLogic.dll");
 	uintptr_t localPlayerPtr1 = (uintptr_t)(moduleBase + 0x97D7C);
 	cheat::modWalkSpeed(localPlayerPtr1, 2);
-}
+} 
+ //if radio button 3 is selected, call modWalkSpeed w/ speed modifier 4
 private: System::Void radioButton3_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
 	uintptr_t moduleBase = (uintptr_t)GetModuleHandle(L"GameLogic.dll");
 	uintptr_t localPlayerPtr1 = (uintptr_t)(moduleBase + 0x97D7C);
 	cheat::modWalkSpeed(localPlayerPtr1, 4);
 }
+//if radio button 4 is selected, call increaseJumpSpeed w/ speed modifier 1
 private: System::Void radioButton4_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
 	uintptr_t moduleBase = (uintptr_t)GetModuleHandle(L"GameLogic.dll");
 	uintptr_t localPlayerPtr1 = (uintptr_t)(moduleBase + 0x97D7C);
 	cheat::increaseJumpSpeed(localPlayerPtr1, 1);
 
 }
+//if radio button 5 is selected, call increaseJumpSpeed w/ speed modifier 2
 private: System::Void radioButton5_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
 	uintptr_t moduleBase = (uintptr_t)GetModuleHandle(L"GameLogic.dll");
 	uintptr_t localPlayerPtr1 = (uintptr_t)(moduleBase + 0x97D7C);
 	cheat::increaseJumpSpeed(localPlayerPtr1, 2);
 }
+//if radio button 6 is selected, call increaseJumpSpeed w/ speed modifier 4
 private: System::Void radioButton6_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
 	uintptr_t moduleBase = (uintptr_t)GetModuleHandle(L"GameLogic.dll");
 	uintptr_t localPlayerPtr1 = (uintptr_t)(moduleBase + 0x97D7C);
 	cheat::increaseJumpSpeed(localPlayerPtr1, 4);
 }
+//if button 1 is clicked (submit button), call Teleport with those x, y, and z coordinates
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 	uintptr_t moduleBase = (uintptr_t)GetModuleHandle(L"GameLogic.dll");
 	uintptr_t localPlayerPtr = (uintptr_t)(moduleBase + 0x97E1C);
@@ -714,6 +745,7 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	zPos = float::Parse(textBox3->Text);
 	cheat::Teleport(localPlayerPtr, xPos, yPos, zPos);
 }
+//if checkbox 8 is checked, call NoItemCooldown with check val 1. If unchecked, call NoItemCooldown with check val 0
 private: System::Void checkBox8_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
     uintptr_t moduleBase = (uintptr_t)GetModuleHandle(L"GameLogic.dll");
 	if (checkBox8->Checked) {
@@ -723,6 +755,8 @@ private: System::Void checkBox8_CheckedChanged(System::Object^ sender, System::E
 		cheat::NoItemCooldown(moduleBase, 0);
 	}
 }
+//if user selects teleportation "places of interest" dropdown, set textbox 1 to the correct x coord,
+//textbox2 to the correct y coord, and textbox3 to the correct z coord for the selected place of interest
 private: System::Void comboBox1_Click(System::Object^ sender, System::EventArgs^ e) {
 	int selectedIndex = comboBox1->SelectedIndex;
 	switch (selectedIndex){

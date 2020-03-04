@@ -13,8 +13,8 @@
 
 /*****************************************************************************
 * Description:
-* Adapted from: https://guidedhacking.com/threads/how-to-hack-any-game-first-internal-hack-dll-tutorial.12142/
-*
+* Nop, patch, and DMAAddy functions adapted from:
+* https://guidedhacking.com/threads/how-to-hack-any-game-first-internal-hack-dll-tutorial.12142/
 ****************************************************************************/
 
 // dllmain.cpp : Defines the entry point for the DLL application.
@@ -26,7 +26,6 @@
  * Description:
  *
  ****************************************************************************/
-
 void cheat::modPlayerHealth(uintptr_t localPlayerPtr, uintptr_t moduleBase, int check_val) {
 	if (check_val == 1) {
 		std::cout << "Player health changed to 999,999,999" << std::endl;
@@ -57,10 +56,13 @@ void cheat::modPlayerHealth(uintptr_t localPlayerPtr, uintptr_t moduleBase, int 
 }
 
 /****************************************************************************
- * Description:
- *
+ * Description: accepts one uintptr_t parameter for the player pointer and one int parameter
+ * for the check value flag. If check val is 1, will use FindDMAAddy to get coin pointer address,
+ * then set the coin value pointed to by that pointer to 999,999,999, else if the check val is 0, will use
+ * that same method to set the coin value pointed to by that pointer to 100 (default). This function
+ * not used since the ReceiveAllItems hack provides the user with the max value of Pwncoins.
  ****************************************************************************/
-
+/*
 void cheat::AddCoins(uintptr_t localPlayerPtr, int check_val) {
 	if (check_val == 1) {
 		std::cout << "Player coin amount changed to 999,999,999" << std::endl;
@@ -73,12 +75,12 @@ void cheat::AddCoins(uintptr_t localPlayerPtr, int check_val) {
 		*(int*)(coinPtr) = 100;
 	}
 }
+*/
 
 /****************************************************************************
  * Description:
  *
  ****************************************************************************/
-
 void cheat::modPlayerMana(uintptr_t localPlayerPtr, uintptr_t moduleBase, int check_val) {
 	if (check_val == 1) {
 		std::cout << "Player mana cheat activated" << std::endl;
@@ -100,8 +102,16 @@ void cheat::modPlayerMana(uintptr_t localPlayerPtr, uintptr_t moduleBase, int ch
 }
 
 /****************************************************************************
- * Description:
- *
+ * Description: Accepts one uintptr_t parameter for the game module base (GameLogic.dll plus
+ * the offset of the pwnie island function portion being modified) and a check val flag. If the check
+ * val is 1, will nop 2 bytes of code that cause a sold item to be removed from inventory or pwncoins
+ * to be removed from inventory when an item is purchased, causing the user to be able to keep all
+ * items like weapons and ammo as well as pwncoins when buying and selling. This allows the user
+ * to sell weapons/ammo to increase pwncoins without losing the sold weapons/ammo, and to purchase
+ * weapons/ammo without losing pwncoins from the purchase. If the check val is 0, will patch back in
+ * the original bytes (in hex), causing the function to work normally and pwncoins to be spent when ammo/
+ * weapons are purchased and ammo/weapons removed from inventory when sold for pwncoins. Function
+ * does not return anything.
  ****************************************************************************/
 void cheat::KeepItems(uintptr_t moduleBase, int check_val)
 {
@@ -123,8 +133,13 @@ void cheat::KeepItems(uintptr_t moduleBase, int check_val)
 }
 
 /****************************************************************************
- * Description:
- *
+ * Description: Accepts one uintptr_t parameter for the game module base (GameLogic.dll plus
+ * the offset of the pwnie island function portion being modified) and a check val flag.
+ * Function does not return anything. If the check val is 1, will patch in code for each weapon's
+ * getDamage function in pwnie island such that the physical damage is set to 20000 instead of
+ * whatever that weapon's default physical damage value was. If the check val is 0, will patch
+ * back in the original code in hex for each weapon's getDamage function so the physical damage
+ * for each weapon is set back to its default value.
  ****************************************************************************/
 void cheat::IncreasedGunDamage(uintptr_t moduleBase, int check_val)
 {
@@ -195,8 +210,13 @@ void cheat::IncreasedGunDamage(uintptr_t moduleBase, int check_val)
 }
 
 /****************************************************************************
- * Description:
- *
+ * Description: Accepts one uintptr_t parameter for the game module base (GameLogic.dll plus
+ * the offset of the pwnie island function portion being modified) and a check val flag.
+ * Function does not return anything. If the check val is 1, will patch in code for each spell's
+ * getDamage function in pwnie island such that the physical damage is set to 20000 instead of
+ * whatever that spell's default physical damage value was. If the check val is 0, will patch
+ * back in the original code in hex for each spell's getDamage function so the physical damage
+ * for each spell is set back to its default value. 
  ****************************************************************************/
 void cheat::IncreasedSpellDamage(uintptr_t moduleBase, int check_val)
 {
@@ -238,8 +258,14 @@ void cheat::IncreasedSpellDamage(uintptr_t moduleBase, int check_val)
 }
 
 /****************************************************************************
- * Description:
- *
+ * Description: Accepts one uintptr_t parameter for the game module base (GameLogic.dll plus
+ * the offset of the pwnie island function portion being modified) and a check val flag.
+ * Function does not return anything. If the check val is 1, will nop 2 bytes of code that cause
+ * any weapon's currently loaded clip of ammo to decrement for each shot fired, thus allowing
+ * the user to shoot without any weapon losing ammo from their current loaded clip. Allows
+ * the user to never have to reload. If the check val is 0, will patch back in the original code
+ * that causes the ammo from the current loaded clip to be decremented with each shot (i.e.
+ * the default behavior).
  ****************************************************************************/
 void cheat::UnlimitedAmmo(uintptr_t moduleBase, int check_val)
 {
@@ -265,7 +291,6 @@ void cheat::UnlimitedAmmo(uintptr_t moduleBase, int check_val)
  * Description:
  *
  ****************************************************************************/
-
 void cheat::modWalkSpeed(uintptr_t localPlayerPtr1, int speed_modifier) {
 		uintptr_t walkSpeed = mem::FindDMAAddy(localPlayerPtr1, { 0x4 , 0x8, 0x4, 0x4, 0x10, 0x120 }); //0x97E48
 		float* wsPtr = (float*)walkSpeed;
@@ -277,7 +302,6 @@ void cheat::modWalkSpeed(uintptr_t localPlayerPtr1, int speed_modifier) {
  * Description:
  *
  ****************************************************************************/
-
 void cheat::increaseJumpSpeed(uintptr_t localPlayerPtr1, int speed_modifier) {
 		uintptr_t jumpSpeed = mem::FindDMAAddy(localPlayerPtr1, { 0x4 , 0x8, 0x10, 0x124 }); //0x97E48
 		float* jsPtr = (float*)jumpSpeed;
@@ -288,7 +312,6 @@ void cheat::increaseJumpSpeed(uintptr_t localPlayerPtr1, int speed_modifier) {
  * Description:
  *
  ****************************************************************************/
-
 void cheat::increaseJumpHoldTime(uintptr_t localPlayerPtr1, int check_val) {
 		uintptr_t jumpHoldTime = mem::FindDMAAddy(localPlayerPtr1, { 0x1C , 0x4, 0x224, 0x30, 0x18, 0x3E0, 0x128 }); //0x97E48
 		float* jhtPtr = (float*)jumpHoldTime;
@@ -304,7 +327,6 @@ void cheat::increaseJumpHoldTime(uintptr_t localPlayerPtr1, int check_val) {
  * Description:
  *
  ****************************************************************************/
-
 void cheat::Teleport(uintptr_t localPlayerPtr, float xPosVal, float yPosVal, float zPosVal) {
 	/*
 	Starting Position: x:-53090, y:-57298, z:1027
@@ -327,8 +349,13 @@ void cheat::Teleport(uintptr_t localPlayerPtr, float xPosVal, float yPosVal, flo
 }
 
 /****************************************************************************
- * Description:
- *
+ * Description: Accepts one uintptr_t parameter for the game module base (GameLogic.dll plus
+ * the offset of the pwnie island function portion being modified) and a check val flag.
+ * Function does not return anything. If the check val is 1, will patch in code causing the game's
+ * IsItemOnCooldown function to always return false (i.e. so no item is ever on cooldown). If
+ * the check val is 0, will patch back in the original code causing the default behavior to occur
+ * again (i.e. items can be on cooldown again, so there can be forced cooldown time intervals
+ * between shots fired for weapons or between the casting of spells).
  ****************************************************************************/
 void cheat::NoItemCooldown(uintptr_t moduleBase, int check_val) {
 	//if hack is toggled on
