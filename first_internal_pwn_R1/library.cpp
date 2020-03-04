@@ -33,9 +33,6 @@ void cheat::modPlayerHealth(uintptr_t localPlayerPtr, uintptr_t moduleBase, int 
 		uintptr_t healthPtr = mem::FindDMAAddy(localPlayerPtr, { 0x0, 0x0C, 0xE0, 0x294, 0x234, 0x50C, 0xFFFFFFC0 });
 		*(int*)(healthPtr) = 999999999;
 
-		//DWORD Damage_func_address = moduleBase + 0x1FE0; // adrdress for Void Player::Damage(Player *this, IActor *instigator, IItem *item, int dmg, DamageType type)
-		//mem::Nop((BYTE*)Damage_func_address, 1); // NOP one section of hex values
-
 		//make player invincible by preventing any damage to health by nopping out the player::Damage() function (except for the return)
         mem::Nop((BYTE*)(moduleBase + 0x51150), 6);
         mem::Nop((BYTE*)(moduleBase + 0x5115C), 155);
@@ -45,9 +42,6 @@ void cheat::modPlayerHealth(uintptr_t localPlayerPtr, uintptr_t moduleBase, int 
 		std::cout << "Player health changed to 100" << std::endl;
 		uintptr_t healthPtr = mem::FindDMAAddy(localPlayerPtr, { 0x0, 0x0C, 0xE0, 0x294, 0x234, 0x50C, 0xFFFFFFC0 });
 		*(int*)(healthPtr) = 100;
-
-		//DWORD Damage_func_address = moduleBase + 0x1FE0; // adrdress for Void Player::Damage(Player *this, IActor *instigator, IItem *item, int dmg, DamageType type)
-		//mem::Patch((BYTE*)Damage_func_address, (BYTE*)"\x55", 1); // restore original value
 
 		//allow player to be damaged again by patching back in the player::Damage() function original code
         mem::Patch((BYTE*)(moduleBase + 0x51150), (BYTE*)"\x55\x8B\xEC\x57\x8B\xF9", 6);
@@ -59,6 +53,7 @@ void cheat::modPlayerHealth(uintptr_t localPlayerPtr, uintptr_t moduleBase, int 
 /****************************************************************************
  * Description:
  *
+ * NON - FUNCTIONAL
  ****************************************************************************/
 
 void cheat::AddCoins(uintptr_t localPlayerPtr, int check_val) {
