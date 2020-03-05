@@ -55,6 +55,7 @@ void cheat::modPlayerHealth(uintptr_t localPlayerPtr, uintptr_t moduleBase, int 
  * then set the coin value pointed to by that pointer to 999,999,999, else if the check val is 0, will use
  * that same method to set the coin value pointed to by that pointer to 100 (default). This function
  * not used since the ReceiveAllItems hack provides the user with the max value of Pwncoins.
+ * NON - FUNCTIONAL
  ****************************************************************************/
 /*
 void cheat::AddCoins(uintptr_t localPlayerPtr, int check_val) {
@@ -72,8 +73,12 @@ void cheat::AddCoins(uintptr_t localPlayerPtr, int check_val) {
 */
 
 /****************************************************************************
- * Description:
- *
+ * Description: Accepts two uintptr_t parameters, one for the base memory location
+ * of the player attributes and one for the base of GameLogic.dll. It also takes
+ * the integer value for the check value flag. If check vak is 1, it sets the player mana
+ * to a value of 999,999,999 and NOPs the code for the function Player::UseMana, making
+ * it so no mana is lost when using a spell. If the check val is zero, mana behavior
+ * and value is reset to the default.
  ****************************************************************************/
 void cheat::modPlayerMana(uintptr_t localPlayerPtr, uintptr_t moduleBase, int check_val) {
 	if (check_val == 1) {
@@ -282,8 +287,10 @@ void cheat::UnlimitedAmmo(uintptr_t moduleBase, int check_val)
 }
 
 /****************************************************************************
- * Description:
- *
+ * Description: Accepts one uintptr_t parameter for the base memory location
+ * of the player attributes and the integer values for the speed modifier.
+ * It then sets the player walk speed to this value using the pointer to the
+ * value in memory.
  ****************************************************************************/
 void cheat::modWalkSpeed(uintptr_t localPlayerPtr1, int speed_modifier) {
 		uintptr_t walkSpeed = mem::FindDMAAddy(localPlayerPtr1, { 0x4 , 0x8, 0x4, 0x4, 0x10, 0x120 }); //0x97E48
@@ -293,8 +300,10 @@ void cheat::modWalkSpeed(uintptr_t localPlayerPtr1, int speed_modifier) {
 
 
 /****************************************************************************
- * Description:
- *
+ * Description: Accepts one uintptr_t parameter for the base memory location
+ * of the player attributes and the integer values for the speed modifier.
+ * It then sets the player jump speed to this value using the pointer to the
+ * value in memory.
  ****************************************************************************/
 void cheat::increaseJumpSpeed(uintptr_t localPlayerPtr1, int speed_modifier) {
 		uintptr_t jumpSpeed = mem::FindDMAAddy(localPlayerPtr1, { 0x4 , 0x8, 0x10, 0x124 }); //0x97E48
@@ -303,8 +312,11 @@ void cheat::increaseJumpSpeed(uintptr_t localPlayerPtr1, int speed_modifier) {
 }
 
 /****************************************************************************
- * Description:
- *
+ * Description: Accepts one uintptr_t parameter for the base memory location
+ * of the player attributes and the integer value for the check val.
+ * It then sets the player jump hold time to 10,000 if the check val is 1
+ * or the default value if the check val is 0. It does this using the pointer to the
+ * value in memory.
  ****************************************************************************/
 void cheat::increaseJumpHoldTime(uintptr_t localPlayerPtr1, int check_val) {
 		uintptr_t jumpHoldTime = mem::FindDMAAddy(localPlayerPtr1, { 0x1C , 0x4, 0x224, 0x30, 0x18, 0x3E0, 0x128 }); //0x97E48
@@ -318,8 +330,10 @@ void cheat::increaseJumpHoldTime(uintptr_t localPlayerPtr1, int check_val) {
 }
 
 /****************************************************************************
- * Description:
- *
+ * Description: Accepts one uintptr_t parameter for the base memory location
+ * of the player coordinates and the float values for the x, y, and z coordinates.
+ * It then sets the player coordinates to these values using pointers to their
+ * values in memory.
  ****************************************************************************/
 void cheat::Teleport(uintptr_t localPlayerPtr, float xPosVal, float yPosVal, float zPosVal) {
 	/*
@@ -367,8 +381,11 @@ void cheat::NoItemCooldown(uintptr_t moduleBase, int check_val) {
 }
 
 /****************************************************************************
- * Description:
- *
+ * Description: Accepts one uintptr_t parameter for the game module base (GameLogic.dll) 
+ * and an int check value flag. The function does not return anything. If the check val  
+ * is 1, it will patch the Player::GetWalkingSpeed function to call the GameAPI::GiveAll 
+ * function. This will give the player the max number of each attainable item. If the check 
+ * val is 0, it will patch back in the original code causing the default function behavior.
  ****************************************************************************/
 void cheat::GiveAllItems(uintptr_t moduleBase, int check_val) {
 	//if hack is toggled on
