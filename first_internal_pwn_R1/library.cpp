@@ -23,8 +23,10 @@
 #include "library.h"
 
 /****************************************************************************
- * Description:
- *
+ * Description: Accepts 2 pointers and check value for activation and deactivation
+ * uses memory location to change player health value and NOP function to deactivate 
+ * player damage from being taken. function has no return value. moduleBase memory location
+ * of start of GameLogic.dll memory block. localPlayerPtr includes offset to module base pointer
  ****************************************************************************/
 void cheat::modPlayerHealth(uintptr_t localPlayerPtr, uintptr_t moduleBase, int check_val) {
 	if (check_val == 1) {
