@@ -737,7 +737,7 @@ private: System::Void radioButton6_CheckedChanged(System::Object^ sender, System
 //if button 1 is clicked (submit button), call Teleport with those x, y, and z coordinates
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 	uintptr_t moduleBase = (uintptr_t)GetModuleHandle(L"GameLogic.dll");
-	uintptr_t localPlayerPtr = (uintptr_t)(moduleBase + 0x97E1C);
+	uintptr_t localPlayerPtr = (uintptr_t)(moduleBase + 0x97D7C); //0x97E1C
 	float xPos, yPos, zPos;
 	xPos = float::Parse(textBox1->Text);
 	yPos = float::Parse(textBox2->Text);
